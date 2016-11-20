@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command">
-    <title>Linux Command</title>
-    <link rel="stylesheet" type="text/css" href="../../css/index.css">
+    <meta name="description" content="find:指定目录下查找文件。 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <title>find - Linux Command</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 <body>
 <a href="https://github.com/jaywcjlove/" target="_blank" class="github-corner"> <svg viewBox="0 0 250 250"><!-- kenny wang <wowohoo@qq.com> https://github.com/jaywcjlove --> <title>logo</title> <desc>Linux Command Logo. https://github.com/jaywcjlove</desc><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg> </a>
@@ -23,6 +23,7 @@
         </ul>
         <input type="text" class="query" id="query" autocomplete="off" placeholder="Linux 命令搜索"/>
         <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/find.html">
             <button id="search_btn">搜索</button>
         </div>
     </div>
@@ -32,26 +33,120 @@
 </div>
 
 <div class="markdown-body">
-<a class="edit_btn" href="https:/github.com/jaywcjlove/linux-command/edit/master/command/fs/cat.md">编辑</a>
-<h1 id="cat">cat</h1><p>显示文件的内容。</p>
-<h2 id="补充说明">补充说明</h2><p>cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容，类似于下的type命令。</p>
-<h2 id="语法">语法</h2><pre><code><span class="hljs-function"><span class="hljs-title">cat</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h2 id="参数">参数</h2><ul>
-<li>-n或-number：有1开始对所有输出的行数编号； </li>
-<li>-b或--number-nonblank：和-n相似，只不过对于空白行不编号； </li>
-<li>-s或--squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行； </li>
-<li>-A：显示不可打印字符，行尾显示“$”； </li>
-<li>-e：等价于&quot;-vE&quot;选项； </li>
-<li>-t：<code>等价</code>于&quot;-vT&quot;选项；</li>
+
+<a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/find.md">编辑</a>
+
+<h1 id="find">find</h1><p>指定目录下查找文件。</p>
+<h2 id="补充说明">补充说明</h2><p>find命令用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。</p>
+<p>find指令用于查找符合条件的文件。任何位于参数之前的字符串都将被视为欲查找的目录。</p>
+<h2 id="语法">语法</h2><pre><code class="lang-bash">find [目录...][-amin &lt;分钟&gt;][-anewer &lt;参考文件或目录&gt;][-atime &lt;24小时数&gt;][-cmin &lt;分钟&gt;][-cnewer &lt;参考文件或目录&gt;][-ctime &lt;24小时数&gt;][-daystart][-depyh][-empty][-exec &lt;执行指令&gt;][-false][-fls &lt;列表文件&gt;][-follow][-fprint &lt;列表文件&gt;][-fprint0 &lt;列表文件&gt;][-fprintf &lt;列表文件&gt;&lt;输出格式&gt;][-fstype &lt;文件系统类型&gt;][-gid &lt;群组识别码&gt;][-group &lt;群组名称&gt;][-help][-ilname &lt;范本样式&gt;][-iname &lt;范本样式&gt;][-inum &lt;inode编号&gt;][-ipath &lt;范本样式&gt;][-iregex &lt;范本样式&gt;][-links &lt;连接数目&gt;][-lname &lt;范本样式&gt;][-ls][-maxdepth &lt;目录层级&gt;][-mindepth &lt;目录层级&gt;][-mmin &lt;分钟&gt;][-mount] 
+[-mtime &lt;24小时数&gt;][-name &lt;范本样式&gt;][-newer &lt;参考文件或目录&gt;][-nogroup][noleaf] [-nouser][-ok &lt;执行指令&gt;][-path &lt;范本样式&gt;][-perm &lt;权限数值&gt;][-print][-print0][-printf &lt;输出格式&gt;][-prune][-regex &lt;范本样式&gt;][-size &lt;文件大小&gt;][-true][-type &lt;文件类型&gt;][-uid &lt;用户识别码&gt;][-used &lt;日数&gt;][-user &lt;拥有者名称&gt;][-version][-xdev][-xtype &lt;文件类型&gt;]
+</code></pre>
+<h2 id="参数">参数</h2><ul>
+<li>-amin&lt;分钟&gt; 　查找在指定时间曾被存取过的文件或目录，单位以分钟计算。 </li>
+<li>-anewer&lt;参考文件或目录&gt; 　查找其存取时间较指定文件或目录的存取时间更接近现在的文件或目录。 </li>
+<li>-atime<24小时数> 　查找在指定时间曾被存取过的文件或目录，单位以24小时计算。 </li>
+<li>-cmin&lt;分钟&gt; 　查找在指定时间之时被更改的文件或目录。 </li>
+<li>-cnewer&lt;参考文件或目录&gt; 　查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录。 </li>
+<li>-ctime<24小时数> 　查找在指定时间之时被更改的文件或目录，单位以24小时计算。 </li>
+<li>-daystart 　从本日开始计算时间。 </li>
+<li>-depth 　从指定目录下最深层的子目录开始查找。 </li>
+<li>-expty 　寻找文件大小为0 Byte的文件，或目录下没有任何子目录或文件的空目录。 </li>
+<li>-exec&lt;执行指令&gt; 　假设find指令的回传值为True，就执行该指令。 </li>
+<li>-false 　将find指令的回传值皆设为False。 </li>
+<li>-fls&lt;列表文件&gt; 　此参数的效果和指定&quot;-ls&quot;参数类似，但会把结果保存为指定的列表文件。 </li>
+<li>-follow 　排除符号连接。 </li>
+<li>-fprint&lt;列表文件&gt; 　此参数的效果和指定&quot;-print&quot;参数类似，但会把结果保存成指定的列表文件。 </li>
+<li>-fprint0&lt;列表文件&gt; 　此参数的效果和指定&quot;-print0&quot;参数类似，但会把结果保存成指定的列表文件。 </li>
+<li>-fprintf&lt;列表文件&gt;&lt;输出格式&gt; 　此参数的效果和指定&quot;-printf&quot;参数类似，但会把结果保存成指定的列表文件。 </li>
+<li>-fstype&lt;文件系统类型&gt; 　只寻找该文件系统类型下的文件或目录。 </li>
+<li>-gid&lt;群组识别码&gt; 　查找符合指定之群组识别码的文件或目录。 </li>
+<li>-group&lt;群组名称&gt; 　查找符合指定之群组名称的文件或目录。 </li>
+<li>-help或--help 　在线帮助。 </li>
+<li>-ilname&lt;范本样式&gt; 　此参数的效果和指定&quot;-lname&quot;参数类似，但忽略字符大小写的差别。 </li>
+<li>-iname&lt;范本样式&gt; 　此参数的效果和指定&quot;-name&quot;参数类似，但忽略字符大小写的差别。 </li>
+<li>-inum<inode编号> 　查找符合指定的inode编号的文件或目录。 </li>
+<li>-ipath&lt;范本样式&gt; 　此参数的效果和指定&quot;-ipath&quot;参数类似，但忽略字符大小写的差别。 </li>
+<li>-iregex&lt;范本样式&gt; 　此参数的效果和指定&quot;-regexe&quot;参数类似，但忽略字符大小写的差别。 </li>
+<li>-links&lt;连接数目&gt; 　查找符合指定的硬连接数目的文件或目录。 </li>
+<li>-iname&lt;范本样式&gt; 　指定字符串作为寻找符号连接的范本样式。 </li>
+<li>-ls 　假设find指令的回传值为True，就将文件或目录名称列出到标准输出。 </li>
+<li>-maxdepth&lt;目录层级&gt; 　设置最大目录层级。 </li>
+<li>-mindepth&lt;目录层级&gt; 　设置最小目录层级。 </li>
+<li>-mmin&lt;分钟&gt; 　查找在指定时间曾被更改过的文件或目录，单位以分钟计算。 </li>
+<li>-mount 　此参数的效果和指定&quot;-xdev&quot;相同。 </li>
+<li>-mtime<24小时数> 　查找在指定时间曾被更改过的文件或目录，单位以24小时计算。 </li>
+<li>-name&lt;范本样式&gt; 　指定字符串作为寻找文件或目录的范本样式。 </li>
+<li>-newer&lt;参考文件或目录&gt; 　查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录。 </li>
+<li>-nogroup 　找出不属于本地主机群组识别码的文件或目录。 </li>
+<li>-noleaf 　不去考虑目录至少需拥有两个硬连接存在。 </li>
+<li>-nouser 　找出不属于本地主机用户识别码的文件或目录。 </li>
+<li>-ok&lt;执行指令&gt; 　此参数的效果和指定&quot;-exec&quot;参数类似，但在执行指令之前会先询问用户，若回答&quot;y&quot;或&quot;Y&quot;，则放弃执行指令。 </li>
+<li>-path&lt;范本样式&gt; 　指定字符串作为寻找目录的范本样式。 </li>
+<li>-perm&lt;权限数值&gt; 　查找符合指定的权限数值的文件或目录。 </li>
+<li>-print 　假设find指令的回传值为True，就将文件或目录名称列出到标准输出。格式为每列一个名称，每个名称之前皆有&quot;./&quot;字符串。 </li>
+<li>-print0 　假设find指令的回传值为True，就将文件或目录名称列出到标准输出。格式为全部的名称皆在同一行。 </li>
+<li>-printf&lt;输出格式&gt; 　假设find指令的回传值为True，就将文件或目录名称列出到标准输出。格式可以自行指定。 </li>
+<li>-prune 　不寻找字符串作为寻找文件或目录的范本样式。 </li>
+<li>-regex&lt;范本样式&gt; 　指定字符串作为寻找文件或目录的范本样式。 </li>
+<li>-size&lt;文件大小&gt; 　查找符合指定的文件大小的文件。 </li>
+<li>-true 　将find指令的回传值皆设为True。 </li>
+<li>-typ&lt;文件类型&gt; 　只寻找符合指定的文件类型的文件。 </li>
+<li>-uid&lt;用户识别码&gt; 　查找符合指定的用户识别码的文件或目录。 </li>
+<li>-used&lt;日数&gt; 　查找文件或目录被更改之后在指定时间曾被存取过的文件或目录，单位以日计算。 </li>
+<li>-user&lt;拥有者名称&gt; 　查找符合指定的拥有者名称的文件或目录。 </li>
+<li>-version或--version 　显示版本信息。 </li>
+<li>-xdev 　将范围局限在先行的文件系统中。 </li>
+<li>-xtype&lt;文件类型&gt; 　此参数的效果和指定&quot;-type&quot;参数类似，差别在于它针对符号连接检查。</li>
 </ul>
-<h2 id="例子">例子</h2><pre><code class="lang-bash">cat m1      <span class="hljs-comment"># （在屏幕上显示文件ml的内容） </span>
-cat m1 m2   <span class="hljs-comment"># （同时显示文件ml和m2的内容） </span>
-cat m1 m2 &gt; file <span class="hljs-comment"># （将文件ml和m2合并后放入文件file中）</span>
+<h2 id="例子">例子</h2><pre><code class="lang-bash">$ find . -name <span class="hljs-string">'*.DS_Store'</span> -type f -delete <span class="hljs-comment"># 删除所有.DS_Store文件</span>
+$ find ~ -name <span class="hljs-string">"*.txt"</span> -print       <span class="hljs-comment"># 在$HOME中查.txt文件并显示</span>
+$ find . -size +1000000c -print     <span class="hljs-comment"># 查长度大于1Mb的文件</span>
+$ find . -size 100c -print          <span class="hljs-comment"># 查长度为100c的文件</span>
+$ find . -size +10 -print           <span class="hljs-comment"># 查长度超过期作废10块的文件（1块=512字节）</span>
+$ find -name april*                 <span class="hljs-comment"># 在当前目录下查找以april开始的文件</span>
+$ find -name april* fprint file     <span class="hljs-comment"># 在当前目录下查找以april开始的文件，并把结果输出到file中</span>
+$ find -name ap* -o -name may*          <span class="hljs-comment"># 查找以ap或may开头的文件</span>
+$ find /mnt -name tom.txt -ftype vfat   <span class="hljs-comment"># 在/mnt下查找名称为tom.txt且文件系统类型为vfat的文件</span>
+$ find /mnt -name t.txt ! -ftype vfat   <span class="hljs-comment"># 在/mnt下查找名称为tom.txt且文件系统类型不为vfat的文件</span>
+$ find /tmp -name wa* -type l           <span class="hljs-comment"># 在/tmp下查找名为wa开头且类型为符号链接的文件</span>
+$ find ~ -mtime -2                  <span class="hljs-comment"># 在/home下查最近两天内改动过的文件</span>
+$ find ~ -atime -1                  <span class="hljs-comment"># 查1天之内被存取过的文件</span>
+$ find ~ -mmin +60                  <span class="hljs-comment"># 在/home下查60分钟前改动过的文件</span>
+$ find ~ -amin +30                  <span class="hljs-comment"># 查最近30分钟前被存取过的文件</span>
+$ find ~ -newer tmp.txt             <span class="hljs-comment"># 在/home下查更新时间比tmp.txt近的文件或目录</span>
+$ find ~ -anewer tmp.txt            <span class="hljs-comment"># 在/home下查存取时间比tmp.txt近的文件或目录</span>
+$ find ~ -used -2                   <span class="hljs-comment"># 列出文件或目录被改动过之后，在2日内被存取过的文件或目录</span>
+$ find ~ -user cnscn                <span class="hljs-comment"># 列出/home目录内属于用户cnscn的文件或目录</span>
+$ find ~ -uid +501                  <span class="hljs-comment"># 列出/home目录内用户的识别码大于501的文件或目录</span>
+$ find ~ -group cnscn               <span class="hljs-comment"># 列出/home内组为cnscn的文件或目录</span>
+$ find ~ -gid 501                   <span class="hljs-comment"># 列出/home内组id为501的文件或目录</span>
+$ find ~ -nouser                    <span class="hljs-comment"># 列出/home内不属于本地用户的文件或目录</span>
+$ find ~ -nogroup                   <span class="hljs-comment"># 列出/home内不属于本地组的文件或目录</span>
+$ find ~ -name tmp.txt -maxdepth 4  <span class="hljs-comment"># 列出/home内的tmp.txt 查时深度最多为3层</span>
+$ find ~ -name tmp.txt -mindepth 3  <span class="hljs-comment"># 从第2层开始查</span>
+$ find ~ -empty                     <span class="hljs-comment"># 查找大小为0的文件或空目录</span>
+$ find ~ -size   +512k              <span class="hljs-comment"># 查大于512k的文件</span>
+$ find ~ -size   -512k              <span class="hljs-comment"># 查小于512k的文件</span>
+$ find ~ -links   +2                <span class="hljs-comment"># 查硬连接数大于2的文件或目录</span>
+$ find ~ -perm 0700                 <span class="hljs-comment"># 查权限为700的文件或目录</span>
+$ find ~ -perm 755 -print | more    <span class="hljs-comment"># 查找权限为755的文件</span>
+$ find /tmp -name tmp.txt -exec cat {} \;
+$ find /tmp -name tmp.txt ok rm {} \;
+
+$ find / -amin    -10      <span class="hljs-comment"># 查找在系统中最后10分钟访问的文件</span>
+$ find / -atime   -2       <span class="hljs-comment"># 查找在系统中最后48小时访问的文件</span>
+$ find / -empty            <span class="hljs-comment"># 查找在系统中为空的文件或者文件夹</span>
+$ find / -group   cat      <span class="hljs-comment"># 查找在系统中属于 groupcat的文件</span>
+$ find / -mmin   -5        <span class="hljs-comment"># 查找在系统中最后5分钟里修改过的文件</span>
+$ find / -mtime   -1       <span class="hljs-comment"># 查找在系统中最后24小时里修改过的文件</span>
+$ find / -nouser           <span class="hljs-comment"># 查找在系统中属于作废用户的文件</span>
+$ find / -user    fred     <span class="hljs-comment"># 查找在系统中属于FRED这个用户的文件</span>
 </code></pre>
 
 </div>
 
-<script type="text/javascript" src="../../js/dt.js"></script>
-<script type="text/javascript" src="../../js/index.js"></script>
+<script type="text/javascript" src="../js/dt.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
 </body>
 </html>
