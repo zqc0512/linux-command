@@ -111,7 +111,7 @@
             }
             if(arrResultHTML.length === 0){
                 var myLi = document.createElement("LI");
-                myLi.innerHTML = '<span>'+this.query?'请尝试输入一些字符，进行搜素！'+'</span>':'没有搜索到任何内容，请尝试输入其它字符！';
+                myLi.innerHTML = '<span>'+this.query?'请尝试输入一些字符，进行搜索！'+'</span>':'没有搜索到任何内容，请尝试输入其它字符！';
                 elm.appendChild(myLi);
             }
         },
@@ -120,32 +120,46 @@
             var kw = self.getQueryString('kw');
             var  timer = null
             this.elm_query.value = kw;
-            this.query = kw;
+            this.query = kw||'';
             if(this.elm_search_result) self.searchResult(true);
             this.bindEvent(this.elm_query,'input',function(e){
                 self.query = e.target.value;
+   
                 self.pushState()
-                self.searchResult();
-                self.elm_result.style.display = self.query?'block':'none';
+                if(self.query){
+                    self.searchResult();
+                }else{
+                    self.elm_result.style.display = 'none';
+                }
+                if(!self.elm_search_result){
+                    self.elm_result.style.display = self.query?'block':'none';
+                }else{
+                    self.elm_btn.click();
+                }
             })
             this.bindEvent(this.elm_btn,'click',function(e){
-                    console.log("---->")
-                if(self.elm_search_result){
-                    self.searchResult(true);  
-                } 
+                self.elm_result.style.display = 'none';
+                if(self.elm_search_result) self.searchResult(true);
                 else{
                     window.location.href = self.root_path + '/list.html#!kw='+self.query;
                 }
             })
             this.bindEvent(this.elm_query,'focus',function(e){
                 self.searchResult();
-                self.elm_result.style.display = 'block';
+                if(self.query)self.elm_result.style.display = 'block';
             })
             this.bindEvent(this.elm_query,'blur',function(e){
                 timer = setTimeout(function(){
                     self.elm_result.style.display = 'none';
-                },600)
+                },300)
             })
+            // 输入Enter键
+            this.bindEvent(document,'keyup',function(e){
+                if(e.key =='Enter'){
+                    self.elm_btn.click();
+                }
+            })
+
             if(kw) self.searchResult();
         }
     }
