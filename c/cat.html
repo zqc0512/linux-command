@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="cat:连接文件并打印到标准输出设备上 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,cat">
     <title>cat - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -43,10 +43,10 @@
 <h3 id="语法">语法</h3><pre><code>cat(选项)(参数)
 </code></pre><h3 id="选项">选项</h3><pre><code>-n或-number：有1开始对所有输出的行数编号；
 -b或--number-nonblank：和-n相似，只不过对于空白行不编号；
--s或--squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行；
+<span class="hljs-_">-s</span>或--squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行；
 -A：显示不可打印字符，行尾显示“$”；
--e：等价于&quot;-vE&quot;选项；
--t：等价于&quot;-vT&quot;选项；
+<span class="hljs-_">-e</span>：等价于<span class="hljs-string">"-vE"</span>选项；
+-t：等价于<span class="hljs-string">"-vT"</span>选项；
 </code></pre><h3 id="参数">参数</h3><p>文件列表：指定要连接的文件列表。</p>
 <h3 id="实例">实例</h3><p>设ml和m2是当前目录下的两个文件</p>
 <pre><code>cat m1 （在屏幕上显示文件ml的内容）

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="badblocks:查找磁盘中损坏的区块 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,badblocks">
     <title>badblocks - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -42,7 +42,7 @@
 <h3 id="语法">语法</h3><pre><code>badblock(选项)(参数)
 </code></pre><h3 id="选项">选项</h3><pre><code>-b&lt;区块大小&gt;：指定磁盘的区块大小，单位为字节；
 -o&lt;输出文件&gt;：将检查的结果写入指定的输出文件；
--s：在检查时显示进度；
+<span class="hljs-_">-s</span>：在检查时显示进度；
 -v：执行时显示详细的信息；
 -w：在检查时，执行写入测试。
 </code></pre><h3 id="参数">参数</h3><ul>
@@ -67,7 +67,7 @@
 </code></pre><p>这次花费的时间比较短，硬盘在指定的情况下在很短的时间就产生“嘎嘎嘎嘎”的响声。由于检查条件的不同，其输出的结果也不完全是相同的。重复几次同样的操作，因条件多少都有些不同，所以结果也有所不同。进行多次操作后，直到产生最后的hda-badblock-list.final文件。</p>
 <h3 id="其他">其他</h3><p> <strong>1、fsck使用badblocks的信息</strong> </p>
 <p>badblocks只会在日志文件中标记出坏道的信息，但若希望在检测磁盘时也能跳过这些坏块不检测，可以使用fsck的-l参数：</p>
-<pre><code>fsck.ext3 -l /tmp/hda-badblock-list.final /dev/hda1
+<pre><code>fsck.ext3 <span class="hljs-_">-l</span> /tmp/hda-badblock-list.final /dev/hda1
 </code></pre><p> <strong>2、在创建文件系统前检测坏道</strong> </p>
 <p>badblocks可以随e2fsck和mke2fs的-c删除一起运行（对ext3文件系统也一样），在创建文件系统前就先检测坏道信息：</p>
 <pre><code>mkfs.ext3 -c /dev/hda1

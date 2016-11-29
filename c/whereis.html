@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="whereis:查找二进制程序、代码等相关文件路径 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,whereis">
     <title>whereis - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -44,28 +44,28 @@
 <h3 id="语法">语法</h3><pre><code>whereis(选项)(参数)
 </code></pre><h3 id="选项">选项</h3><pre><code>-b：只查找二进制文件；
 -B&lt;目录&gt;：只在设置的目录下查找二进制文件；
--f：不显示文件名前的路径名称；
+<span class="hljs-_">-f</span>：不显示文件名前的路径名称；
 -m：只查找说明文件；
 -M&lt;目录&gt;：只在设置的目录下查找说明文件；
--s：只查找原始代码文件；
+<span class="hljs-_">-s</span>：只查找原始代码文件；
 -S&lt;目录&gt;只在设置的目录下查找原始代码文件；
 -u：查找不包含指定类型的文件。
 </code></pre><h3 id="参数">参数</h3><p>指令名：要查找的二进制程序、源文件和man手册页的指令名。</p>
 <h3 id="实例">实例</h3><p>将相关的文件都查找出来</p>
-<pre><code>[root@localhost ~]# whereis tomcat
+<pre><code>[root@localhost ~]<span class="hljs-comment"># whereis tomcat</span>
 tomcat:
 
-[root@localhost ~]# whereis svn
-svn: /usr/bin/svn /usr/local/svn /usr/share/man/man1/svn.1.gz
+[root@localhost ~]<span class="hljs-comment"># whereis svn</span>
+svn: /usr/bin/svn /usr/<span class="hljs-built_in">local</span>/svn /usr/share/man/man1/svn.1.gz
 </code></pre><p>说明：tomcat没安装，找不出来，svn安装找出了很多相关文件</p>
 <p>只将二进制文件查找出来 </p>
-<pre><code>[root@localhost ~]# whereis -b svn
-svn: /usr/bin/svn /usr/local/svn
+<pre><code>[root@localhost ~]<span class="hljs-comment"># whereis -b svn</span>
+svn: /usr/bin/svn /usr/<span class="hljs-built_in">local</span>/svn
 
-[root@localhost ~]# whereis -m svn
+[root@localhost ~]<span class="hljs-comment"># whereis -m svn</span>
 svn: /usr/share/man/man1/svn.1.gz
 
-[root@localhost ~]# whereis -s svn
+[root@localhost ~]<span class="hljs-comment"># whereis -s svn</span>
 svn:
 </code></pre><p>说明：<code>whereis -m svn</code>查出说明文档路径，<code>whereis -s svn</code>找source源文件。</p>
 <!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

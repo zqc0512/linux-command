@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="file:用来探测给定文件的类型。 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,file">
     <title>file - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -42,7 +42,7 @@
 <h3 id="语法">语法</h3><pre><code>file(选项)(参数)
 </code></pre><h3 id="选项">选项</h3><pre><code>-b：列出辨识结果时，不显示文件名称；
 -c：详细显示指令执行过程，便于排错或分析程序执行的情形；
--f&lt;名称文件&gt;：指定名称文件，其内容有一个或多个文件名称时，让file依序辨识这些文件，格式为每列一个文件名称；
+<span class="hljs-_">-f</span>&lt;名称文件&gt;：指定名称文件，其内容有一个或多个文件名称时，让file依序辨识这些文件，格式为每列一个文件名称；
 -L：直接显示符号连接所指向的文件类别；
 -m&lt;魔法数字文件&gt;：指定魔法数字文件；
 -v：显示版本信息；
@@ -52,20 +52,20 @@
 <pre><code>root@localhost ~.log
 install.log: UTF-8 Unicode text
 
-[root@localhost ~]# file -b install.log      &lt;== 不显示文件名称
+[root@localhost ~]<span class="hljs-comment"># file -b install.log      &lt;== 不显示文件名称</span>
 UTF-8 Unicode text
 
-[root@localhost ~]# file -i install.log      &lt;== 显示MIME类别。
+[root@localhost ~]<span class="hljs-comment"># file -i install.log      &lt;== 显示MIME类别。</span>
 install.log: text/plain; charset=utf-8
 
-[root@localhost ~]# file -b -i install.log
+[root@localhost ~]<span class="hljs-comment"># file -b -i install.log</span>
 text/plain; charset=utf-8
 </code></pre><p>显示符号链接的文件类型</p>
-<pre><code>root@localhost ~ -l /var/mail
+<pre><code>root@localhost ~ <span class="hljs-_">-l</span> /var/mail
 lrwxrwxrwx 1 root root 10 08-13 00:11 /var/mail -&gt; spool/mail
 
-[root@localhost ~]# file /var/mail
-/var/mail: symbolic link to `spool/mail&#39;
+[root@localhost ~]<span class="hljs-comment"># file /var/mail</span>
+/var/mail: symbolic link to `spool/mail<span class="hljs-string">'
 
 [root@localhost ~]# file -L /var/mail
 /var/mail: directory
@@ -74,7 +74,7 @@ lrwxrwxrwx 1 root root 10 08-13 00:11 /var/mail -&gt; spool/mail
 /var/spool/mail: directory
 
 [root@localhost ~]# file -L /var/spool/mail
-/var/spool/mail: directory
+/var/spool/mail: directory</span>
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 

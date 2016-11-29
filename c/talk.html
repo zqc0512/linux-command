@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="talk:让用户和其他用户聊天 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,talk">
     <title>talk - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -60,7 +60,7 @@ talk: respond with:  talk jdx@rs6000.cic.test.com
 </code></pre><p>并退出；如果对方已登录，但因某种原因（如不是正在使用机器）没有响应，那么linux中talk命令程序将会每隔10秒钟给他发一条邀请信息，同时在自己的屏幕上显示：</p>
 <pre><code>[Ringing your party again]
 </code></pre><p>如果用户不愿等待，则可以按 <strong>CTRL+C</strong> 终止linux中talk命令程序。还有的时候系统可能出现下面的信息：</p>
-<pre><code>[Checking for invitation on caller’s machine]
+<pre><code>[Checking <span class="hljs-keyword">for</span> invitation on <span class="hljs-built_in">caller</span>’s machine]
 </code></pre><p>这说明双方的linux中talk命令程序不兼容，这时可以试试ntalk和ytalk命令，如果没有，就只好找系统管理员了。</p>
 <p>如果用户在做某些紧急工作（如编辑邮件）时不希望被linux中talk命令的邀请打搅，他可以使用命令：</p>
 <pre><code>mesg n

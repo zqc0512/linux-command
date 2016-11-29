@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="restore:所进行的操作和dump指令相反 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,restore">
     <title>restore - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -44,18 +44,18 @@
 -c：不检查倾倒操作的备份格式，仅准许读取使用旧格式的备份文件；
 -C：使用对比模式，将备份的文件与现行的文件相互对比；
 -D&lt;文件系统&gt;：允许用户指定文件系统的名称；
--f&lt;备份文件&gt;：从指定的文件中读取备份数据，进行还原操作；
+<span class="hljs-_">-f</span>&lt;备份文件&gt;：从指定的文件中读取备份数据，进行还原操作；
 -h：仅解除目录而不包括与该目录相关的所有文件；
 -i：使用互动模式，在进行还原操作时，restore指令将依序询问用户；
 -m：解开符合指定的inode编号的文件或目录而非用文件名称指定；
 -r：进行还原操作；
 -R：全面还原文件系统时，检查应从何处开始进行；
--s&lt;文件编号&gt;：当备份数据超过一卷磁带时，用户可以指定备份文件的编号；
+<span class="hljs-_">-s</span>&lt;文件编号&gt;：当备份数据超过一卷磁带时，用户可以指定备份文件的编号；
 -t：指定文件名称，若该文件已存在备份文件中，则列出它们的名称；
 -v：显示指令执行过程；
 -x：设置文件名称，且从指定的存储媒体里读入它们，若该文件已存在在备份文件中，则将其还原到文件系统内；
 -y：不询问任何问题，一律以同意回答并继续执行指令。
-</code></pre><h3 id="实例">实例</h3><pre><code>dump -9 -u -f /dev/hda3 /home/frank/
+</code></pre><h3 id="实例">实例</h3><pre><code>dump -9 -u <span class="hljs-_">-f</span> /dev/hda3 /home/frank/
 </code></pre><p>用restore命令来恢复备份：</p>
 <pre><code>restore rf /dev/hda3 /home/frank
 </code></pre><p>用restore命令来查看备份文件里的文件列表：</p>

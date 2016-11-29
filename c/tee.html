@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="tee:把数据重定向到给定文件和屏幕上 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,tee">
     <title>tee - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -42,7 +42,7 @@
 <p>!</p>
 <p>存在缓存机制，每1024个字节将输出一次。若从管道接收输入数据，应该是缓冲区满，才将数据转存到指定的文件中。若文件内容不到1024个字节，则接收完从标准输入设备读入的数据后，将刷新一次缓冲区，并转存数据到指定文件。</p>
 <h3 id="语法">语法</h3><pre><code>tee(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-a：向文件中重定向时使用追加模式；
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-a</span>：向文件中重定向时使用追加模式；
 -i：忽略中断（interrupt）信号。
 </code></pre><h3 id="参数">参数</h3><p>文件：指定输出重定向的文件。</p>
 <p>在终端打印stdout同时重定向到文件中：</p>

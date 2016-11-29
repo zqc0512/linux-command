@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="dd:复制文件并对原文件的内容进行转换和格式化处理 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,dd">
     <title>dd - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -52,8 +52,8 @@ seek=&lt;区块数&gt;：一开始输出时，跳过指定的区块数；
 skip=&lt;区块数&gt;：一开始读取时，跳过指定的区块数；
 --help：帮助；
 --version：显示版本信息。
-</code></pre><h3 id="实例">实例</h3><pre><code>[root@localhost text]# dd if=/dev/zero of=sun.txt bs=1M count=1
-1+0 records in
+</code></pre><h3 id="实例">实例</h3><pre><code>[root@localhost text]<span class="hljs-comment"># dd if=/dev/zero of=sun.txt bs=1M count=1</span>
+1+0 records <span class="hljs-keyword">in</span>
 1+0 records out
 1048576 bytes (1.0 MB) copied, 0.006107 seconds, 172 MB/s
 

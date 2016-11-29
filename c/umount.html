@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="umount:用于卸载已经加载的文件系统 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,umount">
     <title>umount - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -40,7 +40,7 @@
 <h1 id="umount">umount</h1><p>用于卸载已经加载的文件系统</p>
 <h2 id="补充说明">补充说明</h2><p><strong>umount命令</strong> 用于卸载已经加载的文件系统。利用设备名或挂载点都能umount文件系统，不过最好还是通过挂载点卸载，以免使用绑定挂载（一个设备，多个挂载点）时产生混乱。</p>
 <h3 id="语法">语法</h3><pre><code>umount(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-a：卸除/etc/mtab中记录的所有文件系统；
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-a</span>：卸除/etc/mtab中记录的所有文件系统；
 -h：显示帮助；
 -n：卸除时不要将信息存入/etc/mtab文件中；
 -r：若无法成功卸除，则尝试以只读的方式重新挂入文件系统；

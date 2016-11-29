@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="pwunconv:用来关闭用户的投影密码 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,pwunconv">
     <title>pwunconv - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -41,8 +41,8 @@
 <h2 id="补充说明">补充说明</h2><p><strong>pwunconv命令</strong> 与pwconv功能相反，用来关闭用户的投影密码。它会把密码从shadow文件内，重回存到passwd文件里。</p>
 <h3 id="语法">语法</h3><pre><code>pwunconv
 </code></pre><h3 id="实例">实例</h3><pre><code>pwunconv     //关闭影子密码
-cat /etc/passwd | grep test     //发现密码已经在passwd文件中了
-test:$6$nYOEWamm$bz07nlv/.RgJufb3FAqJJeULfwybzgxmrWqbk7O4vI0KsT6N.ujrh6dDIUcAJdfjksyuyAFDPIngZeD3cgcf.0:3001:3001::/home/test:/bin/sh
+cat /etc/passwd | grep <span class="hljs-built_in">test</span>     //发现密码已经在passwd文件中了
+<span class="hljs-built_in">test</span>:<span class="hljs-variable">$6</span><span class="hljs-variable">$nYOEWamm</span><span class="hljs-variable">$bz07nlv</span>/.RgJufb3FAqJJeULfwybzgxmrWqbk7O4vI0KsT6N.ujrh6dDIUcAJdfjksyuyAFDPIngZeD3cgcf.0:3001:3001::/home/<span class="hljs-built_in">test</span>:/bin/sh
 
 ls /etc/shadow     //查看影子文件，提示没有这个文件或目录
 ls: cannot access /etc/shadow: No such file or directory

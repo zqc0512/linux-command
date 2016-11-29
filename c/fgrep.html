@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="fgrep:为文件搜索文字字符串 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,fgrep">
     <title>fgrep - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -52,15 +52,15 @@
 <h3 id="语法">语法</h3><pre><code>fgrep(选项)(参数)
 </code></pre><h3 id="选项">选项</h3><pre><code>-b：在找到的每行之前添加行所在的块编号。使用此标志有助于按照上下文查找磁盘块号码。-b 标志不能用于标准输入或者管道输入。
 -c：仅显示匹配行的计数。
--e 模式：指定模式。这个工作模式很简单，但当此模式以 a-(减号) 开头时却是很有用的。
--f StringFile：指定包含字符串的文件。
+<span class="hljs-_">-e</span> 模式：指定模式。这个工作模式很简单，但当此模式以 a-(减号) 开头时却是很有用的。
+<span class="hljs-_">-f</span> StringFile：指定包含字符串的文件。
 -h：当多个文件被处理时隐藏文件名。
 -i：当进行比较时忽略字母的大小写。
--l：只列出包含匹配行的文件名（一次）。文件名之间用换行符分隔。
+<span class="hljs-_">-l</span>：只列出包含匹配行的文件名（一次）。文件名之间用换行符分隔。
 n：将文件中每行的相对行号置于行前。
 -pSeparator：显示包含匹配行的整个段落。段落之间将按照Separator参数指定的段落分隔符加以分隔，这些分隔符是与搜索模式有着相同格式的模式。包含段落分隔符的行将仅用作分隔符；它们不会被包含在输出中。缺省的段落分隔符是空白行。
 -q：禁止所有写入到标准输出的操作，不管是否为匹配行。如果选中输入行，以 0 状态退出。
--s：仅显示出错消息。这在检查状态时很有用。
+<span class="hljs-_">-s</span>：仅显示出错消息。这在检查状态时很有用。
 -v：显示除了匹配特定模式的行以外的所有行。
 -w：执行单词搜索。
 -x：显示匹配模式的行，要求无额外的字符。
@@ -78,7 +78,7 @@ n：将文件中每行的相对行号置于行前。
 <p>如果在您的 C 程序中一行中没有包含多于一个 { (左括号) 或者 } (右括号)，并且括号正确匹配，那么这两个数字将是一样的。如果这两个数字不一样，您可以将包含括号的行按照他们在文件中的位置顺序显示出来，使用以下命令：</p>
 <pre><code>egrep {\|} pgm.c
 </code></pre><p> <strong>显示包含某模式的文件名：</strong> </p>
-<pre><code>fgrep -l strcpy *.c
+<pre><code>fgrep <span class="hljs-_">-l</span> strcpy *.c
 </code></pre><p>搜索当前目录下以 .c 结尾的文件，然后显示包含 strcpy 字符串的文件名。</p>
 <!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>

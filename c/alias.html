@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="alias:用来设置指令的别名 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,alias">
     <title>alias - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -40,22 +40,22 @@
 <h1 id="alias">alias</h1><p>用来设置指令的别名</p>
 <h2 id="补充说明">补充说明</h2><p><strong>alias命令</strong> 用来设置指令的别名。我们可以使用该命令可以将一些较长的命令进行简化。使用alias时，用户必须使用单引号<code>&#39;&#39;</code>将原来的命令引起来，防止特殊字符导致错误。</p>
 <p>alias命令的作用只局限于该次登入的操作。若要每次登入都能够使用这些命令别名，则可将相应的alias命令存放到bash的初始化文件<code>/etc/bashrc</code>中。</p>
-<h3 id="语法">语法</h3><pre><code>alias(选项)(参数)
+<h3 id="语法">语法</h3><pre><code><span class="hljs-built_in">alias</span>(选项)(参数)
 </code></pre><h3 id="选项">选项</h3><pre><code>-p：打印已经设置的命令别名。
 </code></pre><h3 id="参数">参数</h3><p>命令别名设置：定义命令别名，格式为“命令别名=‘实际命令’”。</p>
 <h3 id="实例">实例</h3><p> <strong>alias 的基本使用方法为：</strong> </p>
-<pre><code>alias 新的命令=&#39;原命令 -选项/参数&#39;
+<pre><code><span class="hljs-built_in">alias</span> 新的命令=<span class="hljs-string">'原命令 -选项/参数'</span>
 </code></pre><p>例如：<code>alias l=‘ls -lsh&#39;</code>将重新定义ls命令，现在只需输入l就可以列目录了。直接输入 alias 命令会列出当前系统中所有已经定义的命令别名。</p>
 <p>要删除一个别名，可以使用 unalias 命令，如 unalias l。</p>
 <p> <strong>查看系统已经设置的别名：</strong> </p>
-<pre><code>alias -p
-alias cp=&#39;cp -i&#39;
-alias l.=&#39;ls -d .* --color=tty&#39;
-alias ll=&#39;ls -l --color=tty&#39;
-alias ls=&#39;ls --color=tty&#39;
-alias mv=&#39;mv -i&#39;
-alias rm=&#39;rm -i&#39;
-alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;
+<pre><code><span class="hljs-built_in">alias</span> -p
+<span class="hljs-built_in">alias</span> cp=<span class="hljs-string">'cp -i'</span>
+<span class="hljs-built_in">alias</span> l.=<span class="hljs-string">'ls -d .* --color=tty'</span>
+<span class="hljs-built_in">alias</span> ll=<span class="hljs-string">'ls -l --color=tty'</span>
+<span class="hljs-built_in">alias</span> ls=<span class="hljs-string">'ls --color=tty'</span>
+<span class="hljs-built_in">alias</span> mv=<span class="hljs-string">'mv -i'</span>
+<span class="hljs-built_in">alias</span> rm=<span class="hljs-string">'rm -i'</span>
+<span class="hljs-built_in">alias</span> <span class="hljs-built_in">which</span>=<span class="hljs-string">'alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'</span>
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 

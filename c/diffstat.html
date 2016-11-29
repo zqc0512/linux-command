@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="diffstat:显示diff命令输出信息的柱状图 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,diffstat">
     <title>diffstat - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -46,10 +46,10 @@
 -v：显示版本信息。
 </code></pre><h3 id="参数">参数</h3><p>文件：指定保存有diff命令的输出信息文件。</p>
 <h3 id="实例">实例</h3><p>将目录&quot;test1&quot;和&quot;test2&quot;下的同名文件&quot;testf.txt&quot;使用diff命令进行比较。然后使用diffstat命令对结果进行统计显示，输入如下命令：</p>
-<pre><code>diff test1 test2 | diffstat    #进行比较结果的统计显示
+<pre><code>diff <span class="hljs-built_in">test</span>1 <span class="hljs-built_in">test</span>2 | diffstat    <span class="hljs-comment">#进行比较结果的统计显示</span>
 </code></pre><p>注意：使用这条命令可以非常方便地实现统计显示的功能。</p>
 <p>对于查看文件中的内容，用户可以通过cat命令进行查看即可，具体操作如下：</p>
-<pre><code>cat test1/testf.txt           #查看test1/testf的内容
+<pre><code>cat <span class="hljs-built_in">test</span>1/testf.txt           <span class="hljs-comment">#查看test1/testf的内容</span>
 abc
 def
 ghi
@@ -59,14 +59,14 @@ pqr
 stu
 vws
 
-cat test2/testf.txt          #查看test2/testf的内容
+cat <span class="hljs-built_in">test</span>2/testf.txt          <span class="hljs-comment">#查看test2/testf的内容</span>
 abc
 def
 ghi
 jkl
 mno
 </code></pre><p>从上面的文件内容显示，可以看到两个文件内容的差别。现在来运行刚才的命令，对文件比较的结果进行统计显示，结果如下：</p>
-<pre><code>testfile | 2 +-             #统计信息输出显示
+<pre><code>testfile | 2 +-             <span class="hljs-comment">#统计信息输出显示</span>
 1 file changed, 1 insertion(+), 1 deletion(-)
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>

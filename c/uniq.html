@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="uniq:报告或忽略文件中的重复行 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,uniq">
     <title>uniq - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -41,9 +41,9 @@
 <h2 id="补充说明">补充说明</h2><p><strong>uniq命令</strong> 用于报告或忽略文件中的重复行，一般与sort命令结合使用。</p>
 <h3 id="语法">语法</h3><pre><code>uniq(选项)(参数)
 </code></pre><h3 id="选项">选项</h3><pre><code>-c或——count：在每列旁边显示该行重复出现的次数；
--d或--repeated：仅显示重复出现的行列；
--f&lt;栏位&gt;或--skip-fields=&lt;栏位&gt;：忽略比较指定的栏位；
--s&lt;字符位置&gt;或--skip-chars=&lt;字符位置&gt;：忽略比较指定的字符；
+<span class="hljs-_">-d</span>或--repeated：仅显示重复出现的行列；
+<span class="hljs-_">-f</span>&lt;栏位&gt;或--skip-fields=&lt;栏位&gt;：忽略比较指定的栏位；
+<span class="hljs-_">-s</span>&lt;字符位置&gt;或--skip-chars=&lt;字符位置&gt;：忽略比较指定的字符；
 -u或——unique：仅显示出一次的行列；
 -w&lt;字符位置&gt;或--check-chars=&lt;字符位置&gt;：指定要比较的字符。
 </code></pre><h3 id="参数">参数</h3><ul>
@@ -60,7 +60,7 @@ sort file.txt | uniq -u
 </code></pre><p>统计各行在文件中出现的次数：</p>
 <pre><code>sort file.txt | uniq -c
 </code></pre><p>在文件中找出重复的行：</p>
-<pre><code>sort file.txt | uniq -d
+<pre><code>sort file.txt | uniq <span class="hljs-_">-d</span>
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 

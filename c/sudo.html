@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="sudo:以其他身份来执行命令 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,sudo">
     <title>sudo - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -44,9 +44,9 @@
 -h：显示帮助；
 -H：将HOME环境变量设为新身份的HOME环境变量；
 -k：结束密码的有效期限，也就是下次再执行sudo时便需要输入密码；。
--l：列出目前用户可执行与无法执行的指令；
+<span class="hljs-_">-l</span>：列出目前用户可执行与无法执行的指令；
 -p：改变询问密码的提示符号；
--s&lt;shell&gt;：执行指定的shell；
+<span class="hljs-_">-s</span>&lt;shell&gt;：执行指定的shell；
 -u&lt;用户&gt;：以指定的用户作为新的身份。若不加上此参数，则预设以root作为新的身份；
 -v：延长密码有效期限5分钟；
 -V ：显示版本信息。
@@ -56,8 +56,8 @@
 <pre><code>&gt;&gt;&gt; sudoers file: syntax error, line 22 &lt;&lt;
 </code></pre><p>此时我们有三种选择：键入“e”是重新编辑，键入“x”是不保存退出，键入“Q”是退出并保存。如果真选择Q，那么sudo将不会再运行，直到错误被纠正。</p>
 <p>现在，我们一起来看一下神秘的配置文件，学一下如何编写它。让我们从一个简单的例子开始：让用户Foobar可以通过sudo执行所有root可执行的命令。以root身份用visudo打开配置文件，可以看到类似下面几行：</p>
-<pre><code># Runas alias specification
-# User privilege specificationroot    ALL=(ALL)ALL
+<pre><code><span class="hljs-comment"># Runas alias specification</span>
+<span class="hljs-comment"># User privilege specificationroot    ALL=(ALL)ALL</span>
 </code></pre><p>我们一看就明白个差不多了，root有所有权限，只要仿照现有root的例子就行，我们在下面加一行（最好用tab作为空白）：</p>
 <pre><code>foobar ALL=(ALL)    ALL
 </code></pre><p>保存退出后，切换到foobar用户，我们用它的身份执行命令：</p>
@@ -72,11 +72,11 @@ anaconda-ks.cfg Desktop install.log install.log.syslog
 </code></pre><p>再来执行命令：</p>
 <pre><code>foobar@localhost ~ -5 /etc/shadow
 Password:
-Sorry, user foobar is not allowed to execute &#39;/usr/bin/head -5 /etc/shadow&#39; as root on localhost.localdomain.
+Sorry, user foobar is not allowed to execute <span class="hljs-string">'/usr/bin/head -5 /etc/shadow'</span> as root on localhost.localdomain.
 
 [foobar@localhost ~]$ sudo /sbin/ifconfigeth0      Linkencap:Ethernet HWaddr 00:14:85:EC:E9:9B...
 </code></pre><p>现在让我们来看一下那三个ALL到底是什么意思。第一个ALL是指网络中的主机，我们后面把它改成了主机名，它指明foobar可以在此主机上执行后面的命令。第二个括号里的ALL是指目标用户，也就是以谁的身份去执行命令。最后一个ALL当然就是指命令名了。例如，我们想让foobar用户在linux主机上以jimmy或rene的身份执行kill命令，这样编写配置文件：</p>
-<pre><code>foobar    linux=(jimmy,rene)    /bin/kill
+<pre><code>foobar    linux=(jimmy,rene)    /bin/<span class="hljs-built_in">kill</span>
 </code></pre><p>但这还有个问题，foobar到底以jimmy还是rene的身份执行？这时我们应该想到了<code>sudo -u</code>了，它正是用在这种时候。 foobar可以使用<code>sudo -u jimmy kill PID</code>或者<code>sudo -u rene kill PID</code>，但这样挺麻烦，其实我们可以不必每次加<code>-u</code>，把rene或jimmy设为默认的目标用户即可。再在上面加一行：</p>
 <pre><code>Defaults:foobar    runas_default=rene
 </code></pre><p>Defaults后面如果有冒号，是对后面用户的默认，如果没有，则是对所有用户的默认。就像配置文件中自带的一行：</p>
@@ -89,23 +89,23 @@ install.log.syslog
 </code></pre><p>当然，你也可以说“某些命令用户foobar不可以运行”，通过使用!操作符，但这不是一个好主意。因为，用!操作符来从ALL中“剔出”一些命令一般是没什么效果的，一个用户完全可以把那个命令拷贝到别的地方，换一个名字后再来运行。</p>
 <p> <strong>日志与安全</strong> </p>
 <p>sudo为安全考虑得很周到，不仅可以记录日志，还能在有必要时向系统管理员报告。但是，sudo的日志功能不是自动的，必须由管理员开启。这样来做：</p>
-<pre><code>touch /var/log/sudo
+<pre><code>touch /var/<span class="hljs-built_in">log</span>/sudo
 vi /etc/syslog.conf
 </code></pre><p>在syslog.conf最后面加一行（必须用tab分割开）并保存：</p>
-<pre><code>local2.debug                    /var/log/sudo
+<pre><code><span class="hljs-built_in">local</span>2.debug                    /var/<span class="hljs-built_in">log</span>/sudo
 </code></pre><p>重启日志守候进程，</p>
 <pre><code>ps aux grep syslogd
 </code></pre><p>把得到的syslogd进程的PID（输出的第二列是PID）填入下面：</p>
-<pre><code>kill –HUP PID
+<pre><code><span class="hljs-built_in">kill</span> –HUP PID
 </code></pre><p>这样，sudo就可以写日志了：</p>
 <pre><code>[foobar@localhost ~]$ sudo ls /rootanaconda-ks.cfg
 Desktop install.log
 install.log.syslog
-$cat /var/log/sudoJul 28 22:52:54 localhost sudo:   foobar :
-TTY=pts/1 ; pwd=/home/foobar ; USER=root ; command=/bin/ls /root
+<span class="hljs-variable">$cat</span> /var/<span class="hljs-built_in">log</span>/sudoJul 28 22:52:54 localhost sudo:   foobar :
+TTY=pts/1 ; <span class="hljs-built_in">pwd</span>=/home/foobar ; USER=root ; <span class="hljs-built_in">command</span>=/bin/ls /root
 </code></pre><p>不过，有一个小小的“缺陷”，sudo记录日志并不是很忠实：</p>
 <pre><code>[foobar@localhost ~]$ sudo cat /etc/shadow &gt; /dev/null
-cat /var/log/sudo...Jul 28 23:10:24 localhost sudo:   foobar : TTY=pts/1 ;
+cat /var/<span class="hljs-built_in">log</span>/sudo...Jul 28 23:10:24 localhost sudo:   foobar : TTY=pts/1 ;
 PWD=/home/foobar ; USER=root ; COMMAND=/bin/cat /etc/shadow
 </code></pre><p>重定向没有被记录在案！为什么？因为在命令运行之前，shell把重定向的工作做完了，sudo根本就没看到重定向。这也有个好处，下面的手段不会得逞：</p>
 <pre><code>[foobar@localhost ~]$ sudo ls /root &gt; /etc/shadowbash: /etc/shadow: 权限不够

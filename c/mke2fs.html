@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="mke2fs:创建磁盘分区上的“etc2/etc3”文件系统 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,mke2fs">
     <title>mke2fs - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -42,11 +42,11 @@
 <h3 id="语法">语法</h3><pre><code>mke2fs(选项)(参数)
 </code></pre><h3 id="选项">选项</h3><pre><code>-b&lt;区块大小&gt;：指定区块大小，单位为字节；
 -c；检查是否有损坏的区块；
--f&lt;不连续区段大小&gt;：指定不连续区段的大小，单位为字节；
+<span class="hljs-_">-f</span>&lt;不连续区段大小&gt;：指定不连续区段的大小，单位为字节；
 -F：不管指定的设备为何，强制执行mke2fs；
--i&lt;字节&gt;：指定&quot;字节/inode&quot;的比例；
+-i&lt;字节&gt;：指定<span class="hljs-string">"字节/inode"</span>的比例；
 -N&lt;inode数&gt;：指定要建立的inode数目；
--l&lt;文件&gt;：从指定的文件中，读取文件西中损坏区块的信息；
+<span class="hljs-_">-l</span>&lt;文件&gt;：从指定的文件中，读取文件西中损坏区块的信息；
 -L&lt;标签&gt;：设置文件系统的标签名称；
 -m&lt;百分比值&gt;：指定给管理员保留区块的比例，预设为5%；
 -M：记录最后一次挂入的目录；

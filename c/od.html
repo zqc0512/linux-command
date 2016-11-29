@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="od:输出文件的八进制、十六进制等格式编码的字节 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,od">
     <title>od - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -41,19 +41,19 @@
 <h2 id="补充说明">补充说明</h2><p><strong>od命令</strong> 用于输出文件的八进制、十六进制或其它格式编码的字节，通常用于显示或查看文件中不能直接显示在终端的字符。</p>
 <p>常见的文件为文本文件和二进制文件。此命令主要用来查看保存在二进制文件中的值。比如，程序可能输出大量的数据记录，每个数据是一个单精度浮点数。这些数据记录存放在一个文件中，如果想查看下这个数据，这时候od命令就派上用场了。在我看来，od命令主要用来格式化输出文件数据，即对文件中的数据进行无二义性的解释。不管是IEEE754格式的浮点数还是ASCII码，od命令都能按照需求输出它们的值。</p>
 <h3 id="语法">语法</h3><pre><code>od(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-a：此参数的效果和同时指定“-ta”参数相同；
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-a</span>：此参数的效果和同时指定“-ta”参数相同；
 -A：&lt;字码基数&gt;：选择以何种基数计算字码；
 -b：此参数的效果和同时指定“-toC”参数相同；
 -c：此参数的效果和同时指定“-tC”参数相同；
--d：此参数的效果和同时指定“-tu2”参数相同；
--f：此参数的效果和同时指定“-tfF”参数相同；
+<span class="hljs-_">-d</span>：此参数的效果和同时指定“-tu2”参数相同；
+<span class="hljs-_">-f</span>：此参数的效果和同时指定“-tfF”参数相同；
 -h：此参数的效果和同时指定“-tx2”参数相同；
 -i：此参数的效果和同时指定“-td2”参数相同；
 -j&lt;字符数目&gt;或--skip-bytes=&lt;字符数目&gt;：略过设置的字符数目；
--l：此参数的效果和同时指定“-td4”参数相同；
+<span class="hljs-_">-l</span>：此参数的效果和同时指定“-td4”参数相同；
 -N&lt;字符数目&gt;或--read-bytes=&lt;字符数目&gt;：到设置的字符树目为止；
 -o：此参数的效果和同时指定“-to2”参数相同；
--s&lt;字符串字符数&gt;或--strings=&lt;字符串字符数&gt;：只显示符合指定的字符数目的字符串；
+<span class="hljs-_">-s</span>&lt;字符串字符数&gt;或--strings=&lt;字符串字符数&gt;：只显示符合指定的字符数目的字符串；
 -t&lt;输出格式&gt;或--format=&lt;输出格式&gt;：设置输出格式；
 -v或--output-duplicates：输出时不省略重复的数据；
 -w&lt;每列字符数&gt;或--width=&lt;每列字符数&gt;：设置每列的最大字符数；

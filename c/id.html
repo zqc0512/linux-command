@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="id:显示用户的ID以及所属群组的ID - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,id">
     <title>id - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -48,7 +48,7 @@
 -u或--user 　  显示用户ID。
 -help 　       显示帮助。
 -version 　    显示版本信息。
-</code></pre><h3 id="实例">实例</h3><pre><code>[root@localhost ~]# id
+</code></pre><h3 id="实例">实例</h3><pre><code>[root@localhost ~]<span class="hljs-comment"># id</span>
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel)
 </code></pre><p>解释：用户root的UID号码 = 0，GID号码 = 0。用户root是下面组的成员：</p>
 <ul>
@@ -61,17 +61,17 @@ uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10
 <li>wheel组GID号是：10</li>
 </ul>
 <p>打印用户名、UID 和该用户所属的所有组，要这么做，我们可以使用 -a 选项：</p>
-<pre><code>[root@localhost ~]# id -a
+<pre><code>[root@localhost ~]<span class="hljs-comment"># id -a</span>
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel)
 </code></pre><p>输出所有不同的组ID ，有效的，真实的和补充的，我们可以使用 -G 选项来实现：</p>
-<pre><code>[root@localhost ~]# id -G
+<pre><code>[root@localhost ~]<span class="hljs-comment"># id -G</span>
 0 1 2 3 4 6 10
 </code></pre><p>结果只会显示GID号。你可以和<code>/etc/group</code>文件比较。下面是<code>/etc/group</code>文件的示例内容：</p>
 <p>只输出有效的组ID，通过使用 -g 选项来只输出有效组ID：</p>
-<pre><code>[root@localhost ~]# id -g
+<pre><code>[root@localhost ~]<span class="hljs-comment"># id -g</span>
 0
 </code></pre><p>输出特定用户信息，我们可以输出特定的用户信息相关的UID和GID。只需要在id命令后跟上用户名：</p>
-<pre><code>[root@localhost ~]# id www
+<pre><code>[root@localhost ~]<span class="hljs-comment"># id www</span>
 uid=500(www) gid=500(www) groups=500(www)
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>

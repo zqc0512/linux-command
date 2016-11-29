@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="ncftp:是增强的的FTP工具 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,ncftp">
     <title>ncftp - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -48,11 +48,11 @@
 </code></pre><h3 id="参数">参数</h3><p>FTP服务器：指定远程FTP服务器的ip地址或主机名。</p>
 <h3 id="安装">安装</h3><pre><code>wget ftp://ftp.ncftp.com/ncftp/ncftp-3.2.3-src.tar.gz
 tar zxvf ncftp-3.2.3-src.tar.gz
-cd ncftp-3.2.3/
-./configure --prefix=/usr/local/ncftp
+<span class="hljs-built_in">cd</span> ncftp-3.2.3/
+./configure --prefix=/usr/<span class="hljs-built_in">local</span>/ncftp
 make &amp;&amp; make install
 </code></pre><h3 id="实例">实例</h3><p>将本地/etc/目录内的所有文件和目录，上传到FTP服务器的flv/games/目录内(如果不存在flv/games/目录则自动创建)。</p>
-<pre><code>/usr/local/ncftp/bin/ncftpput -u koumm -p koumm -P 21 -m -R 192.168.162.137  flv/games/ /etc/*
+<pre><code>/usr/<span class="hljs-built_in">local</span>/ncftp/bin/ncftpput -u koumm -p koumm -P 21 -m -R 192.168.162.137  flv/games/ /etc/*
 </code></pre><p> <strong>指令说明</strong> </p>
 <p>ncftp的基本命令和普通ftp一样，可以输入help获得命令列表。对于所有的命令，都可以使用help &lt;命令&gt;的格式获得详细帮助。l开头的就是对本地执行的命令，其它的就是对登入的ftp服务目录的操作命令。</p>
 <p>增加的本地文件系统的操作命令：</p>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="rcp:使在两台Linux主机之间的文件复制操作更简单 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,rcp">
     <title>rcp - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -55,20 +55,20 @@
 <p>方法：用执行ntsysv命令，在rsh选项前用空格键选中，确定退出。然后执行<code>service xinetd restart</code>即可。</p>
 <p>3、到<code>/etc/pam.d/</code>目录下，把rsh文件中的<code>auth required /lib/security/pam_securetty.so</code>一行用“#”注释掉即可。（只有注释掉这一行，才能用root用户登录）</p>
 <p> <strong>将当前目录下的 test1 复制到名为 webserver1 的远程系统：</strong> </p>
-<pre><code>rcp test1 webserver1:/home/root/test3
+<pre><code>rcp <span class="hljs-built_in">test</span>1 webserver1:/home/root/<span class="hljs-built_in">test</span>3
 </code></pre><p>在这种情况下，test1 被复制到远程子目录 test3下，名称仍为 test1 。如果仅提供了远程主机名，rcp 将把 test1 复制到远程主目录下，名称仍为 test1 。</p>
 <p> <strong>还可以在目的目录中包含文件名。例如，将文件复制到名为 webserver1的系统中：</strong> </p>
-<pre><code>rcp test1 webserver1:/home/root/test3
+<pre><code>rcp <span class="hljs-built_in">test</span>1 webserver1:/home/root/<span class="hljs-built_in">test</span>3
 </code></pre><p>在这种情况下，将 test1 复制到远程目录root 下并将其命名为 test3。</p>
 <p> <strong>从远程系统复制文件：要将远程系统中的文件复制到本地目录下：</strong> </p>
 <pre><code>rcp remote_hostname:remote_file local_fileEnter
 </code></pre><p> <strong>将远程系统 webserver1中的 test2 复制到当前目录：</strong> </p>
-<pre><code>rcp webserver1:/home/root/test2 .Enter
+<pre><code>rcp webserver1:/home/root/<span class="hljs-built_in">test</span>2 .Enter
 </code></pre><p><code>.</code>是“当前目录”的简写形式。在这种情况下，远程目录中的 test2 被复制到当前目录下，名称仍为 test2 。</p>
 <p>如果希望用新名称复制文件，请提供目标文件名。如果希望将 test2 复制到本地系统中的其他目录下，请使用以下绝对或相对路径名：</p>
-<pre><code>rcp webserver1:/home/root/test2 otherdir/ Enter
+<pre><code>rcp webserver1:/home/root/<span class="hljs-built_in">test</span>2 otherdir/ Enter
 </code></pre><p>或者，如果希望用其他文件名将文件复制到其他目录下：</p>
-<pre><code>rcp webserver1:/home/root/test2 otherdir/otherfile Enter
+<pre><code>rcp webserver1:/home/root/<span class="hljs-built_in">test</span>2 otherdir/otherfile Enter
 </code></pre><p> <strong>将目录复制到远程系统：</strong> </p>
 <p>要将本地目录及其文件和子目录复制到远程系统，请同时使用 rcp 和 -r（递归）选项。</p>
 <pre><code>rcp -r local_dir remote_hostname:remote_dir Enter

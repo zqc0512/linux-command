@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="egrep:在文件内查找指定的字符串 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,egrep">
     <title>egrep - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -43,20 +43,20 @@
 </code></pre><h3 id="实例">实例</h3><p>显示文件中符合条件的字符。例如，查找当前目录下所有文件中包含字符串&quot;Linux&quot;的文件，可以使用如下命令：</p>
 <pre><code>egrep Linux *
 </code></pre><p>结果如下所示：</p>
-<pre><code>#以下五行为 testfile 中包含Linux字符的行
+<pre><code><span class="hljs-comment">#以下五行为 testfile 中包含Linux字符的行</span>
 testfile:hello Linux!
 testfile:Linux is a free Unix-type operating system.
 testfile:This is a Linux testfile!
 testfile:Linux
 testfile:Linux
 
-#以下两行为testfile1中含Linux字符的行
+<span class="hljs-comment">#以下两行为testfile1中含Linux字符的行</span>
 testfile1:helLinux!
 testfile1:This a Linux testfile!
 
-#以下两行为 testfile_2 中包含Linux字符的行
+<span class="hljs-comment">#以下两行为 testfile_2 中包含Linux字符的行</span>
 testfile_2:Linux is a free unix-type opterating system
-testfile_2:Linux test
+testfile_2:Linux <span class="hljs-built_in">test</span>
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 

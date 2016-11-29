@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="exit:退出当前的shell - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,exit">
     <title>exit - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -39,26 +39,26 @@
 
 <h1 id="exit">exit</h1><p>退出当前的shell</p>
 <h2 id="补充说明">补充说明</h2><p><strong>exit命令</strong> 同于退出shell，并返回给定值。在shell脚本中可以终止当前脚本执行。执行exit可使shell以指定的状态值退出。若不设置状态值参数，则shell以预设值退出。状态值0代表执行成功，其他值代表执行失败。</p>
-<h3 id="语法">语法</h3><pre><code>exit(参数)
+<h3 id="语法">语法</h3><pre><code><span class="hljs-built_in">exit</span>(参数)
 </code></pre><h3 id="参数">参数</h3><p>返回值：指定shell返回值。</p>
 <h3 id="实例">实例</h3><p>退出当前shell：</p>
-<pre><code>[root@localhost ~]# exit
-logout
+<pre><code>[root@localhost ~]<span class="hljs-comment"># exit</span>
+<span class="hljs-built_in">logout</span>
 </code></pre><p>在脚本中，进入脚本所在目录，否则退出：</p>
-<pre><code>cd $(dirname $0) || exit 1
+<pre><code><span class="hljs-built_in">cd</span> $(dirname <span class="hljs-variable">$0</span>) || <span class="hljs-built_in">exit</span> 1
 </code></pre><p>在脚本中，判断参数数量，不匹配就打印使用方式，退出：</p>
-<pre><code>if [ &quot;$#&quot; -ne &quot;2&quot; ]; then
-    echo &quot;usage: $0 &lt;area&gt; &lt;hours&gt;&quot;
-    exit 2
-fi
+<pre><code><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$#</span>"</span> <span class="hljs-_">-ne</span> <span class="hljs-string">"2"</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"usage: <span class="hljs-variable">$0</span> &lt;area&gt; &lt;hours&gt;"</span>
+    <span class="hljs-built_in">exit</span> 2
+<span class="hljs-keyword">fi</span>
 </code></pre><p>在脚本中，退出时删除临时文件：</p>
-<pre><code>trap &quot;rm -f tmpfile; echo Bye.&quot; EXIT
+<pre><code><span class="hljs-built_in">trap</span> <span class="hljs-string">"rm -f tmpfile; echo Bye."</span> EXIT
 </code></pre><p>检查上一命令的退出码：</p>
 <pre><code>./mycommand.sh
 EXCODE=$?
-if [ &quot;$EXCODE&quot; == &quot;0&quot; ]; then
-    echo &quot;O.K&quot;
-fi
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$EXCODE</span>"</span> == <span class="hljs-string">"0"</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"O.K"</span>
+<span class="hljs-keyword">fi</span>
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="indent:格式化C语言的源文件 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,indent">
     <title>indent - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -46,18 +46,18 @@ indent（选项)(源文件)(-o 目标文件)
 -bap：添加空白行；
 -bbb：在注释后面添加空白行；
 -bc：在声明段中，如果出现逗号就换行；
--bl：if（或是else、for等）与后面执行区段的“{”不同行，且“}”自成一行-bli&lt;缩排格数&gt;设置{}缩排的格数；
--br：if（或是else、for等）与后面执行区段的“{”同行，且“}”自成一行；
+-bl：<span class="hljs-keyword">if</span>（或是<span class="hljs-keyword">else</span>、<span class="hljs-keyword">for</span>等）与后面执行区段的“{”不同行，且“}”自成一行-bli&lt;缩排格数&gt;设置{}缩排的格数；
+-br：<span class="hljs-keyword">if</span>（或是<span class="hljs-keyword">else</span>、<span class="hljs-keyword">for</span>等）与后面执行区段的“{”同行，且“}”自成一行；
 -bs：在sizeof之后空一格；
 -c&lt;栏数&gt;：将注释置于程序右侧指定的栏位；
 -cd&lt;栏数&gt;：将注释置于声明右侧指定的栏位；
 -cdb：注释符号自成一行；
--ce：将else置于“}”（if执行区段的结尾）之后；
+-ce：将<span class="hljs-keyword">else</span>置于“}”（<span class="hljs-keyword">if</span>执行区段的结尾）之后；
 -ci：&lt;缩排格数&gt;：叙述过长而换行时，指定换行后缩排的格数；
--cli&lt;缩排格数&gt;：使用case时，switch缩排的格数；
--cp&lt;栏数&gt;：将注释置于else与elseif叙述右侧指定的栏位；
--cs：在case之后空一格；
--d&lt;缩排格数&gt;：针对不是放在程序码右侧的注释，设置其缩排格数；
+-cli&lt;缩排格数&gt;：使用<span class="hljs-keyword">case</span>时，switch缩排的格数；
+-cp&lt;栏数&gt;：将注释置于<span class="hljs-keyword">else</span>与elseif叙述右侧指定的栏位；
+-cs：在<span class="hljs-keyword">case</span>之后空一格；
+<span class="hljs-_">-d</span>&lt;缩排格数&gt;：针对不是放在程序码右侧的注释，设置其缩排格数；
 -di&lt;栏数&gt;：将声明区段的变量置于指定的栏位；
 -fc1：针对放在每行最前端的注释，设置其格式；
 -fca：设置所有注释的格式；
@@ -71,8 +71,8 @@ indent（选项)(源文件)(-o 目标文件)
 -nbbb：在注释段后面不添加空白行；
 -nbc：在声明段中，即使出现逗号，也不换行；
 -ncdb：注释符号不自成一行；
--nce：不将else置于“}”后面；
--ncs：不在case后面空一格；
+-nce：不将<span class="hljs-keyword">else</span>置于“}”后面；
+-ncs：不在<span class="hljs-keyword">case</span>后面空一格；
 -nfc1：不要格式化放在每行最前端的注释；
 -nfca：不用格式化任何的注释；
 -nip：参数不要缩排；
@@ -82,14 +82,14 @@ indent（选项)(源文件)(-o 目标文件)
 -npsl：程序类型与程序名称放在同一行；
 -nsc：注释左侧不要添加星号；
 -nsob：不用处理多余的空白行；
--nss：若for或while区段仅有一行时，在分号前不加空格；
+-nss：若<span class="hljs-keyword">for</span>或<span class="hljs-keyword">while</span>区段仅有一行时，在分号前不加空格；
 -nv：不显示详细的信息；
 -orig：使用berkeley格式；
 -pcs：在调用函数名与“{”之间添加空格；
 -psl：程序类型置于程序名称的前一行；
 -sc：在每行注释左侧添加星号；
 -sob：删除多余的空白行；
--ss：若for或swile区段仅有一行时，在分号前加上空格；
+-ss：若<span class="hljs-keyword">for</span>或swile区段仅有一行时，在分号前加上空格；
 -st：将结果显示在标准输出设备上；
 -T：数据类型名称缩排；
 -ts&lt;格数&gt;：设置tab的长度；

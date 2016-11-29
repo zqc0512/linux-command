@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="cpio:用来建立、还原备份档的工具程序 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,cpio">
     <title>cpio - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -41,21 +41,21 @@
 <h2 id="补充说明">补充说明</h2><p><strong>cpio命令</strong> 主要是用来建立或者还原备份档的工具程序，cpio命令可以复制文件到归档包中，或者从归档包中复制文件。</p>
 <h3 id="语法">语法</h3><pre><code>cpio(选项)
 </code></pre><h3 id="选项">选项</h3><pre><code>-0或--null：接受新增列控制字符，通常配合find指令的“-print0”参数使用；
--a或--rest-access-time：重新设置文件的存取时间；
+<span class="hljs-_">-a</span>或--rest-access-time：重新设置文件的存取时间；
 -A或--append：附加到已存在的备份文档中，且这个备份文档必须存放在磁盘上，而不能放置于磁带机里；
 -b或--awap：此参数的效果和同时指定“-ss”参数相同；
 -B：将输入/输出的区块大小改成5210Bytes；
 -c：使用旧ASCII备份格式；
 -C&lt;区块大小&gt;或--io-size=&lt;区块大小&gt;：设置输入/输出的区块大小，单位是Byte；
--d或--make-directories：如有需要cpio会自行建立目录；
+<span class="hljs-_">-d</span>或--make-directories：如有需要cpio会自行建立目录；
 -E&lt;范本文件&gt;或--pattern-file=&lt;范本文件&gt;：指定范本文件，其内含有一个或多个范本样式，让cpio解开符合范本条件的文件，格式为每列一个范本样式；
--f或--nonmatching：让cpio解开所有不符合范本条件的文件；
+<span class="hljs-_">-f</span>或--nonmatching：让cpio解开所有不符合范本条件的文件；
 -F&lt;备份档&gt;或--file=&lt;备份档&gt;：指定备份档的名称，用来取代标准输入或输出，也能借此通过网络使用另一台主机的保存设备存取备份档；
 -H&lt;备份格式&gt;：指定备份时欲使用的文件格式；
 -i或--extract：执行copy-in模式，还原备份档；
--l&lt;备份档&gt;：指定备份档的名称，用来取代标准输入，也能借此通过网络使用另一台主机的保存设备读取备份档；
+<span class="hljs-_">-l</span>&lt;备份档&gt;：指定备份档的名称，用来取代标准输入，也能借此通过网络使用另一台主机的保存设备读取备份档；
 -k：此参数将忽略不予处理，仅负责解决cpio不同版本间的兼容性问题；
--l或--link：以硬连接的方式取代复制文件，可在copy-pass模式下运用；
+<span class="hljs-_">-l</span>或--link：以硬连接的方式取代复制文件，可在copy-pass模式下运用；
 -L或--dereference：不建立符号连接，直接复制该连接所指向的原始文件；
 -m或preserve-modification-time：不去更改文件的更改时间；
 -M&lt;回传信息&gt;或--message=&lt;回传信息&gt;：设置更换保存媒体的信息；
@@ -65,7 +65,7 @@
 -p或--pass-through：执行copy-pass模式，略过备份步骤，直接将文件复制到目的目录；
 -r或--rename：当有文件名称需要更改时，采用互动模式；
 -R&lt;拥有者&gt;&lt;:/.&gt;&lt;所属群组&gt;或----owner&lt;拥有者&gt;&lt;:/.&gt;&lt;所属群组&gt;   在copy-in模式还原备份档，或copy-pass模式复制文件时，可指定这些备份，复制的文件的拥有者与所属群组；
--s或--swap-bytes：交换每队字节的内容；
+<span class="hljs-_">-s</span>或--swap-bytes：交换每队字节的内容；
 -S或--swap-halfwords：交换每半个字节的内容；
 -t或--list：将输入的内容呈现出来；
 -u或--unconditional：置换所有文件，不论日期时间的新旧与否，皆不予询问而直接覆盖；
@@ -81,7 +81,7 @@
 --sparse：倘若一个文件内含有大量的连续0字节，则将此文件存在稀疏文件；
 --version：显示版本信息。
 </code></pre><h3 id="实例">实例</h3><p> <strong>将<code>/etc</code>下的所有普通文件都备份到<code>/opt/etc.cpio</code>，使用以下命令：</strong> </p>
-<pre><code>find /etc –type f | cpio –ocvB &gt;/opt/etc.cpio
+<pre><code>find /etc –<span class="hljs-built_in">type</span> f | cpio –ocvB &gt;/opt/etc.cpio
 </code></pre><p> <strong>将系统上所有资料备份到磁带机内，使用以下命令：</strong> </p>
 <pre><code>find / -print | cpio -covB &gt; /dev/st0
 </code></pre><p>这里的<code>/dev/st0</code>是磁带的设备名，代表SCSI磁带机。</p>

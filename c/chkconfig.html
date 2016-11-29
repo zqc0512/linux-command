@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="chkconfig:检查或设置系统的各种服务 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,chkconfig">
     <title>chkconfig - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -57,17 +57,17 @@
 <p>运行级文件：</p>
 <p>每个被chkconfig管理的服务需要在对应的init.d下的脚本加上两行或者更多行的注释。第一行告诉chkconfig缺省启动的运行级以及启动和停止的优先级。如果某服务缺省不在任何运行级启动，那么使用<code>-</code>代替运行级。第二行对服务进行描述，可以用<code>\</code>跨行注释。</p>
 <p>例如random.init包含三行：</p>
-<pre><code># chkconfig: 2345 20 80
-# description: Saves and restores system entropy pool for \
-# higher quality random number generation.
-</code></pre><h3 id="实例">实例</h3><pre><code>chkconfig --list             #列出所有的系统服务。
-chkconfig --add httpd        #增加httpd服务。
-chkconfig --del httpd        #删除httpd服务。
-chkconfig --level httpd 2345 on        #设置httpd在运行级别为2、3、4、5的情况下都是on（开启）的状态。
-chkconfig --list               #列出系统所有的服务启动情况。
-chkconfig --list mysqld        #列出mysqld服务设置情况。
-chkconfig --level 35 mysqld on #设定mysqld在等级3和5为开机运行服务，--level 35表示操作只在等级3和5执行，on表示启动，off表示关闭。
-chkconfig mysqld on            #设定mysqld在各等级为on，“各等级”包括2、3、4、5等级。
+<pre><code><span class="hljs-comment"># chkconfig: 2345 20 80</span>
+<span class="hljs-comment"># description: Saves and restores system entropy pool for \</span>
+<span class="hljs-comment"># higher quality random number generation.</span>
+</code></pre><h3 id="实例">实例</h3><pre><code>chkconfig --list             <span class="hljs-comment">#列出所有的系统服务。</span>
+chkconfig --add httpd        <span class="hljs-comment">#增加httpd服务。</span>
+chkconfig --del httpd        <span class="hljs-comment">#删除httpd服务。</span>
+chkconfig --level httpd 2345 on        <span class="hljs-comment">#设置httpd在运行级别为2、3、4、5的情况下都是on（开启）的状态。</span>
+chkconfig --list               <span class="hljs-comment">#列出系统所有的服务启动情况。</span>
+chkconfig --list mysqld        <span class="hljs-comment">#列出mysqld服务设置情况。</span>
+chkconfig --level 35 mysqld on <span class="hljs-comment">#设定mysqld在等级3和5为开机运行服务，--level 35表示操作只在等级3和5执行，on表示启动，off表示关闭。</span>
+chkconfig mysqld on            <span class="hljs-comment">#设定mysqld在各等级为on，“各等级”包括2、3、4、5等级。</span>
 </code></pre><p>如何增加一个服务：</p>
 <ol>
 <li>服务脚本必须存放在<code>/etc/ini.d/</code>目录下；</li>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="fsck:检查并且试图修复文件系统中的错误 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,fsck">
     <title>fsck - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -40,13 +40,13 @@
 <h1 id="fsck">fsck</h1><p>检查并且试图修复文件系统中的错误</p>
 <h2 id="补充说明">补充说明</h2><p><strong>fsck命令</strong> 被用于检查并且试图修复文件系统中的错误。当文件系统发生错误四化，可用fsck指令尝试加以修复。</p>
 <h3 id="语法">语法</h3><pre><code>fsck(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-a：自动修复文件系统，不询问任何问题；
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-a</span>：自动修复文件系统，不询问任何问题；
 -A：依照/etc/fstab配置文件的内容，检查文件内所列的全部文件系统；
 -N：不执行指令，仅列出实际执行会进行的动作；
--P：当搭配&quot;-A&quot;参数使用时，则会同时检查所有的文件系统；
+-P：当搭配<span class="hljs-string">"-A"</span>参数使用时，则会同时检查所有的文件系统；
 -r：采用互动模式，在执行修复时询问问题，让用户得以确认并决定处理方式；
--R：当搭配&quot;-A&quot;参数使用时，则会略过/目录的文件系统不予检查；
--s：依序执行检查作业，而非同时执行；
+-R：当搭配<span class="hljs-string">"-A"</span>参数使用时，则会略过/目录的文件系统不予检查；
+<span class="hljs-_">-s</span>：依序执行检查作业，而非同时执行；
 -t&lt;文件系统类型&gt;：指定要检查的文件系统类型；
 -T：执行fsck指令时，不显示标题信息；
 -V：显示指令执行过程。

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="cksum:检查文件的CRC是否正确 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,cksum">
     <title>cksum - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -46,9 +46,9 @@
 --version：显示版本信息。
 </code></pre><h3 id="参数">参数</h3><p>文件：指定要计算校验的版本信息。</p>
 <h3 id="实例">实例</h3><p>使用cksum命令计算文件&quot;testfile1&quot;的完整性，输入如下命令：</p>
-<pre><code>cksum testfile1            #对指定文件进行CRC校验
+<pre><code>cksum testfile1            <span class="hljs-comment">#对指定文件进行CRC校验</span>
 </code></pre><p>以上命令执行后，将输出校验码等相关的信息，具体输出信息如下所示：</p>
-<pre><code>1263453430 78 testfile1     #输出信息
+<pre><code>1263453430 78 testfile1     <span class="hljs-comment">#输出信息</span>
 </code></pre><p>上面的输出信息中，&quot;1263453430&quot;表示校验码，&quot;78&quot;表示字节数。</p>
 <p>注意：如果文件中有任何字符被修改，都将改变计算后CRC校验码的值。</p>
 <!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

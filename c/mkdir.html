@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="mkdir:用来创建目录 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,mkdir">
     <title>mkdir - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -48,7 +48,7 @@
 --version 显示版本信息。
 </code></pre><h3 id="参数">参数</h3><p>目录：指定要创建的目录列表，多个目录之间用空格隔开。</p>
 <h3 id="实例">实例</h3><p>在目录<code>/usr/meng</code>下建立子目录test，并且只有文件主有读、写和执行权限，其他人无权访问</p>
-<pre><code>mkdir -m 700 /usr/meng/test
+<pre><code>mkdir -m 700 /usr/meng/<span class="hljs-built_in">test</span>
 </code></pre><p>在当前目录中建立bin和bin下的os_1目录，权限设置为文件主可读、写、执行，同组用户可读和执行，其他用户无权访问</p>
 <pre><code>mkdir -p-m 750 bin/os_1
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

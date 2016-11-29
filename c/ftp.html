@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="ftp:用来设置文件系统相关功能 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,ftp">
     <title>ftp - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -40,7 +40,7 @@
 <h1 id="ftp">ftp</h1><p>用来设置文件系统相关功能</p>
 <h2 id="补充说明">补充说明</h2><p><strong>ftp命令</strong> 用来设置文件系统相关功能。ftp服务器在网上较为常见，Linux ftp命令的功能是用命令的方式来控制在本地机和远程机之间传送文件，这里详细介绍Linux ftp命令的一些经常使用的命令，相信掌握了这些使用Linux进行ftp操作将会非常容易。</p>
 <h3 id="语法">语法</h3><pre><code>ftp(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-d：详细显示指令执行过程，便于排错或分析程序执行的情况；
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-d</span>：详细显示指令执行过程，便于排错或分析程序执行的情况；
 -i：关闭互动模式，不询问任何问题；
 -g：关闭本地主机文件名称支持特殊字符的扩充特性；
 -n：不使用自动登录；
@@ -49,36 +49,36 @@
 <h3 id="实例">实例</h3><pre><code>FTP&gt;ascii: 设定以ASCII方式传送文件(缺省值)
 FTP&gt;bell: 每完成一次文件传送,报警提示.
 FTP&gt;binary: 设定以二进制方式传送文件.
-FTP&gt;bye: 终止主机FTP进程,并退出FTP管理方式.
-FTP&gt;case: 当为ON时,用MGET命令拷贝的文件名到本地机器中,全部转换为小写字母.
-FTP&gt;cd: 同UNIX的CD命令.
+FTP&gt;<span class="hljs-built_in">bye</span>: 终止主机FTP进程,并退出FTP管理方式.
+FTP&gt;<span class="hljs-keyword">case</span>: 当为ON时,用MGET命令拷贝的文件名到本地机器中,全部转换为小写字母.
+FTP&gt;<span class="hljs-built_in">cd</span>: 同UNIX的CD命令.
 FTP&gt;cdup: 返回上一级目录.
 FTP&gt;chmod: 改变远端主机的文件权限.
 FTP&gt;close: 终止远端的FTP进程,返回到FTP命令状态, 所有的宏定义都被删除.
 FTP&gt;delete: 删除远端主机中的文件.
 FTP&gt;dir remote-directory] 列出当前远端主机目录中的文件.如果有本地文件,就将结果写至本地文件.
-FTP&gt;get [remote-file] [local-file] 从远端主机中传送至本地主机中.
-FTP&gt;help [command] 输出命令的解释.
+FTP&gt;get [remote-file] [<span class="hljs-built_in">local</span>-file] 从远端主机中传送至本地主机中.
+FTP&gt;<span class="hljs-built_in">help</span> [<span class="hljs-built_in">command</span>] 输出命令的解释.
 FTP&gt;lcd: 改变当前本地主机的工作目录,如果缺省,就转到当前用户的HOME目录.
-FTP&gt;ls [remote-directory] [local-file] 同DIR.
+FTP&gt;ls [remote-directory] [<span class="hljs-built_in">local</span>-file] 同DIR.
 FTP&gt;macdef: 定义宏命令.
 FTP&gt;mdelete [remote-files] 删除一批文件.
 FTP&gt;mget [remote-files] 从远端主机接收一批文件至本地主机.
 FTP&gt;mkdir directory-name 在远端主机中建立目录.
-FTP&gt;mput local-files 将本地主机中一批文件传送至远端主机.
+FTP&gt;mput <span class="hljs-built_in">local</span>-files 将本地主机中一批文件传送至远端主机.
 FTP&gt;open host [port] 重新建立一个新的连接.
 FTP&gt;prompt: 交互提示模式.
-FTP&gt;put local-file [remote-file] 将本地一个文件传送至远端主机中.
-FTP&gt;pwd: 列出当前远端主机目录.
+FTP&gt;put <span class="hljs-built_in">local</span>-file [remote-file] 将本地一个文件传送至远端主机中.
+FTP&gt;<span class="hljs-built_in">pwd</span>: 列出当前远端主机目录.
 FTP&gt;quit: 同BYE.
-FTP&gt;recv remote-file [local-file] 同GET.
+FTP&gt;recv remote-file [<span class="hljs-built_in">local</span>-file] 同GET.
 FTP&gt;rename [from] [to] 改变远端主机中的文件名.
 FTP&gt;rmdir directory-name 删除远端主机中的目录.
-FTP&gt;send local-file [remote-file] 同PUT.
+FTP&gt;send <span class="hljs-built_in">local</span>-file [remote-file] 同PUT.
 FTP&gt;status: 显示当前FTP的状态.
 FTP&gt;system: 显示远端主机系统类型.
 FTP&gt;user user-name [password] [account] 重新以别的用户名登录远端主机.
-FTP&gt;? [command]: 同HELP. [command]指定需要帮助的命令名称。如果没有指定 command，ftp 将显示全部命令的列表。
+FTP&gt;? [<span class="hljs-built_in">command</span>]: 同HELP. [<span class="hljs-built_in">command</span>]指定需要帮助的命令名称。如果没有指定 <span class="hljs-built_in">command</span>，ftp 将显示全部命令的列表。
 FTP&gt;! 从 ftp 子系统退出到外壳。
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>

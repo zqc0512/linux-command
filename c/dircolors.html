@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="dircolors:置ls命令在显示目录或文件时所用的色彩 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,dircolors">
     <title>dircolors - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -46,12 +46,12 @@
 -help：显示帮助；
 -version：显示版本信息。
 </code></pre><h3 id="参数">参数</h3><p>文件：指定用来设置颜色的文件。</p>
-<h3 id="实例">实例</h3><pre><code>[root@localhost ~]# dircolors -p
-# Configuration file for dircolors, a utility to help you set the
-# LS_COLORS environment variable used by GNU ls with the --color option.
-# The keywords COLOR, OPTIONS, and EIGHTBIT (honored by the
-# slackware version of dircolors) are recognized but ignored.
-# Below, there should be one TERM entry for each termtype that is colorizable
+<h3 id="实例">实例</h3><pre><code>[root@localhost ~]<span class="hljs-comment"># dircolors -p</span>
+<span class="hljs-comment"># Configuration file for dircolors, a utility to help you set the</span>
+<span class="hljs-comment"># LS_COLORS environment variable used by GNU ls with the --color option.</span>
+<span class="hljs-comment"># The keywords COLOR, OPTIONS, and EIGHTBIT (honored by the</span>
+<span class="hljs-comment"># slackware version of dircolors) are recognized but ignored.</span>
+<span class="hljs-comment"># Below, there should be one TERM entry for each termtype that is colorizable</span>
 TERM linux
 TERM linux-c
 TERM mach-color
@@ -78,42 +78,42 @@ TERM screen-bce
 TERM screen-w
 TERM vt100
 TERM Eterm
-# Below are the color init strings for the basic file types. A color init
-# string consists of one or more of the following numeric codes:
-# Attribute codes:
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
-# Text color codes:
-# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
-# Background color codes:
-# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
-NORMAL 00 # global default, although everything should be something.
-FILE 00 # normal file
-DIR 01;34 # directory
-LINK 01;36 # symbolic link. (If you set this to &#39;target&#39; instead of a
- # numerical value, the color is as for the file pointed to.)
-FIFO 40;33 # pipe
-SOCK 01;35 # socket
-DOOR 01;35 # door
-BLK 40;33;01 # block device driver
-CHR 40;33;01 # character device driver
-ORPHAN 40;31;01 # symlink to nonexistent file
-SETUID 37;41 # file that is setuid (u+s)
-SETGID 30;43 # file that is setgid (g+s)
-STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE 34;42 # dir that is other-writable (o+w) and not sticky
-STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
-# This is for files with execute permission:
-exec 01;32
-# List any file extensions like &#39;.gz&#39; or &#39;.tar&#39; that you would like ls
-# to colorize below. Put the extension, a space, and the color init string.
-# (and any comments you want to add after a &#39;#&#39;)
-# If you use DOS-style suffixes, you may want to uncomment the following:
-#.cmd 01;32 # executables (bright green)
-#.exe 01;32
-#.com 01;32
-#.btm 01;32
-#.bat 01;32
-.tar 01;31 # archives or compressed (bright red)
+<span class="hljs-comment"># Below are the color init strings for the basic file types. A color init</span>
+<span class="hljs-comment"># string consists of one or more of the following numeric codes:</span>
+<span class="hljs-comment"># Attribute codes:</span>
+<span class="hljs-comment"># 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed</span>
+<span class="hljs-comment"># Text color codes:</span>
+<span class="hljs-comment"># 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white</span>
+<span class="hljs-comment"># Background color codes:</span>
+<span class="hljs-comment"># 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white</span>
+NORMAL 00 <span class="hljs-comment"># global default, although everything should be something.</span>
+FILE 00 <span class="hljs-comment"># normal file</span>
+DIR 01;34 <span class="hljs-comment"># directory</span>
+LINK 01;36 <span class="hljs-comment"># symbolic link. (If you set this to 'target' instead of a</span>
+ <span class="hljs-comment"># numerical value, the color is as for the file pointed to.)</span>
+FIFO 40;33 <span class="hljs-comment"># pipe</span>
+SOCK 01;35 <span class="hljs-comment"># socket</span>
+DOOR 01;35 <span class="hljs-comment"># door</span>
+BLK 40;33;01 <span class="hljs-comment"># block device driver</span>
+CHR 40;33;01 <span class="hljs-comment"># character device driver</span>
+ORPHAN 40;31;01 <span class="hljs-comment"># symlink to nonexistent file</span>
+SETUID 37;41 <span class="hljs-comment"># file that is setuid (u+s)</span>
+SETGID 30;43 <span class="hljs-comment"># file that is setgid (g+s)</span>
+STICKY_OTHER_WRITABLE 30;42 <span class="hljs-comment"># dir that is sticky and other-writable (+t,o+w)</span>
+OTHER_WRITABLE 34;42 <span class="hljs-comment"># dir that is other-writable (o+w) and not sticky</span>
+STICKY 37;44 <span class="hljs-comment"># dir with the sticky bit set (+t) and not other-writable</span>
+<span class="hljs-comment"># This is for files with execute permission:</span>
+<span class="hljs-built_in">exec</span> 01;32
+<span class="hljs-comment"># List any file extensions like '.gz' or '.tar' that you would like ls</span>
+<span class="hljs-comment"># to colorize below. Put the extension, a space, and the color init string.</span>
+<span class="hljs-comment"># (and any comments you want to add after a '#')</span>
+<span class="hljs-comment"># If you use DOS-style suffixes, you may want to uncomment the following:</span>
+<span class="hljs-comment">#.cmd 01;32 # executables (bright green)</span>
+<span class="hljs-comment">#.exe 01;32</span>
+<span class="hljs-comment">#.com 01;32</span>
+<span class="hljs-comment">#.btm 01;32</span>
+<span class="hljs-comment">#.bat 01;32</span>
+.tar 01;31 <span class="hljs-comment"># archives or compressed (bright red)</span>
 .tgz 01;31
 .arj 01;31
 .taz 01;31
@@ -126,7 +126,7 @@ exec 01;32
 .deb 01;31
 .rpm 01;31
 .jar 01;31
-# image formats
+<span class="hljs-comment"># image formats</span>
 .jpg 01;35
 .jpeg 01;35
 .gif 01;35
@@ -149,7 +149,7 @@ exec 01;32
 .dl 01;35
 .xcf 01;35
 .xwd 01;35
-# audio formats
+<span class="hljs-comment"># audio formats</span>
 .flac 01;35
 .mp3 01;35
 .mpc 01;35

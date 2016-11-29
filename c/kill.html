@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="kill:删除执行中的程序或工作 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,kill">
     <title>kill - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -39,15 +39,15 @@
 
 <h1 id="kill">kill</h1><p>删除执行中的程序或工作</p>
 <h2 id="补充说明">补充说明</h2><p><strong>kill命令</strong> 用来删除执行中的程序或工作。kill可将指定的信息送至程序。预设的信息为SIGTERM(15),可将指定程序终止。若仍无法终止该程序，可使用SIGKILL(9)信息尝试强制删除程序。程序或工作的编号可利用ps指令或job指令查看。</p>
-<h3 id="语法">语法</h3><pre><code>kill(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-a：当处理当前进程时，不限制命令名和进程号的对应关系；
--l &lt;信息编号&gt;：若不加&lt;信息编号&gt;选项，则-l参数会列出全部的信息名称；
--p：指定kill 命令只打印相关进程的进程号，而不发送任何信号；
--s &lt;信息名称或编号&gt;：指定要送出的信息；
+<h3 id="语法">语法</h3><pre><code><span class="hljs-built_in">kill</span>(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-a</span>：当处理当前进程时，不限制命令名和进程号的对应关系；
+<span class="hljs-_">-l</span> &lt;信息编号&gt;：若不加&lt;信息编号&gt;选项，则<span class="hljs-_">-l</span>参数会列出全部的信息名称；
+-p：指定<span class="hljs-built_in">kill</span> 命令只打印相关进程的进程号，而不发送任何信号；
+<span class="hljs-_">-s</span> &lt;信息名称或编号&gt;：指定要送出的信息；
 -u：指定用户。
 </code></pre><h3 id="参数">参数</h3><p>进程或作业识别号：指定要删除的进程或作业。</p>
 <h3 id="实例">实例</h3><p>列出所有信号名称：</p>
-<pre><code> kill -l
+<pre><code> <span class="hljs-built_in">kill</span> <span class="hljs-_">-l</span>
  1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL
  5) SIGTRAP      6) SIGABRT      7) SIGBUS       8) SIGFPE
  9) SIGKILL     10) SIGUSR1     11) SIGSEGV     12) SIGUSR2
@@ -70,16 +70,16 @@ INT     2    中断（同 Ctrl + C）
 QUIT    3    退出（同 Ctrl + \）
 TERM   15    终止
 KILL    9    强制终止
-CONT   18    继续（与STOP相反， fg/bg命令）
+CONT   18    继续（与STOP相反， <span class="hljs-built_in">fg</span>/<span class="hljs-built_in">bg</span>命令）
 STOP   19    暂停（同 Ctrl + Z）
 </code></pre><p>先用ps查找进程，然后用kill杀掉：</p>
 <pre><code>ps -ef | grep vim
 root      3268  2884  0 16:21 pts/1    00:00:00 vim install.log
 root      3370  2822  0 16:21 pts/0    00:00:00 grep vim
 
-kill 3268
-kill 3268
--bash: kill: (3268) - 没有那个进程
+<span class="hljs-built_in">kill</span> 3268
+<span class="hljs-built_in">kill</span> 3268
+-bash: <span class="hljs-built_in">kill</span>: (3268) - 没有那个进程
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 

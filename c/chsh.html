@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="chsh:用来更换登录系统时使用的shell - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,chsh">
     <title>chsh - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -40,14 +40,14 @@
 <h1 id="chsh">chsh</h1><p>用来更换登录系统时使用的shell</p>
 <h2 id="补充说明">补充说明</h2><p><strong>chsh命令</strong> 用来更换登录系统时使用的shell。若不指定任何参数与用户名称，则chsh会以应答的方式进行设置。</p>
 <h3 id="语法">语法</h3><pre><code>chsh(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-s&lt;shell 名称&gt;或--shell&lt;shell 名称&gt;：更改系统预设的shell环境。；
--l或--list-shells：列出目前系统可用的shell清单；
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-s</span>&lt;shell 名称&gt;或--shell&lt;shell 名称&gt;：更改系统预设的shell环境。；
+<span class="hljs-_">-l</span>或--list-shells：列出目前系统可用的shell清单；
 -u或--help：在线帮助；
 -v或-version：显示版本信息。
 </code></pre><h3 id="参数">参数</h3><p>用户名：要改变默认shell的用户。</p>
 <h3 id="实例">实例</h3><p> <strong>查看系统安装了哪些shell的两种方法：</strong> </p>
 <p>第一种：</p>
-<pre><code>[rocrocket@localhost ~]$ chsh -l
+<pre><code>[rocrocket@localhost ~]$ chsh <span class="hljs-_">-l</span>
 /bin/sh
 /bin/bash
 /sbin/nologin
@@ -60,12 +60,12 @@
 /bin/zsh
 </code></pre><p>其实<code>chsh -l</code>也是来查看这个文件。</p>
 <p> <strong>查看当前正在使用的shell：</strong> </p>
-<pre><code>rocrocket@localhost ~ $SHELL
+<pre><code>rocrocket@localhost ~ <span class="hljs-variable">$SHELL</span>
 /bin/bash
 </code></pre><p>注意SHELL一定要是大写。可以看到，目前使用的shell是<code>/bin/bash</code></p>
 <p> <strong>把我的shell改成zsh：</strong> </p>
-<pre><code>[rocrocket@localhost ~]$ chsh -s /bin/zsh
-Changing shell for rocrocket.
+<pre><code>[rocrocket@localhost ~]$ chsh <span class="hljs-_">-s</span> /bin/zsh
+Changing shell <span class="hljs-keyword">for</span> rocrocket.
 Password:
 Shell changed.
 [rocrocket@localhost ~]$
@@ -74,8 +74,8 @@ Shell changed.
 rocrocket:x:500:500:rocrocket,China:/rocrocket/PSB/home:/bin/zsh
 </code></pre><p>你可以发现输出内容的最后部分已经变成了<code>/bin/zsh</code>了，下次重启的时候，linux就会读取这一命令来启动shell了！</p>
 <p> <strong>把shell修改回/bin/bash：</strong> </p>
-<pre><code>[rocrocket@localhost ~]$ chsh -s /bin/bash
-Changing shell for rocrocket.
+<pre><code>[rocrocket@localhost ~]$ chsh <span class="hljs-_">-s</span> /bin/bash
+Changing shell <span class="hljs-keyword">for</span> rocrocket.
 Password:
 Shell changed.
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

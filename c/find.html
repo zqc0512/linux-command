@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="find:在指定目录下查找文件 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,find">
     <title>find - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -59,7 +59,7 @@
 -fstype&lt;文件系统类型&gt;：只寻找该文件系统类型下的文件或目录；
 -gid&lt;群组识别码&gt;：查找符合指定之群组识别码的文件或目录；
 -group&lt;群组名称&gt;：查找符合指定之群组名称的文件或目录；
--help或——help：在线帮助；
+-help或——<span class="hljs-built_in">help</span>：在线帮助；
 -ilname&lt;范本样式&gt;：此参数的效果和指定“-lname”参数类似，但忽略字符大小写的差别；
 -iname&lt;范本样式&gt;：此参数的效果和指定“-name”参数类似，但忽略字符大小写的差别；
 -inum&lt;inode编号&gt;：查找符合指定的inode编号的文件或目录；
@@ -99,23 +99,23 @@
 <h3 id="实例">实例</h3><h4 id="根据文件或者正则表达式进行匹配">根据文件或者正则表达式进行匹配</h4><p>列出当前目录及子目录下所有文件和文件夹</p>
 <pre><code>find .
 </code></pre><p>在<code>/home</code>目录下查找以.txt结尾的文件名</p>
-<pre><code>find /home -name &quot;*.txt&quot;
+<pre><code>find /home -name <span class="hljs-string">"*.txt"</span>
 </code></pre><p>同上，但忽略大小写</p>
-<pre><code>find /home -iname &quot;*.txt&quot;
+<pre><code>find /home -iname <span class="hljs-string">"*.txt"</span>
 </code></pre><p>当前目录及子目录下查找所有以.txt和.pdf结尾的文件</p>
-<pre><code>find . \( -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot; \)
+<pre><code>find . \( -name <span class="hljs-string">"*.txt"</span> -o -name <span class="hljs-string">"*.pdf"</span> \)
 
 或
 
-find . -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot;
+find . -name <span class="hljs-string">"*.txt"</span> -o -name <span class="hljs-string">"*.pdf"</span>
 </code></pre><p>匹配文件路径或者文件</p>
-<pre><code>find /usr/ -path &quot;*local*&quot;
+<pre><code>find /usr/ -path <span class="hljs-string">"*local*"</span>
 </code></pre><p>基于正则表达式匹配文件路径</p>
-<pre><code>find . -regex &quot;.*\(\.txt\|\.pdf\){{content}}quot;
+<pre><code>find . -regex <span class="hljs-string">".*\(\.txt\|\.pdf\)$"</span>
 </code></pre><p>同上，但忽略大小写</p>
-<pre><code>find . -iregex &quot;.*\(\.txt\|\.pdf\){{content}}quot;
+<pre><code>find . -iregex <span class="hljs-string">".*\(\.txt\|\.pdf\)$"</span>
 </code></pre><h4 id="否定参数">否定参数</h4><p>找出/home下不是以.txt结尾的文件</p>
-<pre><code>find /home ! -name &quot;*.txt&quot;
+<pre><code>find /home ! -name <span class="hljs-string">"*.txt"</span>
 </code></pre><h4 id="根据文件类型进行搜索">根据文件类型进行搜索</h4><pre><code>find . -type 类型参数
 </code></pre><p>类型参数列表：</p>
 <ul>
@@ -165,11 +165,11 @@ find . -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot;
 </code></pre><p>搜索等于10KB的文件</p>
 <pre><code>find . -type f -size 10k
 </code></pre><h4 id="删除匹配文件">删除匹配文件</h4><p>删除当前目录下所有.txt文件</p>
-<pre><code>find . -type f -name &quot;*.txt&quot; -delete
+<pre><code>find . -type f -name <span class="hljs-string">"*.txt"</span> -delete
 </code></pre><h4 id="根据文件权限/所有权进行匹配">根据文件权限/所有权进行匹配</h4><p>当前目录下搜索出权限为777的文件</p>
 <pre><code>find . -type f -perm 777
 </code></pre><p>找出当前目录下权限不是644的php文件</p>
-<pre><code>find . -type f -name &quot;*.php&quot; ! -perm 644
+<pre><code>find . -type f -name <span class="hljs-string">"*.php"</span> ! -perm 644
 </code></pre><p>找出当前目录用户tom拥有的所有文件</p>
 <pre><code>find . -type f -user tom
 </code></pre><p>找出当前目录用户组sunk拥有的所有文件</p>
@@ -178,18 +178,18 @@ find . -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot;
 <pre><code>find .-type f -user root -exec chown tom {} \;
 </code></pre><p>上例中， <strong>{}</strong>  用于与 <strong>-exec</strong> 选项结合使用来匹配所有文件，然后会被替换为相应的文件名。</p>
 <p>找出自己家目录下所有的.txt文件并删除</p>
-<pre><code>find $HOME/. -name &quot;*.txt&quot; -ok rm {} \;
+<pre><code>find <span class="hljs-variable">$HOME</span>/. -name <span class="hljs-string">"*.txt"</span> -ok rm {} \;
 </code></pre><p>上例中， <strong>-ok</strong> 和 <strong>-exec</strong> 行为一样，不过它会给出提示，是否执行相应的操作。</p>
 <p>查找当前目录下所有.txt文件并把他们拼接起来写入到all.txt文件中</p>
-<pre><code>find . -type f -name &quot;*.txt&quot; -exec cat {} \;&gt; all.txt
+<pre><code>find . -type f -name <span class="hljs-string">"*.txt"</span> -exec cat {} \;&gt; all.txt
 </code></pre><p>将30天前的.log文件移动到old目录中</p>
-<pre><code>find . -type f -mtime +30 -name &quot;*.log&quot; -exec cp {} old \;
+<pre><code>find . -type f -mtime +30 -name <span class="hljs-string">"*.log"</span> -exec cp {} old \;
 </code></pre><p>找出当前目录下所有.txt文件并以“File:文件名”的形式打印出来</p>
-<pre><code>find . -type f -name &quot;*.txt&quot; -exec printf &quot;File: %s\n&quot; {} \;
+<pre><code>find . -type f -name <span class="hljs-string">"*.txt"</span> -exec <span class="hljs-built_in">printf</span> <span class="hljs-string">"File: %s\n"</span> {} \;
 </code></pre><p>因为单行命令中-exec参数中无法使用多个命令，以下方法可以实现在-exec之后接受多条命令</p>
 <pre><code>-exec ./text.sh {} \;
 </code></pre><h4 id="搜索但跳出指定的目录">搜索但跳出指定的目录</h4><p>查找当前目录或者子目录下所有.txt文件，但是跳过子目录sk</p>
-<pre><code>find . -path &quot;./sk&quot; -prune -o -name &quot;*.txt&quot; -print
+<pre><code>find . -path <span class="hljs-string">"./sk"</span> -prune -o -name <span class="hljs-string">"*.txt"</span> -print
 </code></pre><h4 id="find其他技巧收集">find其他技巧收集</h4><p>要列出所有长度为零的文件</p>
 <pre><code>find . -empty
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

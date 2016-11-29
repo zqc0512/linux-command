@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="mkinitrd:建立要载入ramdisk的映像文件 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,mkinitrd">
     <title>mkinitrd - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -41,7 +41,7 @@
 <h2 id="补充说明">补充说明</h2><p><strong>mkinitrd命令</strong> 建立要载入ramdisk的映像文件，以供Linux开机时载入ramdisk。</p>
 <p>这个是重新封包核心的命令，例如你自己修改了一个设备的驱动，如果这个驱动要加入核心级别的话，就需要对核心进行重新封包，把新加的配置编译到核心内部去！</p>
 <h3 id="语法">语法</h3><pre><code>mkinitrd(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-f：若指定的映像问家名称与现有文件重复，则覆盖现有的文件；
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-f</span>：若指定的映像问家名称与现有文件重复，则覆盖现有的文件；
 -v：执行时显示详细的信息；
 --omit-scsi-modules：不要载入SCSI模块；
 --preload=&lt;模块名称&gt;：指定要载入的模块；
@@ -53,10 +53,10 @@
 </ul>
 <h3 id="实例">实例</h3><pre><code>root@localhost tmp -r)
 Creating initramfs
-WARNING: using /tmp for temporary files
-Looking for deps of module ide-disk
-Looking for deps of module ext3  jbd
-Looking for deps of module jbd
+WARNING: using /tmp <span class="hljs-keyword">for</span> temporary files
+Looking <span class="hljs-keyword">for</span> deps of module ide-disk
+Looking <span class="hljs-keyword">for</span> deps of module ext3  jbd
+Looking <span class="hljs-keyword">for</span> deps of module jbd
 Using modules:  ./kernel/fs/jbd/jbd.ko ./kernel/fs/ext3/ext3.ko
 /sbin/nash -&gt; /tmp/initrd.Vz3928/bin/nash
 /sbin/insmod.static -&gt; /tmp/initrd.Vz3928/bin/insmod
@@ -71,8 +71,8 @@ root@localhost tmp myinitrd.img
 myinitrd.img: gzip compressed data, from Unix, max compression
 
 root@localhost tmp myinitrd.img  myinitrd.img.gz
-[root@localhost tmp]# gzip -d myinitrd.img.gz
-[root@localhost tmp]# file myinitrd.img
+[root@localhost tmp]<span class="hljs-comment"># gzip -d myinitrd.img.gz</span>
+[root@localhost tmp]<span class="hljs-comment"># file myinitrd.img</span>
 myinitrd.img: ASCII cpio archive (SVR4 with no CRC)
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>

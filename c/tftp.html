@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="tftp:在本机和tftp服务器之间使用TFTP协议传输文件 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,tftp">
     <title>tftp - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -62,11 +62,11 @@ rpm -ivh tftp-server-0.48-3.fc9.i386.rpm
 {
        socket_type           =dgram
        protocol              =udp
-       wait                  =yes
+       <span class="hljs-built_in">wait</span>                  =yes
        user                  =root
        server                =/usr/sbin/in.tftpd
-       server_args           =-s  /home/mike/tftpboot -c
-       disable               =no
+       server_args           =<span class="hljs-_">-s</span>  /home/mike/tftpboot -c
+       <span class="hljs-built_in">disable</span>               =no
        per_source            =11
        cps                   =100 2
        flags                 =IPv4
@@ -80,7 +80,7 @@ service xinetd restart
 /etc/init.d/xinetd start
 </code></pre><p>看到启动[OK]就可以了</p>
 <p>4、查看tftp服务是否开启</p>
-<pre><code>netstat -a | grep tftp
+<pre><code>netstat <span class="hljs-_">-a</span> | grep tftp
 </code></pre><p>显示结果为<code>udp 0 0 *:tftp *:*</code>表明服务已经开启，就表明tftp配置成功了。</p>
 <p> <strong>5、tftp使用</strong> </p>
 <p>复制一个文件到tftp服务器目录，然后在主机启动tftp软件，进行简单测试。</p>
@@ -117,7 +117,7 @@ tftp&gt;q
 </code></pre><p>如果要下载或上传文件的话是一定要用这些option的。</p>
 <pre><code>-g 表示下载文件 (get)
 -p 表示上传文件 (put)
--l 表示本地文件名 (local file)
+<span class="hljs-_">-l</span> 表示本地文件名 (<span class="hljs-built_in">local</span> file)
 -r 表示远程主机的文件名 (remote file)
 </code></pre><p>例如，要从远程主机192.168.1.2上下载 embedexpert，则应输入以下命令</p>
 <pre><code>tftp -g -r embedexpert 192.168.1.2

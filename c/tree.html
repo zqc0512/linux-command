@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="tree:树状图列出目录的内容 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,tree">
     <title>tree - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
@@ -40,23 +40,23 @@
 <h1 id="tree">tree</h1><p>树状图列出目录的内容</p>
 <h2 id="补充说明">补充说明</h2><p><strong>tree命令</strong> 以树状图列出目录的内容。</p>
 <h3 id="语法">语法</h3><pre><code>tree(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code>-a：显示所有文件和目录；
+</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-a</span>：显示所有文件和目录；
 -A：使用ASNI绘图字符显示树状图而非以ASCII字符组合；
 -C：在文件和目录清单加上色彩，便于区分各种类型；
--d：先是目录名称而非内容；
+<span class="hljs-_">-d</span>：先是目录名称而非内容；
 -D：列出文件或目录的更改时间；
--f：在每个文件或目录之前，显示完整的相对路径名称；
--F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上&quot;*&quot;，&quot;/&quot;，&quot;@&quot;，&quot;|&quot;号；
+<span class="hljs-_">-f</span>：在每个文件或目录之前，显示完整的相对路径名称；
+-F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上<span class="hljs-string">"*"</span>，<span class="hljs-string">"/"</span>，<span class="hljs-string">"@"</span>，<span class="hljs-string">"|"</span>号；
 -g：列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码；
 -i：不以阶梯状列出文件和目录名称；
--l：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称；
--l：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录；
+<span class="hljs-_">-l</span>：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称；
+<span class="hljs-_">-l</span>：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录；
 -n：不在文件和目录清单加上色彩；
 -N：直接列出文件和目录名称，包括控制字符；
 -p：列出权限标示；
 -P：&lt;范本样式&gt; 只显示符合范本样式的文件和目录名称；
 -q：用“？”号取代控制字符，列出文件和目录名称；
--s：列出文件和目录大小；
+<span class="hljs-_">-s</span>：列出文件和目录大小；
 -t：用文件和目录的更改时间排序；
 -u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码；
 -x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。
