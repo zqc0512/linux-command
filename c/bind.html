@@ -38,37 +38,37 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/bind.md">编辑</a>
 
 <h1 id="bind">bind</h1><p>显示或设置键盘按键与其相关的功能</p>
-<h2 id="补充说明">补充说明</h2><p><strong>bind命</strong> 用于显示和设置命令行的键盘序列绑定功能。通过这一命令，可以提高命令行中操作效率。您可以利用bind命令了解有哪些按键组合与其功能，也可以自行指定要用哪些按键组合。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">bind</span><span class="hljs-params">(选项)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">d：显示按键配置的内容；
-</span>-<span class="ruby">f&lt;按键配置文件&gt;：载入指定的按键配置文件；
-</span>-<span class="ruby">l：列出所有的功能；
-</span>-<span class="ruby">m&lt;按键配置&gt;：指定按键配置；
-</span>-<span class="ruby">q&lt;功能&gt;：显示指定功能的按键；
-</span>-<span class="ruby">v：列出目前的按键配置与其功能。</span>
-</code></pre><h3 id="实例">实例</h3><pre><code><span class="hljs-built_in">bind</span> -x <span class="hljs-string">'"\C-l":ls -l'</span>    <span class="hljs-comment">#直接按 CTRL+L 就列出目录</span>
+<h2 id="补充说明">补充说明</h2><p><strong>bind命令</strong> 用于显示和设置命令行的键盘序列绑定功能。通过这一命令，可以提高命令行中操作效率。您可以利用bind命令了解有哪些按键组合与其功能，也可以自行指定要用哪些按键组合。</p>
+<h3 id="语法">语法</h3><pre><code>bind(选项)
+</code></pre><h3 id="选项">选项</h3><pre><code>-d：显示按键配置的内容；
+-f&lt;按键配置文件&gt;：载入指定的按键配置文件；
+-l：列出所有的功能；
+-m&lt;按键配置&gt;：指定按键配置；
+-q&lt;功能&gt;：显示指定功能的按键；
+-v：列出目前的按键配置与其功能。
+</code></pre><h3 id="实例">实例</h3><pre><code>bind -x &#39;&quot;\C-l&quot;:ls -l&#39;    #直接按 CTRL+L 就列出目录
 </code></pre><p>其中keyseq可以使用<code>showkey -a</code>命令来获取：</p>
 <pre><code>[root@localhost ~]# showkey -a
 
 Press any keys - Ctrl-D will terminate this program
 
-^[[A     <span class="hljs-number">27</span> <span class="hljs-number">0033</span> <span class="hljs-number">0x1b</span>  上
-         <span class="hljs-number">91</span> <span class="hljs-number">0133</span> <span class="hljs-number">0x5b</span>
-         <span class="hljs-number">65</span> <span class="hljs-number">0101</span> <span class="hljs-number">0x41</span>
-^[[B     <span class="hljs-number">27</span> <span class="hljs-number">0033</span> <span class="hljs-number">0x1b</span>  下
-         <span class="hljs-number">91</span> <span class="hljs-number">0133</span> <span class="hljs-number">0x5b</span>
-         <span class="hljs-number">66</span> <span class="hljs-number">0102</span> <span class="hljs-number">0x42</span>
-^[[D     <span class="hljs-number">27</span> <span class="hljs-number">0033</span> <span class="hljs-number">0x1b</span>  左
-         <span class="hljs-number">91</span> <span class="hljs-number">0133</span> <span class="hljs-number">0x5b</span>
-         <span class="hljs-number">68</span> <span class="hljs-number">0104</span> <span class="hljs-number">0x44</span>
-^[[C     <span class="hljs-number">27</span> <span class="hljs-number">0033</span> <span class="hljs-number">0x1b</span> 右
-         <span class="hljs-number">91</span> <span class="hljs-number">0133</span> <span class="hljs-number">0x5b</span>
-         <span class="hljs-number">67</span> <span class="hljs-number">0103</span> <span class="hljs-number">0x43</span>
-         <span class="hljs-number">32</span> <span class="hljs-number">0040</span> <span class="hljs-number">0x20</span>
-^M       <span class="hljs-number">13</span> <span class="hljs-number">0015</span> <span class="hljs-number">0x0d</span> 字母M
-^C        <span class="hljs-number">3</span> <span class="hljs-number">0003</span> <span class="hljs-number">0x03</span> Ctrl-C
-^D        <span class="hljs-number">4</span> <span class="hljs-number">0004</span> <span class="hljs-number">0x04</span> Ctrl-D 退出
-</code></pre>
+^[[A     27 0033 0x1b  上
+         91 0133 0x5b
+         65 0101 0x41
+^[[B     27 0033 0x1b  下
+         91 0133 0x5b
+         66 0102 0x42
+^[[D     27 0033 0x1b  左
+         91 0133 0x5b
+         68 0104 0x44
+^[[C     27 0033 0x1b 右
+         91 0133 0x5b
+         67 0103 0x43
+         32 0040 0x20
+^M       13 0015 0x0d 字母M
+^C        3 0003 0x03 Ctrl-C
+^D        4 0004 0x04 Ctrl-D 退出
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

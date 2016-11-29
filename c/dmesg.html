@@ -38,23 +38,23 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/dmesg.md">编辑</a>
 
 <h1 id="dmesg">dmesg</h1><p>显示Linux系统启动信息</p>
-<h2 id="补充说明">补充说明</h2><p><strong>dmesg命</strong> 被用于检查和控制内核的环形缓冲区。kernel会将开机信息存储在ring buffer中。您若是开机时来不及查看信息，可利用dmesg来查看。开机信息保存在<code>/var/log/dmesg</code>文件里。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">dmesg</span><span class="hljs-params">(选项)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">c：显示信息后，清除ring buffer中的内容；
-</span>-<span class="ruby">s&lt;缓冲区大小&gt;：预设置为<span class="hljs-number">8196</span>，刚好等于ring buffer的大小；
-</span>-<span class="ruby">n：设置记录信息的层级。</span>
-</code></pre><h3 id="实例">实例</h3><pre><code><span class="hljs-selector-tag">root</span>@<span class="hljs-selector-tag">localhost</span> ~
-<span class="hljs-selector-tag">Linux</span> <span class="hljs-selector-tag">version</span> <span class="hljs-selector-tag">2</span><span class="hljs-selector-class">.6</span><span class="hljs-selector-class">.18-348</span><span class="hljs-selector-class">.6</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-class">.el5</span> (mockbuild<span class="hljs-variable">@builder17</span>.centos.org) (gcc version <span class="hljs-number">4.1</span>.<span class="hljs-number">2</span> <span class="hljs-number">20080704</span> (Red Hat <span class="hljs-number">4.1</span>.<span class="hljs-number">2</span>-<span class="hljs-number">54</span>)) <span class="hljs-selector-id">#1</span> <span class="hljs-selector-tag">SMP</span> <span class="hljs-selector-tag">Tue</span> <span class="hljs-selector-tag">May</span> <span class="hljs-selector-tag">21</span> <span class="hljs-selector-tag">15</span><span class="hljs-selector-pseudo">:34</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">EDT</span> <span class="hljs-selector-tag">2013</span>
-<span class="hljs-selector-tag">BIOS-provided</span> <span class="hljs-selector-tag">physical</span> <span class="hljs-selector-tag">RAM</span> <span class="hljs-selector-tag">map</span>:
- <span class="hljs-selector-tag">BIOS-e820</span>: <span class="hljs-selector-tag">0000000000010000</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">000000000009f400</span> (usable)
- <span class="hljs-selector-tag">BIOS-e820</span>: <span class="hljs-selector-tag">000000000009f400</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">00000000000a0000</span> (reserved)
- <span class="hljs-selector-tag">BIOS-e820</span>: <span class="hljs-selector-tag">00000000000f0000</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">0000000000100000</span> (reserved)
- <span class="hljs-selector-tag">BIOS-e820</span>: <span class="hljs-selector-tag">0000000000100000</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">000000007f590000</span> (usable)
- <span class="hljs-selector-tag">BIOS-e820</span>: <span class="hljs-selector-tag">000000007f590000</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">000000007f5e3000</span> (ACPI NVS)
- <span class="hljs-selector-tag">BIOS-e820</span>: <span class="hljs-selector-tag">000000007f5e3000</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">000000007f5f0000</span> (ACPI data)
- <span class="hljs-selector-tag">BIOS-e820</span>: <span class="hljs-selector-tag">000000007f5f0000</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">000000007f600000</span> (reserved)
- <span class="hljs-selector-tag">BIOS-e820</span>: <span class="hljs-selector-tag">00000000e0000000</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">00000000e8000000</span> (reserved)
-</code></pre>
+<h2 id="补充说明">补充说明</h2><p><strong>dmesg命令</strong> 被用于检查和控制内核的环形缓冲区。kernel会将开机信息存储在ring buffer中。您若是开机时来不及查看信息，可利用dmesg来查看。开机信息保存在<code>/var/log/dmesg</code>文件里。</p>
+<h3 id="语法">语法</h3><pre><code>dmesg(选项)
+</code></pre><h3 id="选项">选项</h3><pre><code>-c：显示信息后，清除ring buffer中的内容；
+-s&lt;缓冲区大小&gt;：预设置为8196，刚好等于ring buffer的大小；
+-n：设置记录信息的层级。
+</code></pre><h3 id="实例">实例</h3><pre><code>root@localhost ~
+Linux version 2.6.18-348.6.1.el5 (mockbuild@builder17.centos.org) (gcc version 4.1.2 20080704 (Red Hat 4.1.2-54)) #1 SMP Tue May 21 15:34:22 EDT 2013
+BIOS-provided physical RAM map:
+ BIOS-e820: 0000000000010000 - 000000000009f400 (usable)
+ BIOS-e820: 000000000009f400 - 00000000000a0000 (reserved)
+ BIOS-e820: 00000000000f0000 - 0000000000100000 (reserved)
+ BIOS-e820: 0000000000100000 - 000000007f590000 (usable)
+ BIOS-e820: 000000007f590000 - 000000007f5e3000 (ACPI NVS)
+ BIOS-e820: 000000007f5e3000 - 000000007f5f0000 (ACPI data)
+ BIOS-e820: 000000007f5f0000 - 000000007f600000 (reserved)
+ BIOS-e820: 00000000e0000000 - 00000000e8000000 (reserved)
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

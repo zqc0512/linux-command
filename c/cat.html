@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="cat:显示文件的内容。 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="description" content="cat:连接文件并打印到标准输出设备上 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
     <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册">
     <title>cat - Linux Command</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
@@ -37,22 +37,22 @@
 
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/cat.md">编辑</a>
 
-<h1 id="cat">cat</h1><p>显示文件的内容。</p>
-<h2 id="补充说明">补充说明</h2><p>cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容，类似于下的type命令。</p>
-<h2 id="语法">语法</h2><pre><code><span class="hljs-function"><span class="hljs-title">cat</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h2 id="参数">参数</h2><ul>
-<li>-n或-number：有1开始对所有输出的行数编号； </li>
-<li>-b或--number-nonblank：和-n相似，只不过对于空白行不编号； </li>
-<li>-s或--squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行； </li>
-<li>-A：显示不可打印字符，行尾显示“$”； </li>
-<li>-e：等价于&quot;-vE&quot;选项； </li>
-<li>-t：等价于&quot;-vT&quot;选项；</li>
-</ul>
-<h2 id="例子">例子</h2><pre><code class="lang-bash">cat m1      <span class="hljs-comment"># （在屏幕上显示文件ml的内容） </span>
-cat m1 m2   <span class="hljs-comment"># （同时显示文件ml和m2的内容） </span>
-cat m1 m2 &gt; file <span class="hljs-comment"># （将文件ml和m2合并后放入文件file中）</span>
-</code></pre>
-
+<h1 id="cat">cat</h1><p>连接文件并打印到标准输出设备上</p>
+<h2 id="补充说明">补充说明</h2><p><strong>cat命令</strong> 连接文件并打印到标准输出设备上，cat经常用来显示文件的内容，类似于下的type命令。</p>
+<p>注意：当文件较大时，文本在屏幕上迅速闪过（滚屏），用户往往看不清所显示的内容。因此，一般用more等命令分屏显示。为了控制滚屏，可以按Ctrl+S键，停止滚屏；按Ctrl+Q键可以恢复滚屏。按Ctrl+C（中断）键可以终止该命令的执行，并且返回Shell提示符状态。</p>
+<h3 id="语法">语法</h3><pre><code>cat(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-n或-number：有1开始对所有输出的行数编号；
+-b或--number-nonblank：和-n相似，只不过对于空白行不编号；
+-s或--squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行；
+-A：显示不可打印字符，行尾显示“$”；
+-e：等价于&quot;-vE&quot;选项；
+-t：等价于&quot;-vT&quot;选项；
+</code></pre><h3 id="参数">参数</h3><p>文件列表：指定要连接的文件列表。</p>
+<h3 id="实例">实例</h3><p>设ml和m2是当前目录下的两个文件</p>
+<pre><code>cat m1 （在屏幕上显示文件ml的内容）
+cat m1 m2 （同时显示文件ml和m2的内容）
+cat m1 m2 &gt; file （将文件ml和m2合并后放入文件file中）
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

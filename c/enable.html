@@ -38,74 +38,74 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/enable.md">编辑</a>
 
 <h1 id="enable">enable</h1><p>启动或关闭shell内建命令</p>
-<h2 id="补充说明">补充说明</h2><p><strong>enable命</strong> 用于临时关闭或者激活指定的shell内部命令。若要执行的文件名称与shell内建命令相同，可用<code>enable -n</code>来关闭shell内建命令。若不加<code>-n</code>选项，enable可重新启动关闭的命令。</p>
+<h2 id="补充说明">补充说明</h2><p><strong>enable命令</strong> 用于临时关闭或者激活指定的shell内部命令。若要执行的文件名称与shell内建命令相同，可用<code>enable -n</code>来关闭shell内建命令。若不加<code>-n</code>选项，enable可重新启动关闭的命令。</p>
 <p>linux shell命令执行时，shell总是先在自己的shell builtin中查找该命令，如果找到则执行该命令；如果找不到该命令，则会从环境变量$PATH指定的路径中依次去查找待执行的命令。因为了解了这一点，所以看起来好像没有办法编写用户自己的命令来替代shell builtin命令。幸运的是，有了enable命令我们就能做到了。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">enable</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">n：关闭指定的内部命令；
-</span>-<span class="ruby">a：显示所有激活的内部命令；
-</span>-<span class="ruby">f：从指定文件中读取内部命令。</span>
+<h3 id="语法">语法</h3><pre><code>enable(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-n：关闭指定的内部命令；
+-a：显示所有激活的内部命令；
+-f：从指定文件中读取内部命令。
 </code></pre><h3 id="参数">参数</h3><p>内部命令：指定要关闭或激活的内部命令。</p>
 <h3 id="实例">实例</h3><p>使用enable命令显示所有激活的内部命令：</p>
-<pre><code>[root@localhost ~]<span class="hljs-comment"># enable -a</span>
-<span class="hljs-built_in">enable</span> .
-<span class="hljs-built_in">enable</span> :
-<span class="hljs-built_in">enable</span> [
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">alias</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">bg</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">bind</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">break</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">builtin</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">caller</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">cd</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">command</span>
-<span class="hljs-built_in">enable</span> compgen
-<span class="hljs-built_in">enable</span> complete
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">continue</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">declare</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">dirs</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">disown</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">echo</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">enable</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">eval</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">exec</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">exit</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">export</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-literal">false</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">fc</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">fg</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">getopts</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">hash</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">help</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">history</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">jobs</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">kill</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">let</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">local</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">logout</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">popd</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">printf</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">pushd</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">pwd</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">read</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">readonly</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">return</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">set</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">shift</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">shopt</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">source</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">suspend</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">test</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">times</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">trap</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-literal">true</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">type</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">typeset</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">ulimit</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">umask</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">unalias</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">unset</span>
-<span class="hljs-built_in">enable</span> <span class="hljs-built_in">wait</span>
-</code></pre>
+<pre><code>[root@localhost ~]# enable -a
+enable .
+enable :
+enable [
+enable alias
+enable bg
+enable bind
+enable break
+enable builtin
+enable caller
+enable cd
+enable command
+enable compgen
+enable complete
+enable continue
+enable declare
+enable dirs
+enable disown
+enable echo
+enable enable
+enable eval
+enable exec
+enable exit
+enable export
+enable false
+enable fc
+enable fg
+enable getopts
+enable hash
+enable help
+enable history
+enable jobs
+enable kill
+enable let
+enable local
+enable logout
+enable popd
+enable printf
+enable pushd
+enable pwd
+enable read
+enable readonly
+enable return
+enable set
+enable shift
+enable shopt
+enable source
+enable suspend
+enable test
+enable times
+enable trap
+enable true
+enable type
+enable typeset
+enable ulimit
+enable umask
+enable unalias
+enable unset
+enable wait
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

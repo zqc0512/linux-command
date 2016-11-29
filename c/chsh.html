@@ -38,47 +38,47 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/chsh.md">编辑</a>
 
 <h1 id="chsh">chsh</h1><p>用来更换登录系统时使用的shell</p>
-<h2 id="补充说明">补充说明</h2><p><strong>chsh命</strong> 用来更换登录系统时使用的shell。若不指定任何参数与用户名称，则chsh会以应答的方式进行设置。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">chsh</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-s&lt;<span class="hljs-keyword">shell</span> 名称&gt;或--<span class="hljs-keyword">shell</span>&lt;<span class="hljs-keyword">shell</span> 名称&gt;：更改系统预设的<span class="hljs-keyword">shell</span>环境。；
--<span class="hljs-keyword">l</span>或--<span class="hljs-keyword">list</span>-shells：列出目前系统可用的<span class="hljs-keyword">shell</span>清单；
--<span class="hljs-keyword">u</span>或--<span class="hljs-keyword">help</span>：在线帮助；
--v或-<span class="hljs-keyword">version</span>：显示版本信息。
+<h2 id="补充说明">补充说明</h2><p><strong>chsh命令</strong> 用来更换登录系统时使用的shell。若不指定任何参数与用户名称，则chsh会以应答的方式进行设置。</p>
+<h3 id="语法">语法</h3><pre><code>chsh(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-s&lt;shell 名称&gt;或--shell&lt;shell 名称&gt;：更改系统预设的shell环境。；
+-l或--list-shells：列出目前系统可用的shell清单；
+-u或--help：在线帮助；
+-v或-version：显示版本信息。
 </code></pre><h3 id="参数">参数</h3><p>用户名：要改变默认shell的用户。</p>
-<h3 id="实例">实例</h3><p><strong>查看系统安装了哪些shell的两种方法：</strong></p>
+<h3 id="实例">实例</h3><p> <strong>查看系统安装了哪些shell的两种方法：</strong> </p>
 <p>第一种：</p>
-<pre><code>[rocrocket<span class="hljs-meta">@localhost</span> ~]$ chsh -l
-<span class="hljs-regexp">/bin/</span>sh
-<span class="hljs-regexp">/bin/</span>bash
-<span class="hljs-regexp">/sbin/</span>nologin
-<span class="hljs-regexp">/bin/</span>zsh
+<pre><code>[rocrocket@localhost ~]$ chsh -l
+/bin/sh
+/bin/bash
+/sbin/nologin
+/bin/zsh
 </code></pre><p>第二种：</p>
-<pre><code>rocrocket<span class="hljs-meta">@localhost</span> ~ <span class="hljs-regexp">/etc/</span>shells
-<span class="hljs-regexp">/bin/</span>sh
-<span class="hljs-regexp">/bin/</span>bash
-<span class="hljs-regexp">/sbin/</span>nologin
-<span class="hljs-regexp">/bin/</span>zsh
+<pre><code>rocrocket@localhost ~ /etc/shells
+/bin/sh
+/bin/bash
+/sbin/nologin
+/bin/zsh
 </code></pre><p>其实<code>chsh -l</code>也是来查看这个文件。</p>
-<p><strong>查看当前正在使用的shell：</strong></p>
-<pre><code>rocrocket<span class="hljs-symbol">@localhost</span> ~ $SHELL
+<p> <strong>查看当前正在使用的shell：</strong> </p>
+<pre><code>rocrocket@localhost ~ $SHELL
 /bin/bash
 </code></pre><p>注意SHELL一定要是大写。可以看到，目前使用的shell是<code>/bin/bash</code></p>
-<p><strong>把我的shell改成zsh：</strong></p>
-<pre><code>[rocrocket<span class="hljs-meta">@localhost</span> ~]$ chsh -s <span class="hljs-regexp">/bin/</span>zsh
-Changing shell <span class="hljs-keyword">for</span> rocrocket.
-<span class="hljs-string">Password:</span>
+<p> <strong>把我的shell改成zsh：</strong> </p>
+<pre><code>[rocrocket@localhost ~]$ chsh -s /bin/zsh
+Changing shell for rocrocket.
+Password:
 Shell changed.
-[rocrocket<span class="hljs-meta">@localhost</span> ~]$
+[rocrocket@localhost ~]$
 </code></pre><p>使用chsh加选项<code>-s</code>就可以修改登录的shell了！你会发现你现在执行<code>echo $SHELL</code>后仍然输出为<code>/bin/bash</code>，这是因为你需要重启你的shell才完全投入到zsh怀抱中去。<code>chsh -s</code>其实修改的就是<code>/etc/passwd</code>文件里和你的用户名相对应的那一行。现在来查看下：</p>
-<pre><code>rocrocket<span class="hljs-meta">@localhost</span> ~ ^rocrocket
-<span class="hljs-string">rocrocket:</span><span class="hljs-string">x:</span><span class="hljs-number">500</span>:<span class="hljs-number">500</span>:rocrocket,<span class="hljs-string">China:</span><span class="hljs-regexp">/rocrocket/</span>PSB<span class="hljs-regexp">/home:/</span>bin/zsh
+<pre><code>rocrocket@localhost ~ ^rocrocket
+rocrocket:x:500:500:rocrocket,China:/rocrocket/PSB/home:/bin/zsh
 </code></pre><p>你可以发现输出内容的最后部分已经变成了<code>/bin/zsh</code>了，下次重启的时候，linux就会读取这一命令来启动shell了！</p>
-<p><strong>把shell修改回/bin/bash：</strong></p>
-<pre><code>[rocrocket<span class="hljs-meta">@localhost</span> ~]$ chsh -s <span class="hljs-regexp">/bin/</span>bash
-Changing shell <span class="hljs-keyword">for</span> rocrocket.
-<span class="hljs-string">Password:</span>
+<p> <strong>把shell修改回/bin/bash：</strong> </p>
+<pre><code>[rocrocket@localhost ~]$ chsh -s /bin/bash
+Changing shell for rocrocket.
+Password:
 Shell changed.
-</code></pre>
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

@@ -38,24 +38,24 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/rm.md">编辑</a>
 
 <h1 id="rm">rm</h1><p>用于删除给定的文件和目录</p>
-<h2 id="补充说明">补充说明</h2><p><strong>r</strong> <strong>命令</strong>可以删除一个目录中的一个或多个文件或目录，也可以将某个目录及其下属的所有文件及其子目录均删除掉。对于链接文件，只是删除整个链接文件，而原有文件保持不变。</p>
+<h2 id="补充说明">补充说明</h2><p><strong>rm</strong>  <strong>命令</strong> 可以删除一个目录中的一个或多个文件或目录，也可以将某个目录及其下属的所有文件及其子目录均删除掉。对于链接文件，只是删除整个链接文件，而原有文件保持不变。</p>
 <p>注意：使用rm命令要格外小心。因为一旦删除了一个文件，就无法再恢复它。所以，在删除文件之前，最好再看一下文件的内容，确定是否真要删除。rm命令可以用-i选项，这个选项在使用文件扩展名字符删除多个文件时特别有用。使用这个选项，系统会要求你逐一确定是否要删除。这时，必须输入y并按Enter键，才能删除文件。如果仅按Enter键或其他字符，文件不会被删除。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">rm</span> <span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">d：直接把欲删除的目录的硬连接数据删除成<span class="hljs-number">0</span>，删除该目录；
-</span>-<span class="ruby">f：强制删除文件或目录；
-</span>-<span class="ruby">i：删除已有文件或目录之前先询问用户；
-</span>-<span class="ruby">r或-R：递归处理，将指定目录下的所有文件与子目录一并处理；
-</span>-<span class="ruby">-preserve-root：不对根目录进行递归操作；
-</span>-<span class="ruby">v：显示指令的详细执行过程。</span>
+<h3 id="语法">语法</h3><pre><code>rm (选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-d：直接把欲删除的目录的硬连接数据删除成0，删除该目录；
+-f：强制删除文件或目录；
+-i：删除已有文件或目录之前先询问用户；
+-r或-R：递归处理，将指定目录下的所有文件与子目录一并处理；
+--preserve-root：不对根目录进行递归操作；
+-v：显示指令的详细执行过程。
 </code></pre><h3 id="参数">参数</h3><p>文件：指定被删除的文件列表，如果参数中含有目录，则必须加上<code>-r</code>或者<code>-R</code>选项。</p>
 <h3 id="实例">实例</h3><p>交互式删除当前目录下的文件test和example</p>
-<pre><code><span class="hljs-keyword">rm</span> -i <span class="hljs-keyword">test</span> example
-Remove <span class="hljs-keyword">test</span> ?<span class="hljs-keyword">n</span>（不删除文件<span class="hljs-keyword">test</span>)
+<pre><code>rm -i test example
+Remove test ?n（不删除文件test)
 Remove example ?y（删除文件example)
 </code></pre><p>删除当前目录下除隐含文件外的所有文件和子目录</p>
-<pre><code><span class="hljs-meta"># rm -r *</span>
+<pre><code># rm -r *
 </code></pre><p>应注意，这样做是非常危险的!</p>
-
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

@@ -38,34 +38,34 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/free.md">编辑</a>
 
 <h1 id="free">free</h1><p>显示内存的使用情况</p>
-<h2 id="补充说明">补充说明</h2><p><strong>free命</strong> 可以显示当前系统未使用的和已使用的内存数目，还可以显示被内核使用的内存缓冲区。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">free</span><span class="hljs-params">(选项)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">b：以Byte为单位显示内存使用情况；
-</span>-<span class="ruby">k：以KB为单位显示内存使用情况；
-</span>-<span class="ruby">m：以MB为单位显示内存使用情况；
-</span>-<span class="ruby">o：不显示缓冲区调节列；
-</span>-<span class="ruby">s&lt;间隔秒数&gt;：持续观察内存使用状况；
-</span>-<span class="ruby">t：显示内存总和列；
-</span>-<span class="ruby">V：显示版本信息。</span>
+<h2 id="补充说明">补充说明</h2><p><strong>free命令</strong> 可以显示当前系统未使用的和已使用的内存数目，还可以显示被内核使用的内存缓冲区。</p>
+<h3 id="语法">语法</h3><pre><code>free(选项)
+</code></pre><h3 id="选项">选项</h3><pre><code>-b：以Byte为单位显示内存使用情况；
+-k：以KB为单位显示内存使用情况；
+-m：以MB为单位显示内存使用情况；
+-o：不显示缓冲区调节列；
+-s&lt;间隔秒数&gt;：持续观察内存使用状况；
+-t：显示内存总和列；
+-V：显示版本信息。
 </code></pre><h3 id="实例">实例</h3><pre><code>free -m
              total       used       free     shared    buffers     cached
-Mem:         <span class="hljs-number"> 2016 </span>     <span class="hljs-number"> 1973 </span>       <span class="hljs-number"> 42 </span>        <span class="hljs-number"> 0 </span>      <span class="hljs-number"> 163 </span>      1497
--/+ buffers/cache:       <span class="hljs-number"> 312 </span>      1703
-Swap:        <span class="hljs-number"> 4094 </span>        <span class="hljs-number"> 0 </span>      4094
-</code></pre><p><strong>第一部分Mem行解释：</strong></p>
+Mem:          2016       1973         42          0        163       1497
+-/+ buffers/cache:        312       1703
+Swap:         4094          0       4094
+</code></pre><p> <strong>第一部分Mem行解释：</strong> </p>
 <pre><code>total：内存总数；
 used：已经使用的内存数；
 free：空闲的内存数；
-<span class="hljs-keyword">shared：当前已经废弃不用；
-</span><span class="hljs-keyword">buffers </span><span class="hljs-keyword">Buffer：缓存内存数；
-</span><span class="hljs-keyword">cached </span>Page：缓存内存数。
+shared：当前已经废弃不用；
+buffers Buffer：缓存内存数；
+cached Page：缓存内存数。
 </code></pre><p>关系：total = used + free</p>
-<p><strong>第二部分(-/+ buffers/cache)解释:</strong></p>
-<pre><code>(-<span class="hljs-keyword">buffers/cache) </span>used内存数：第一部分Mem行中的 used – <span class="hljs-keyword">buffers </span>– <span class="hljs-keyword">cached
-</span>(+<span class="hljs-keyword">buffers/cache) </span>free内存数: 第一部分Mem行中的 free + <span class="hljs-keyword">buffers </span>+ <span class="hljs-keyword">cached</span>
+<p> <strong>第二部分(-/+ buffers/cache)解释:</strong> </p>
+<pre><code>(-buffers/cache) used内存数：第一部分Mem行中的 used – buffers – cached
+(+buffers/cache) free内存数: 第一部分Mem行中的 free + buffers + cached
 </code></pre><p>可见-buffers/cache反映的是被程序实实在在吃掉的内存，而+buffers/cache反映的是可以挪用的内存总数。</p>
 <p>第三部分是指交换分区。</p>
-
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

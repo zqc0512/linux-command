@@ -38,18 +38,18 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/grpunconv.md">编辑</a>
 
 <h1 id="grpunconv">grpunconv</h1><p>用来关闭群组的投影密码</p>
-<h2 id="补充说明">补充说明</h2><p><strong>grpunconv命</strong> 用来关闭群组的投影密码。它会把密码从gshadow文件内，回存到group文件里。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-attribute">grpunconv</span>
+<h2 id="补充说明">补充说明</h2><p><strong>grpunconv命令</strong> 用来关闭群组的投影密码。它会把密码从gshadow文件内，回存到group文件里。</p>
+<h3 id="语法">语法</h3><pre><code>grpunconv
 </code></pre><h3 id="实例">实例</h3><p>未关闭的情况</p>
-<pre><code>cat <span class="hljs-meta-keyword">/etc/</span>gshadow | grep cdy
-<span class="hljs-symbol">cdy:</span><span class="hljs-number">123456</span>::
+<pre><code>cat /etc/gshadow | grep cdy
+cdy:123456::
 </code></pre><p>关闭影子密码</p>
-<pre><code>cat <span class="hljs-regexp">/etc/</span>gshadow
-<span class="hljs-string">cat:</span> <span class="hljs-regexp">/etc/</span><span class="hljs-string">gshadow:</span> 没有那个文件或目录
+<pre><code>cat /etc/gshadow
+cat: /etc/gshadow: 没有那个文件或目录
 </code></pre><p>查看密码已经复制到<code>/etc/group</code>中了。</p>
-<pre><code>cat /etc/<span class="hljs-keyword">group</span> <span class="hljs-title">| grep</span> cdy
-cdy:<span class="hljs-number">123456</span>:<span class="hljs-number">1000</span>:
-</code></pre>
+<pre><code>cat /etc/group | grep cdy
+cdy:123456:1000:
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

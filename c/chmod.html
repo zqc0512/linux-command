@@ -38,16 +38,16 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/chmod.md">编辑</a>
 
 <h1 id="chmod">chmod</h1><p>用来变更文件或目录的权限</p>
-<h2 id="补充说明">补充说明</h2><p><strong>chmod命</strong> 用来变更文件或目录的权限。在UNIX系统家族里，文件或目录权限的控制分别以读取、写入、执行3种一般权限来区分，另有3种特殊权限可供运用。用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。</p>
+<h2 id="补充说明">补充说明</h2><p><strong>chmod命令</strong> 用来变更文件或目录的权限。在UNIX系统家族里，文件或目录权限的控制分别以读取、写入、执行3种一般权限来区分，另有3种特殊权限可供运用。用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。</p>
 <p>权限范围的表示法如下：</p>
 <p><code>u</code> User，即文件或目录的拥有者；<br><code>g</code> Group，即文件或目录的所属群组；<br><code>o</code> Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围；<br><code>a</code> All，即全部的用户，包含拥有者，所属群组以及其他用户；<br><code>r</code> 读取权限，数字代号为“4”;<br><code>w</code> 写入权限，数字代号为“2”；<br><code>x</code> 执行或切换权限，数字代号为“1”；<br><code>-</code> 不具任何权限，数字代号为“0”；<br><code>s</code> 特殊功能说明：变更文件或目录的权限。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">chmod</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">c或——changes：效果类似“-v”参数，但仅回报更改的部分；
-</span>-<span class="ruby">f或--quiet或——silent：不显示错误信息；
-</span>-<span class="ruby">R或——recursive：递归处理，将指令目录下的所有文件及子目录一并处理；
-</span>-<span class="ruby">v或——verbose：显示指令执行过程；
-</span>-<span class="ruby">-reference=&lt;参考文件或目录&gt;：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同；
-</span>&lt;权限范围&gt;+&lt;权限设置&gt;：开启权限范围的文件或目录的该选项权限设置；
+<h3 id="语法">语法</h3><pre><code>chmod(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-c或——changes：效果类似“-v”参数，但仅回报更改的部分；
+-f或--quiet或——silent：不显示错误信息；
+-R或——recursive：递归处理，将指令目录下的所有文件及子目录一并处理；
+-v或——verbose：显示指令执行过程；
+--reference=&lt;参考文件或目录&gt;：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同；
+&lt;权限范围&gt;+&lt;权限设置&gt;：开启权限范围的文件或目录的该选项权限设置；
 &lt;权限范围&gt;-&lt;权限设置&gt;：关闭权限范围的文件或目录的该选项权限设置；
 &lt;权限范围&gt;=&lt;权限设置&gt;：指定权限范围的文件或目录的该选项权限设置；
 </code></pre><h3 id="参数">参数</h3><p>权限模式：指定文件的权限模式；<br>文件：要改变权限的文件。</p>
@@ -56,14 +56,14 @@
 <p>!linux文件的用户权限的分析图</p>
 <p>例：rwx　rw-　r--</p>
 <p>r=读取属性　　//值＝4<br>w=写入属性　　//值＝2<br>x=执行属性　　//值＝1</p>
-<pre><code><span class="hljs-keyword">chmod</span> u+<span class="hljs-keyword">x</span>,g+w f01　　//为文件f01设置自己可以执行，组员可以写入的权限
-<span class="hljs-keyword">chmod</span> u=rwx,g=rw,o=r f01
-<span class="hljs-keyword">chmod</span> <span class="hljs-number">764</span> f01
-<span class="hljs-keyword">chmod</span> a+<span class="hljs-keyword">x</span> f01　　//对文件f01的u,g,o都设置可执行属性
+<pre><code>chmod u+x,g+w f01　　//为文件f01设置自己可以执行，组员可以写入的权限
+chmod u=rwx,g=rw,o=r f01
+chmod 764 f01
+chmod a+x f01　　//对文件f01的u,g,o都设置可执行属性
 </code></pre><p>文件的属主和属组属性设置</p>
-<pre><code><span class="hljs-symbol">chown</span> user:<span class="hljs-keyword">market </span>f01　　//把文件f01给uesr，添加到<span class="hljs-keyword">market组
-</span><span class="hljs-symbol">ll</span> -d <span class="hljs-built_in">f1</span>  查看目录<span class="hljs-built_in">f1</span>的属性
-</code></pre>
+<pre><code>chown user:market f01　　//把文件f01给uesr，添加到market组
+ll -d f1  查看目录f1的属性
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

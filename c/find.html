@@ -38,184 +38,161 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/find.md">编辑</a>
 
 <h1 id="find">find</h1><p>在指定目录下查找文件</p>
-<h2 id="补充说明">补充说明</h2><div id="content-index" class="content-index" style="float:right;"><br><br><div class="content-index-title">本文索引</div>
-
-<p>[隐藏)] <script type="text/javascript" language="javascript">window.content_index_showTocToggle=true;function content_index_toggleToc(){var tts=&quot;显示&quot;;var tth=&quot;隐藏&quot;;if(window.content_index_showTocToggle){window.content_index_showTocToggle=false;document.getElementById(&quot;content-index-contents&quot;).style.display=&quot;none&quot;;document.getElementById(&quot;content-index-togglelink&quot;).innerHTML=tts}else{window.content_index_showTocToggle=true;document.getElementById(&quot;content-index-contents&quot;).style.display=&quot;block&quot;;document.getElementById(&quot;content-index-togglelink&quot;).innerHTML=tth}}</script></p>
-<ul>
-<li>语法</li>
-<li>选项</li>
-<li>参数</li>
-<li>实例<ul>
-<li>根据文件或者正则表达式进行匹配</li>
-<li>否定参数</li>
-<li>根据文件类型进行搜索</li>
-<li>基于目录深度搜索</li>
-<li>根据文件时间戳进行搜索</li>
-<li>根据文件大小进行匹配</li>
-<li>删除匹配文件</li>
-<li>根据文件权限/所有权进行匹配</li>
-<li>借助-exec选项与其他命令结合使用</li>
-<li>搜索但跳出指定的目录</li>
-<li>find其他技巧收集</li>
-</ul>
-</li>
-</ul>
-<p></div></p>
-<p><strong>find命令</strong>用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">amin&lt;分钟&gt;：查找在指定时间曾被存取过的文件或目录，单位以分钟计算；
-</span>-<span class="ruby">anewer&lt;参考文件或目录&gt;：查找其存取时间较指定文件或目录的存取时间更接近现在的文件或目录；
-</span>-<span class="ruby">atime&lt;<span class="hljs-number">24</span>小时数&gt;：查找在指定时间曾被存取过的文件或目录，单位以<span class="hljs-number">24</span>小时计算；
-</span>-<span class="ruby">cmin&lt;分钟&gt;：查找在指定时间之时被更改过的文件或目录；
-</span>-<span class="ruby">cnewer&lt;参考文件或目录&gt;查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录；
-</span>-<span class="ruby">ctime&lt;<span class="hljs-number">24</span>小时数&gt;：查找在指定时间之时被更改的文件或目录，单位以<span class="hljs-number">24</span>小时计算；
-</span>-<span class="ruby">daystart：从本日开始计算时间；
-</span>-<span class="ruby">depth：从指定目录下最深层的子目录开始查找；
-</span>-<span class="ruby">expty：寻找文件大小为<span class="hljs-number">0</span> Byte的文件，或目录下没有任何子目录或文件的空目录；
-</span>-<span class="ruby">exec&lt;执行指令&gt;：假设find指令的回传值为True，就执行该指令；
-</span>-<span class="ruby"><span class="hljs-literal">false</span>：将find指令的回传值皆设为False；
-</span>-<span class="ruby">fls&lt;列表文件&gt;：此参数的效果和指定“-ls”参数类似，但会把结果保存为指定的列表文件；
-</span>-<span class="ruby">follow：排除符号连接；
-</span>-<span class="ruby">fprint&lt;列表文件&gt;：此参数的效果和指定“-print”参数类似，但会把结果保存成指定的列表文件；
-</span>-<span class="ruby">fprint<span class="hljs-number">0</span>&lt;列表文件&gt;：此参数的效果和指定“-print<span class="hljs-number">0</span>”参数类似，但会把结果保存成指定的列表文件；
-</span>-<span class="ruby">fprintf&lt;列表文件&gt;&lt;输出格式&gt;：此参数的效果和指定“-printf”参数类似，但会把结果保存成指定的列表文件；
-</span>-<span class="ruby">fstype&lt;文件系统类型&gt;：只寻找该文件系统类型下的文件或目录；
-</span>-<span class="ruby">gid&lt;群组识别码&gt;：查找符合指定之群组识别码的文件或目录；
-</span>-<span class="ruby">group&lt;群组名称&gt;：查找符合指定之群组名称的文件或目录；
-</span>-<span class="ruby">help或——help：在线帮助；
-</span>-<span class="ruby">ilname&lt;范本样式&gt;：此参数的效果和指定“-lname”参数类似，但忽略字符大小写的差别；
-</span>-<span class="ruby">iname&lt;范本样式&gt;：此参数的效果和指定“-name”参数类似，但忽略字符大小写的差别；
-</span>-<span class="ruby">inum&lt;inode编号&gt;：查找符合指定的inode编号的文件或目录；
-</span>-<span class="ruby">ipath&lt;范本样式&gt;：此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别；
-</span>-<span class="ruby">iregex&lt;范本样式&gt;：此参数的效果和指定“-regexe”参数类似，但忽略字符大小写的差别；
-</span>-<span class="ruby">links&lt;连接数目&gt;：查找符合指定的硬连接数目的文件或目录；
-</span>-<span class="ruby">iname&lt;范本样式&gt;：指定字符串作为寻找符号连接的范本样式；
-</span>-<span class="ruby">ls：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出；
-</span>-<span class="ruby">maxdepth&lt;目录层级&gt;：设置最大目录层级；
-</span>-<span class="ruby">mindepth&lt;目录层级&gt;：设置最小目录层级；
-</span>-<span class="ruby">mmin&lt;分钟&gt;：查找在指定时间曾被更改过的文件或目录，单位以分钟计算；
-</span>-<span class="ruby">mount：此参数的效果和指定“-xdev”相同；
-</span>-<span class="ruby">mtime&lt;<span class="hljs-number">24</span>小时数&gt;：查找在指定时间曾被更改过的文件或目录，单位以<span class="hljs-number">24</span>小时计算；
-</span>-<span class="ruby">name&lt;范本样式&gt;：指定字符串作为寻找文件或目录的范本样式；
-</span>-<span class="ruby">newer&lt;参考文件或目录&gt;：查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录；
-</span>-<span class="ruby">nogroup：找出不属于本地主机群组识别码的文件或目录；
-</span>-<span class="ruby">noleaf：不去考虑目录至少需拥有两个硬连接存在；
-</span>-<span class="ruby">nouser：找出不属于本地主机用户识别码的文件或目录；
-</span>-<span class="ruby">ok&lt;执行指令&gt;：此参数的效果和指定“-exec”类似，但在执行指令之前会先询问用户，若回答“y”或“Y”，则放弃执行命令；
-</span>-<span class="ruby">path&lt;范本样式&gt;：指定字符串作为寻找目录的范本样式；
-</span>-<span class="ruby">perm&lt;权限数值&gt;：查找符合指定的权限数值的文件或目录；
-</span>-<span class="ruby">print：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为每列一个名称，每个名称前皆有“./”字符串；
-</span>-<span class="ruby">print<span class="hljs-number">0</span>：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为全部的名称皆在同一行；
-</span>-<span class="ruby">printf&lt;输出格式&gt;：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式可以自行指定；
-</span>-<span class="ruby">prune：不寻找字符串作为寻找文件或目录的范本样式;
-</span>-<span class="ruby">regex&lt;范本样式&gt;：指定字符串作为寻找文件或目录的范本样式；
-</span>-<span class="ruby">size&lt;文件大小&gt;：查找符合指定的文件大小的文件；
-</span>-<span class="ruby"><span class="hljs-literal">true</span>：将find指令的回传值皆设为True；
-</span>-<span class="ruby">typ&lt;文件类型&gt;：只寻找符合指定的文件类型的文件；
-</span>-<span class="ruby">uid&lt;用户识别码&gt;：查找符合指定的用户识别码的文件或目录；
-</span>-<span class="ruby">used&lt;日数&gt;：查找文件或目录被更改之后在指定时间曾被存取过的文件或目录，单位以日计算；
-</span>-<span class="ruby">user&lt;拥有者名称&gt;：查找符和指定的拥有者名称的文件或目录；
-</span>-<span class="ruby">version或——version：显示版本信息；
-</span>-<span class="ruby">xdev：将范围局限在先行的文件系统中；
-</span>-<span class="ruby">xtype&lt;文件类型&gt;：此参数的效果和指定“-type”参数类似，差别在于它针对符号连接检查。</span>
+<h2 id="补充说明">补充说明</h2><p><strong>find命令</strong> 用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。</p>
+<h3 id="语法">语法</h3><pre><code>find(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-amin&lt;分钟&gt;：查找在指定时间曾被存取过的文件或目录，单位以分钟计算；
+-anewer&lt;参考文件或目录&gt;：查找其存取时间较指定文件或目录的存取时间更接近现在的文件或目录；
+-atime&lt;24小时数&gt;：查找在指定时间曾被存取过的文件或目录，单位以24小时计算；
+-cmin&lt;分钟&gt;：查找在指定时间之时被更改过的文件或目录；
+-cnewer&lt;参考文件或目录&gt;查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录；
+-ctime&lt;24小时数&gt;：查找在指定时间之时被更改的文件或目录，单位以24小时计算；
+-daystart：从本日开始计算时间；
+-depth：从指定目录下最深层的子目录开始查找；
+-expty：寻找文件大小为0 Byte的文件，或目录下没有任何子目录或文件的空目录；
+-exec&lt;执行指令&gt;：假设find指令的回传值为True，就执行该指令；
+-false：将find指令的回传值皆设为False；
+-fls&lt;列表文件&gt;：此参数的效果和指定“-ls”参数类似，但会把结果保存为指定的列表文件；
+-follow：排除符号连接；
+-fprint&lt;列表文件&gt;：此参数的效果和指定“-print”参数类似，但会把结果保存成指定的列表文件；
+-fprint0&lt;列表文件&gt;：此参数的效果和指定“-print0”参数类似，但会把结果保存成指定的列表文件；
+-fprintf&lt;列表文件&gt;&lt;输出格式&gt;：此参数的效果和指定“-printf”参数类似，但会把结果保存成指定的列表文件；
+-fstype&lt;文件系统类型&gt;：只寻找该文件系统类型下的文件或目录；
+-gid&lt;群组识别码&gt;：查找符合指定之群组识别码的文件或目录；
+-group&lt;群组名称&gt;：查找符合指定之群组名称的文件或目录；
+-help或——help：在线帮助；
+-ilname&lt;范本样式&gt;：此参数的效果和指定“-lname”参数类似，但忽略字符大小写的差别；
+-iname&lt;范本样式&gt;：此参数的效果和指定“-name”参数类似，但忽略字符大小写的差别；
+-inum&lt;inode编号&gt;：查找符合指定的inode编号的文件或目录；
+-ipath&lt;范本样式&gt;：此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别；
+-iregex&lt;范本样式&gt;：此参数的效果和指定“-regexe”参数类似，但忽略字符大小写的差别；
+-links&lt;连接数目&gt;：查找符合指定的硬连接数目的文件或目录；
+-iname&lt;范本样式&gt;：指定字符串作为寻找符号连接的范本样式；
+-ls：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出；
+-maxdepth&lt;目录层级&gt;：设置最大目录层级；
+-mindepth&lt;目录层级&gt;：设置最小目录层级；
+-mmin&lt;分钟&gt;：查找在指定时间曾被更改过的文件或目录，单位以分钟计算；
+-mount：此参数的效果和指定“-xdev”相同；
+-mtime&lt;24小时数&gt;：查找在指定时间曾被更改过的文件或目录，单位以24小时计算；
+-name&lt;范本样式&gt;：指定字符串作为寻找文件或目录的范本样式；
+-newer&lt;参考文件或目录&gt;：查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录；
+-nogroup：找出不属于本地主机群组识别码的文件或目录；
+-noleaf：不去考虑目录至少需拥有两个硬连接存在；
+-nouser：找出不属于本地主机用户识别码的文件或目录；
+-ok&lt;执行指令&gt;：此参数的效果和指定“-exec”类似，但在执行指令之前会先询问用户，若回答“y”或“Y”，则放弃执行命令；
+-path&lt;范本样式&gt;：指定字符串作为寻找目录的范本样式；
+-perm&lt;权限数值&gt;：查找符合指定的权限数值的文件或目录；
+-print：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为每列一个名称，每个名称前皆有“./”字符串；
+-print0：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为全部的名称皆在同一行；
+-printf&lt;输出格式&gt;：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式可以自行指定；
+-prune：不寻找字符串作为寻找文件或目录的范本样式;
+-regex&lt;范本样式&gt;：指定字符串作为寻找文件或目录的范本样式；
+-size&lt;文件大小&gt;：查找符合指定的文件大小的文件；
+-true：将find指令的回传值皆设为True；
+-typ&lt;文件类型&gt;：只寻找符合指定的文件类型的文件；
+-uid&lt;用户识别码&gt;：查找符合指定的用户识别码的文件或目录；
+-used&lt;日数&gt;：查找文件或目录被更改之后在指定时间曾被存取过的文件或目录，单位以日计算；
+-user&lt;拥有者名称&gt;：查找符和指定的拥有者名称的文件或目录；
+-version或——version：显示版本信息；
+-xdev：将范围局限在先行的文件系统中；
+-xtype&lt;文件类型&gt;：此参数的效果和指定“-type”参数类似，差别在于它针对符号连接检查。
 </code></pre><h3 id="参数">参数</h3><p>起始目录：查找文件的起始目录。</p>
 <h3 id="实例">实例</h3><h4 id="根据文件或者正则表达式进行匹配">根据文件或者正则表达式进行匹配</h4><p>列出当前目录及子目录下所有文件和文件夹</p>
-<pre><code><span class="hljs-built_in">find</span> .
+<pre><code>find .
 </code></pre><p>在<code>/home</code>目录下查找以.txt结尾的文件名</p>
-<pre><code><span class="hljs-built_in">find</span> /<span class="hljs-built_in">home</span> -name <span class="hljs-string">"*.txt"</span>
+<pre><code>find /home -name &quot;*.txt&quot;
 </code></pre><p>同上，但忽略大小写</p>
-<pre><code><span class="hljs-built_in">find</span> /<span class="hljs-built_in">home</span> -iname <span class="hljs-string">"*.txt"</span>
+<pre><code>find /home -iname &quot;*.txt&quot;
 </code></pre><p>当前目录及子目录下查找所有以.txt和.pdf结尾的文件</p>
-<pre><code><span class="hljs-built_in">find</span> . \( -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.txt"</span> -o -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.pdf"</span> \)
+<pre><code>find . \( -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot; \)
 
 或
 
-<span class="hljs-built_in">find</span> . -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.txt"</span> -o -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.pdf"</span>
+find . -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot;
 </code></pre><p>匹配文件路径或者文件</p>
-<pre><code><span class="hljs-keyword">find</span> <span class="hljs-regexp">/usr/</span> -path <span class="hljs-string">"*local*"</span>
+<pre><code>find /usr/ -path &quot;*local*&quot;
 </code></pre><p>基于正则表达式匹配文件路径</p>
-<pre><code>find . -regex ".*<span class="hljs-symbol">\(</span><span class="hljs-symbol">\.</span>txt<span class="hljs-symbol">\|</span><span class="hljs-symbol">\.</span>pdf<span class="hljs-symbol">\)</span>$"
+<pre><code>find . -regex &quot;.*\(\.txt\|\.pdf\){{content}}quot;
 </code></pre><p>同上，但忽略大小写</p>
-<pre><code>find . -iregex ".*<span class="hljs-symbol">\(</span><span class="hljs-symbol">\.</span>txt<span class="hljs-symbol">\|</span><span class="hljs-symbol">\.</span>pdf<span class="hljs-symbol">\)</span>$"
+<pre><code>find . -iregex &quot;.*\(\.txt\|\.pdf\){{content}}quot;
 </code></pre><h4 id="否定参数">否定参数</h4><p>找出/home下不是以.txt结尾的文件</p>
-<pre><code><span class="hljs-built_in">find</span> /<span class="hljs-built_in">home</span> ! -name <span class="hljs-string">"*.txt"</span>
-</code></pre><h4 id="根据文件类型进行搜索">根据文件类型进行搜索</h4><pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> 类型参数
+<pre><code>find /home ! -name &quot;*.txt&quot;
+</code></pre><h4 id="根据文件类型进行搜索">根据文件类型进行搜索</h4><pre><code>find . -type 类型参数
 </code></pre><p>类型参数列表：</p>
 <ul>
-<li><strong>f</strong> 普通文件</li>
-<li><strong>l</strong> 符号连接</li>
-<li><strong>d</strong> 目录</li>
-<li><strong>c</strong> 字符设备</li>
-<li><strong>b</strong> 块设备</li>
-<li><strong>s</strong> 套接字</li>
-<li><strong>p</strong> Fifo</li>
+<li><strong>f</strong>  普通文件</li>
+<li><strong>l</strong>  符号连接</li>
+<li><strong>d</strong>  目录</li>
+<li><strong>c</strong>  字符设备</li>
+<li><strong>b</strong>  块设备</li>
+<li><strong>s</strong>  套接字</li>
+<li><strong>p</strong>  Fifo</li>
 </ul>
 <h4 id="基于目录深度搜索">基于目录深度搜索</h4><p>向下最大深度限制为3</p>
-<pre><code><span class="hljs-built_in">find</span> . -maxdepth <span class="hljs-number">3</span> -<span class="hljs-built_in">type</span> f
+<pre><code>find . -maxdepth 3 -type f
 </code></pre><p>搜索出深度距离当前目录至少2个子目录的所有文件</p>
-<pre><code><span class="hljs-built_in">find</span> . -mindepth <span class="hljs-number">2</span> -<span class="hljs-built_in">type</span> f
-</code></pre><h4 id="根据文件时间戳进行搜索">根据文件时间戳进行搜索</h4><pre><code>find . -<span class="hljs-keyword">type</span> <span class="hljs-type">f </span>时间戳
+<pre><code>find . -mindepth 2 -type f
+</code></pre><h4 id="根据文件时间戳进行搜索">根据文件时间戳进行搜索</h4><pre><code>find . -type f 时间戳
 </code></pre><p>UNIX/Linux文件系统每个文件都有三种时间戳：</p>
 <ul>
-<li><strong>访问时间</strong>（-atime/天，-amin/分钟）：用户最近一次访问时间。</li>
-<li><strong>修改时间</strong>（-mtime/天，-mmin/分钟）：文件最后一次修改时间。</li>
-<li><strong>变化时间</strong>（-ctime/天，-cmin/分钟）：文件数据元（例如权限等）最后一次修改时间。</li>
+<li><strong>访问时间</strong> （-atime/天，-amin/分钟）：用户最近一次访问时间。</li>
+<li><strong>修改时间</strong> （-mtime/天，-mmin/分钟）：文件最后一次修改时间。</li>
+<li><strong>变化时间</strong> （-ctime/天，-cmin/分钟）：文件数据元（例如权限等）最后一次修改时间。</li>
 </ul>
 <p>搜索最近七天内被访问过的所有文件</p>
-<pre><code>find . -<span class="hljs-keyword">type</span> <span class="hljs-type">f </span>-atime -<span class="hljs-number">7</span>
+<pre><code>find . -type f -atime -7
 </code></pre><p>搜索恰好在七天前被访问过的所有文件</p>
-<pre><code>find . -<span class="hljs-keyword">type</span> <span class="hljs-type">f </span>-atime <span class="hljs-number">7</span>
+<pre><code>find . -type f -atime 7
 </code></pre><p>搜索超过七天内被访问过的所有文件</p>
-<pre><code>find . -<span class="hljs-keyword">type</span> <span class="hljs-type">f </span>-atime +<span class="hljs-number">7</span>
+<pre><code>find . -type f -atime +7
 </code></pre><p>搜索访问时间超过10分钟的所有文件</p>
-<pre><code>find . -<span class="hljs-keyword">type</span> <span class="hljs-type">f </span>-amin +<span class="hljs-number">10</span>
+<pre><code>find . -type f -amin +10
 </code></pre><p>找出比file.log修改时间更长的所有文件</p>
-<pre><code><span class="hljs-keyword">find</span> . -<span class="hljs-built_in">type</span> <span class="hljs-keyword">f</span> -newer <span class="hljs-keyword">file</span>.<span class="hljs-built_in">log</span>
-</code></pre><h4 id="根据文件大小进行匹配">根据文件大小进行匹配</h4><pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -<span class="hljs-built_in">size</span> 文件大小单元
+<pre><code>find . -type f -newer file.log
+</code></pre><h4 id="根据文件大小进行匹配">根据文件大小进行匹配</h4><pre><code>find . -type f -size 文件大小单元
 </code></pre><p>文件大小单元：</p>
 <ul>
-<li><strong>b</strong> —— 块（512字节）</li>
-<li><strong>c</strong> —— 字节</li>
-<li><strong>w</strong> —— 字（2字节）</li>
-<li><strong>k</strong> —— 千字节</li>
-<li><strong>M</strong> —— 兆字节</li>
-<li><strong>G</strong> —— 吉字节</li>
+<li><strong>b</strong>  —— 块（512字节）</li>
+<li><strong>c</strong>  —— 字节</li>
+<li><strong>w</strong>  —— 字（2字节）</li>
+<li><strong>k</strong>  —— 千字节</li>
+<li><strong>M</strong>  —— 兆字节</li>
+<li><strong>G</strong>  —— 吉字节</li>
 </ul>
 <p>搜索大于10KB的文件</p>
-<pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -<span class="hljs-built_in">size</span> +<span class="hljs-number">10</span>k
+<pre><code>find . -type f -size +10k
 </code></pre><p>搜索小于10KB的文件</p>
-<pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -<span class="hljs-built_in">size</span> -<span class="hljs-number">10</span>k
+<pre><code>find . -type f -size -10k
 </code></pre><p>搜索等于10KB的文件</p>
-<pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -<span class="hljs-built_in">size</span> <span class="hljs-number">10</span>k
+<pre><code>find . -type f -size 10k
 </code></pre><h4 id="删除匹配文件">删除匹配文件</h4><p>删除当前目录下所有.txt文件</p>
-<pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.txt"</span> -delete
+<pre><code>find . -type f -name &quot;*.txt&quot; -delete
 </code></pre><h4 id="根据文件权限/所有权进行匹配">根据文件权限/所有权进行匹配</h4><p>当前目录下搜索出权限为777的文件</p>
-<pre><code>find . -<span class="hljs-keyword">type</span> <span class="hljs-type">f </span>-perm <span class="hljs-number">777</span>
+<pre><code>find . -type f -perm 777
 </code></pre><p>找出当前目录下权限不是644的php文件</p>
-<pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.php"</span> ! -perm <span class="hljs-number">644</span>
+<pre><code>find . -type f -name &quot;*.php&quot; ! -perm 644
 </code></pre><p>找出当前目录用户tom拥有的所有文件</p>
-<pre><code>find . -<span class="hljs-keyword">type</span> f -<span class="hljs-keyword">user</span> <span class="hljs-title">tom</span>
+<pre><code>find . -type f -user tom
 </code></pre><p>找出当前目录用户组sunk拥有的所有文件</p>
-<pre><code>find . -<span class="hljs-keyword">type</span> f -<span class="hljs-keyword">group</span> <span class="hljs-title">sunk</span>
+<pre><code>find . -type f -group sunk
 </code></pre><h4 id="借助<code>-exec</code>选项与其他命令结合使用">借助<code>-exec</code>选项与其他命令结合使用</h4><p>找出当前目录下所有root的文件，并把所有权更改为用户tom</p>
-<pre><code>find .-<span class="hljs-keyword">type</span> f -<span class="hljs-keyword">user</span> <span class="hljs-title">root</span> -exec chown tom {} \;
-</code></pre><p>上例中，<strong>{}</strong> 用于与<strong>-exec</strong>选项结合使用来匹配所有文件，然后会被替换为相应的文件名。</p>
+<pre><code>find .-type f -user root -exec chown tom {} \;
+</code></pre><p>上例中， <strong>{}</strong>  用于与 <strong>-exec</strong> 选项结合使用来匹配所有文件，然后会被替换为相应的文件名。</p>
 <p>找出自己家目录下所有的.txt文件并删除</p>
-<pre><code>find <span class="hljs-variable">$HOME</span>/. -name <span class="hljs-string">"*.txt"</span> -ok <span class="hljs-keyword">rm</span> {} \;
-</code></pre><p>上例中，<strong>-ok</strong>和<strong>-exec</strong>行为一样，不过它会给出提示，是否执行相应的操作。</p>
+<pre><code>find $HOME/. -name &quot;*.txt&quot; -ok rm {} \;
+</code></pre><p>上例中， <strong>-ok</strong> 和 <strong>-exec</strong> 行为一样，不过它会给出提示，是否执行相应的操作。</p>
 <p>查找当前目录下所有.txt文件并把他们拼接起来写入到all.txt文件中</p>
-<pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.txt"</span> -<span class="hljs-built_in">exec</span> cat {} \;&gt; all.txt
+<pre><code>find . -type f -name &quot;*.txt&quot; -exec cat {} \;&gt; all.txt
 </code></pre><p>将30天前的.log文件移动到old目录中</p>
-<pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -mtime +<span class="hljs-number">30</span> -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.log"</span> -<span class="hljs-built_in">exec</span> cp {} old \;
+<pre><code>find . -type f -mtime +30 -name &quot;*.log&quot; -exec cp {} old \;
 </code></pre><p>找出当前目录下所有.txt文件并以“File:文件名”的形式打印出来</p>
-<pre><code><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> f -<span class="hljs-built_in">name</span> <span class="hljs-string">"*.txt"</span> -<span class="hljs-built_in">exec</span> printf <span class="hljs-string">"File: %s\n"</span> {} \;
+<pre><code>find . -type f -name &quot;*.txt&quot; -exec printf &quot;File: %s\n&quot; {} \;
 </code></pre><p>因为单行命令中-exec参数中无法使用多个命令，以下方法可以实现在-exec之后接受多条命令</p>
-<pre><code>-<span class="hljs-keyword">exec</span> ./<span class="hljs-keyword">text</span>.sh {} \;
+<pre><code>-exec ./text.sh {} \;
 </code></pre><h4 id="搜索但跳出指定的目录">搜索但跳出指定的目录</h4><p>查找当前目录或者子目录下所有.txt文件，但是跳过子目录sk</p>
-<pre><code><span class="hljs-built_in">find</span> . -path <span class="hljs-string">"./sk"</span> -prune -o -name <span class="hljs-string">"*.txt"</span> -<span class="hljs-built_in">print</span>
+<pre><code>find . -path &quot;./sk&quot; -prune -o -name &quot;*.txt&quot; -print
 </code></pre><h4 id="find其他技巧收集">find其他技巧收集</h4><p>要列出所有长度为零的文件</p>
-<pre><code><span class="hljs-keyword">find</span> . -<span class="hljs-built_in">empty</span>
-</code></pre>
+<pre><code>find . -empty
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

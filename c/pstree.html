@@ -38,24 +38,24 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/pstree.md">编辑</a>
 
 <h1 id="pstree">pstree</h1><p>以树状图的方式展现进程之间的派生关系</p>
-<h2 id="补充说明">补充说明</h2><p><strong>pstree命</strong> 以树状图的方式展现进程之间的派生关系，显示效果比较直观。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">pstree</span><span class="hljs-params">(选项)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">a：显示每个程序的完整指令，包含路径，参数或是常驻服务的标示；
-</span>-<span class="ruby">c：不使用精简标示法；
-</span>-<span class="ruby">G：使用VT10<span class="hljs-number">0</span>终端机的列绘图字符；
-</span>-<span class="ruby">h：列出树状图时，特别标明现在执行的程序；
-</span>-<span class="ruby">H&lt;程序识别码&gt;：此参数的效果和指定<span class="hljs-string">"-h"</span>参数类似，但特别标明指定的程序；
-</span>-<span class="ruby">l：采用长列格式显示树状图；
-</span>-<span class="ruby">n：用程序识别码排序。预设是以程序名称来排序；
-</span>-<span class="ruby">p：显示程序识别码；
-</span>-<span class="ruby">u：显示用户名称；
-</span>-<span class="ruby">U：使用UTF-<span class="hljs-number">8</span>列绘图字符；
-</span>-<span class="ruby">V：显示版本信息。</span>
+<h2 id="补充说明">补充说明</h2><p><strong>pstree命令</strong> 以树状图的方式展现进程之间的派生关系，显示效果比较直观。</p>
+<h3 id="语法">语法</h3><pre><code>pstree(选项)
+</code></pre><h3 id="选项">选项</h3><pre><code>-a：显示每个程序的完整指令，包含路径，参数或是常驻服务的标示；
+-c：不使用精简标示法；
+-G：使用VT100终端机的列绘图字符；
+-h：列出树状图时，特别标明现在执行的程序；
+-H&lt;程序识别码&gt;：此参数的效果和指定&quot;-h&quot;参数类似，但特别标明指定的程序；
+-l：采用长列格式显示树状图；
+-n：用程序识别码排序。预设是以程序名称来排序；
+-p：显示程序识别码；
+-u：显示用户名称；
+-U：使用UTF-8列绘图字符；
+-V：显示版本信息。
 </code></pre><h3 id="实例">实例</h3><p>显示当前所有进程的进程号和进程id</p>
-<pre><code><span class="hljs-attribute">pstree -p</span>
+<pre><code>pstree -p
 </code></pre><p>显示所有进程的所有详细信息，遇到相同的进程名可以压缩显示。</p>
-<pre><code>pstree  <span class="hljs-_">-a</span>
-</code></pre>
+<pre><code>pstree  -a
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

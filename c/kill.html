@@ -38,49 +38,49 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/kill.md">编辑</a>
 
 <h1 id="kill">kill</h1><p>删除执行中的程序或工作</p>
-<h2 id="补充说明">补充说明</h2><p><strong>kill命</strong> 用来删除执行中的程序或工作。kill可将指定的信息送至程序。预设的信息为SIGTERM(15),可将指定程序终止。若仍无法终止该程序，可使用SIGKILL(9)信息尝试强制删除程序。程序或工作的编号可利用ps指令或job指令查看。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">kill</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">a：当处理当前进程时，不限制命令名和进程号的对应关系；
-</span>-<span class="ruby">l &lt;信息编号&gt;：若不加&lt;信息编号&gt;选项，则-l参数会列出全部的信息名称；
-</span>-<span class="ruby">p：指定kill 命令只打印相关进程的进程号，而不发送任何信号；
-</span>-<span class="ruby">s &lt;信息名称或编号&gt;：指定要送出的信息；
-</span>-<span class="ruby">u：指定用户。</span>
+<h2 id="补充说明">补充说明</h2><p><strong>kill命令</strong> 用来删除执行中的程序或工作。kill可将指定的信息送至程序。预设的信息为SIGTERM(15),可将指定程序终止。若仍无法终止该程序，可使用SIGKILL(9)信息尝试强制删除程序。程序或工作的编号可利用ps指令或job指令查看。</p>
+<h3 id="语法">语法</h3><pre><code>kill(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-a：当处理当前进程时，不限制命令名和进程号的对应关系；
+-l &lt;信息编号&gt;：若不加&lt;信息编号&gt;选项，则-l参数会列出全部的信息名称；
+-p：指定kill 命令只打印相关进程的进程号，而不发送任何信号；
+-s &lt;信息名称或编号&gt;：指定要送出的信息；
+-u：指定用户。
 </code></pre><h3 id="参数">参数</h3><p>进程或作业识别号：指定要删除的进程或作业。</p>
 <h3 id="实例">实例</h3><p>列出所有信号名称：</p>
 <pre><code> kill -l
- <span class="hljs-number">1</span>) SIGHUP       <span class="hljs-number">2</span>) SIGINT       <span class="hljs-number">3</span>) SIGQUIT      <span class="hljs-number">4</span>) SIGILL
- <span class="hljs-number">5</span>) SIGTRAP      <span class="hljs-number">6</span>) SIGABRT      <span class="hljs-number">7</span>) SIGBUS       <span class="hljs-number">8</span>) SIGFPE
- <span class="hljs-number">9</span>) SIGKILL     <span class="hljs-number">10</span>) SIGUSR1     <span class="hljs-number">11</span>) SIGSEGV     <span class="hljs-number">12</span>) SIGUSR2
-<span class="hljs-number">13</span>) SIGPIPE     <span class="hljs-number">14</span>) SIGALRM     <span class="hljs-number">15</span>) SIGTERM     <span class="hljs-number">16</span>) SIGSTKFLT
-<span class="hljs-number">17</span>) SIGCHLD     <span class="hljs-number">18</span>) SIGCONT     <span class="hljs-number">19</span>) SIGSTOP     <span class="hljs-number">20</span>) SIGTSTP
-<span class="hljs-number">21</span>) SIGTTIN     <span class="hljs-number">22</span>) SIGTTOU     <span class="hljs-number">23</span>) SIGURG      <span class="hljs-number">24</span>) SIGXCPU
-<span class="hljs-number">25</span>) SIGXFSZ     <span class="hljs-number">26</span>) SIGVTALRM   <span class="hljs-number">27</span>) SIGPROF     <span class="hljs-number">28</span>) SIGWINCH
-<span class="hljs-number">29</span>) SIGIO       <span class="hljs-number">30</span>) SIGPWR      <span class="hljs-number">31</span>) SIGSYS      <span class="hljs-number">34</span>) SIGRTMIN
-<span class="hljs-number">35</span>) SIGRTMIN+<span class="hljs-number">1</span>  <span class="hljs-number">36</span>) SIGRTMIN+<span class="hljs-number">2</span>  <span class="hljs-number">37</span>) SIGRTMIN+<span class="hljs-number">3</span>  <span class="hljs-number">38</span>) SIGRTMIN+<span class="hljs-number">4</span>
-<span class="hljs-number">39</span>) SIGRTMIN+<span class="hljs-number">5</span>  <span class="hljs-number">40</span>) SIGRTMIN+<span class="hljs-number">6</span>  <span class="hljs-number">41</span>) SIGRTMIN+<span class="hljs-number">7</span>  <span class="hljs-number">42</span>) SIGRTMIN+<span class="hljs-number">8</span>
-<span class="hljs-number">43</span>) SIGRTMIN+<span class="hljs-number">9</span>  <span class="hljs-number">44</span>) SIGRTMIN+<span class="hljs-number">10</span> <span class="hljs-number">45</span>) SIGRTMIN+<span class="hljs-number">11</span> <span class="hljs-number">46</span>) SIGRTMIN+<span class="hljs-number">12</span>
-<span class="hljs-number">47</span>) SIGRTMIN+<span class="hljs-number">13</span> <span class="hljs-number">48</span>) SIGRTMIN+<span class="hljs-number">14</span> <span class="hljs-number">49</span>) SIGRTMIN+<span class="hljs-number">15</span> <span class="hljs-number">50</span>) SIGRTMAX<span class="hljs-number">-14</span>
-<span class="hljs-number">51</span>) SIGRTMAX<span class="hljs-number">-13</span> <span class="hljs-number">52</span>) SIGRTMAX<span class="hljs-number">-12</span> <span class="hljs-number">53</span>) SIGRTMAX<span class="hljs-number">-11</span> <span class="hljs-number">54</span>) SIGRTMAX<span class="hljs-number">-10</span>
-<span class="hljs-number">55</span>) SIGRTMAX<span class="hljs-number">-9</span>  <span class="hljs-number">56</span>) SIGRTMAX<span class="hljs-number">-8</span>  <span class="hljs-number">57</span>) SIGRTMAX<span class="hljs-number">-7</span>  <span class="hljs-number">58</span>) SIGRTMAX<span class="hljs-number">-6</span>
-<span class="hljs-number">59</span>) SIGRTMAX<span class="hljs-number">-5</span>  <span class="hljs-number">60</span>) SIGRTMAX<span class="hljs-number">-4</span>  <span class="hljs-number">61</span>) SIGRTMAX<span class="hljs-number">-3</span>  <span class="hljs-number">62</span>) SIGRTMAX<span class="hljs-number">-2</span>
-<span class="hljs-number">63</span>) SIGRTMAX<span class="hljs-number">-1</span>  <span class="hljs-number">64</span>) SIGRTMAX
-</code></pre><p>只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略，<strong>下面是常用的信号：</strong></p>
-<pre><code>HUP     <span class="hljs-number">1</span>    终端断线
-INT     <span class="hljs-number">2</span>    中断（同 Ctrl + C）
-QUIT    <span class="hljs-number">3</span>    退出（同 Ctrl + \）
-TERM   <span class="hljs-number">15</span>    终止
-KILL    <span class="hljs-number">9</span>    强制终止
-CONT   <span class="hljs-number">18</span>    继续（与STOP相反， fg/bg命令）
-STOP   <span class="hljs-number">19</span>    暂停（同 Ctrl + Z）
+ 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL
+ 5) SIGTRAP      6) SIGABRT      7) SIGBUS       8) SIGFPE
+ 9) SIGKILL     10) SIGUSR1     11) SIGSEGV     12) SIGUSR2
+13) SIGPIPE     14) SIGALRM     15) SIGTERM     16) SIGSTKFLT
+17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
+21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU
+25) SIGXFSZ     26) SIGVTALRM   27) SIGPROF     28) SIGWINCH
+29) SIGIO       30) SIGPWR      31) SIGSYS      34) SIGRTMIN
+35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3  38) SIGRTMIN+4
+39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12
+47) SIGRTMIN+13 48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14
+51) SIGRTMAX-13 52) SIGRTMAX-12 53) SIGRTMAX-11 54) SIGRTMAX-10
+55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7  58) SIGRTMAX-6
+59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+63) SIGRTMAX-1  64) SIGRTMAX
+</code></pre><p>只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略， <strong>下面是常用的信号：</strong> </p>
+<pre><code>HUP     1    终端断线
+INT     2    中断（同 Ctrl + C）
+QUIT    3    退出（同 Ctrl + \）
+TERM   15    终止
+KILL    9    强制终止
+CONT   18    继续（与STOP相反， fg/bg命令）
+STOP   19    暂停（同 Ctrl + Z）
 </code></pre><p>先用ps查找进程，然后用kill杀掉：</p>
-<pre><code><span class="hljs-keyword">ps</span> -ef | <span class="hljs-keyword">grep</span> <span class="hljs-keyword">vim</span>
-root      <span class="hljs-number">3268</span>  <span class="hljs-number">2884</span>  <span class="hljs-number">0</span> <span class="hljs-number">16</span>:<span class="hljs-number">21</span> <span class="hljs-keyword">pts</span>/<span class="hljs-number">1</span>    <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-keyword">vim</span> install.<span class="hljs-built_in">log</span>
-root      <span class="hljs-number">3370</span>  <span class="hljs-number">2822</span>  <span class="hljs-number">0</span> <span class="hljs-number">16</span>:<span class="hljs-number">21</span> <span class="hljs-keyword">pts</span>/<span class="hljs-number">0</span>    <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-keyword">grep</span> <span class="hljs-keyword">vim</span>
+<pre><code>ps -ef | grep vim
+root      3268  2884  0 16:21 pts/1    00:00:00 vim install.log
+root      3370  2822  0 16:21 pts/0    00:00:00 grep vim
 
-kill <span class="hljs-number">3268</span>
-kill <span class="hljs-number">3268</span>
--bash: kil<span class="hljs-variable">l:</span> (<span class="hljs-number">3268</span>) - 没有那个进程
-</code></pre>
+kill 3268
+kill 3268
+-bash: kill: (3268) - 没有那个进程
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

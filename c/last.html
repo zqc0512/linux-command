@@ -38,31 +38,31 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/last.md">编辑</a>
 
 <h1 id="last">last</h1><p>列出目前与过去登入系统的用户相关信息</p>
-<h2 id="补充说明">补充说明</h2><p><strong>last命</strong> 用于显示用户最近登录信息。单独执行last命令，它会读取<code>/var/log/wtmp</code>的文件，并把该给文件的内容记录的登入系统的用户名单全部显示出来。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">last</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby">a：把从何处登入系统的主机名称或ip地址，显示在最后一行；
-</span>-<span class="ruby">d：将IP地址转换成主机名称；
-</span>-<span class="ruby">f &lt;记录文件&gt;：指定记录文件。
-</span>-<span class="ruby">n &lt;显示列数&gt;或-&lt;显示列数&gt;：设置列出名单的显示列数；
-</span>-<span class="ruby">R：不显示登入系统的主机名称或IP地址；
-</span>-<span class="ruby">x：显示系统关机，重新开机，以及执行等级的改变等信息。</span>
+<h2 id="补充说明">补充说明</h2><p><strong>last命令</strong> 用于显示用户最近登录信息。单独执行last命令，它会读取<code>/var/log/wtmp</code>的文件，并把该给文件的内容记录的登入系统的用户名单全部显示出来。</p>
+<h3 id="语法">语法</h3><pre><code>last(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-a：把从何处登入系统的主机名称或ip地址，显示在最后一行；
+-d：将IP地址转换成主机名称；
+-f &lt;记录文件&gt;：指定记录文件。
+-n &lt;显示列数&gt;或-&lt;显示列数&gt;：设置列出名单的显示列数；
+-R：不显示登入系统的主机名称或IP地址；
+-x：显示系统关机，重新开机，以及执行等级的改变等信息。
 </code></pre><h3 id="参数">参数</h3><ul>
 <li>用户名：显示用户登录列表；</li>
 <li>终端：显示从指定终端的登录列表。</li>
 </ul>
 <h3 id="实例">实例</h3><p>last命令用了显示用户登录情况，以下是直接显示固定行数的记录：</p>
-<pre><code>last -<span class="hljs-number">10</span>
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">221.6</span><span class="hljs-meta">.45</span><span class="hljs-meta">.34</span>      Tue <span class="hljs-keyword">Dec</span> <span class="hljs-number">17</span> <span class="hljs-number">09</span>:<span class="hljs-number">40</span>   still logged <span class="hljs-keyword">in</span>
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">221.6</span><span class="hljs-meta">.45</span><span class="hljs-meta">.34</span>      Mon <span class="hljs-keyword">Dec</span> <span class="hljs-number">16</span> <span class="hljs-number">09</span>:<span class="hljs-number">00</span> - <span class="hljs-number">11</span>:<span class="hljs-number">57</span>  (<span class="hljs-number">02</span>:<span class="hljs-number">56</span>)
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">222.94</span><span class="hljs-meta">.97</span><span class="hljs-meta">.122</span>    Sun <span class="hljs-keyword">Dec</span> <span class="hljs-number">15</span> <span class="hljs-number">20</span>:<span class="hljs-number">39</span> - <span class="hljs-number">23</span>:<span class="hljs-number">28</span>  (<span class="hljs-number">02</span>:<span class="hljs-number">48</span>)
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">222.95</span><span class="hljs-meta">.209</span><span class="hljs-meta">.80</span>    Sat <span class="hljs-keyword">Dec</span> <span class="hljs-number">14</span> <span class="hljs-number">14</span>:<span class="hljs-number">39</span> - <span class="hljs-number">14</span>:<span class="hljs-number">58</span>  (<span class="hljs-number">00</span>:<span class="hljs-number">18</span>)
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">221.6</span><span class="hljs-meta">.45</span><span class="hljs-meta">.34</span>      Thu <span class="hljs-keyword">Dec</span> <span class="hljs-number">12</span> <span class="hljs-number">16</span>:<span class="hljs-number">55</span> - <span class="hljs-number">17</span>:<span class="hljs-number">37</span>  (<span class="hljs-number">00</span>:<span class="hljs-number">41</span>)
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">49.65</span><span class="hljs-meta">.139</span><span class="hljs-meta">.195</span>    Wed <span class="hljs-keyword">Dec</span> <span class="hljs-number">11</span> <span class="hljs-number">20</span>:<span class="hljs-number">40</span> - <span class="hljs-number">21</span>:<span class="hljs-number">16</span>  (<span class="hljs-number">00</span>:<span class="hljs-number">35</span>)
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">49.65</span><span class="hljs-meta">.139</span><span class="hljs-meta">.195</span>    Wed <span class="hljs-keyword">Dec</span> <span class="hljs-number">11</span> <span class="hljs-number">19</span>:<span class="hljs-number">46</span> - <span class="hljs-number">20</span>:<span class="hljs-number">03</span>  (<span class="hljs-number">00</span>:<span class="hljs-number">17</span>)
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">221.6</span><span class="hljs-meta">.45</span><span class="hljs-meta">.34</span>      Tue <span class="hljs-keyword">Dec</span> <span class="hljs-number">10</span> <span class="hljs-number">14</span>:<span class="hljs-number">41</span> - <span class="hljs-number">15</span>:<span class="hljs-number">52</span>  (<span class="hljs-number">01</span>:<span class="hljs-number">10</span>)
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">221.6</span><span class="hljs-meta">.45</span><span class="hljs-meta">.34</span>      Mon <span class="hljs-keyword">Dec</span>  <span class="hljs-number">9</span> <span class="hljs-number">17</span>:<span class="hljs-number">24</span> - <span class="hljs-number">17</span>:<span class="hljs-number">30</span>  (<span class="hljs-number">00</span>:<span class="hljs-number">06</span>)
-root     pts/<span class="hljs-number">0</span>        <span class="hljs-number">221.6</span><span class="hljs-meta">.45</span><span class="hljs-meta">.34</span>      Mon <span class="hljs-keyword">Dec</span>  <span class="hljs-number">9</span> <span class="hljs-number">09</span>:<span class="hljs-number">38</span> - <span class="hljs-number">11</span>:<span class="hljs-number">41</span>  (<span class="hljs-number">02</span>:<span class="hljs-number">02</span>)
-</code></pre>
+<pre><code>last -10
+root     pts/0        221.6.45.34      Tue Dec 17 09:40   still logged in
+root     pts/0        221.6.45.34      Mon Dec 16 09:00 - 11:57  (02:56)
+root     pts/0        222.94.97.122    Sun Dec 15 20:39 - 23:28  (02:48)
+root     pts/0        222.95.209.80    Sat Dec 14 14:39 - 14:58  (00:18)
+root     pts/0        221.6.45.34      Thu Dec 12 16:55 - 17:37  (00:41)
+root     pts/0        49.65.139.195    Wed Dec 11 20:40 - 21:16  (00:35)
+root     pts/0        49.65.139.195    Wed Dec 11 19:46 - 20:03  (00:17)
+root     pts/0        221.6.45.34      Tue Dec 10 14:41 - 15:52  (01:10)
+root     pts/0        221.6.45.34      Mon Dec  9 17:24 - 17:30  (00:06)
+root     pts/0        221.6.45.34      Mon Dec  9 09:38 - 11:41  (02:02)
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

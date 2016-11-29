@@ -38,37 +38,37 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/jed.md">编辑</a>
 
 <h1 id="jed">jed</h1><p>主要用于编辑代码的编辑器</p>
-<h2 id="补充说明">补充说明</h2><p><strong>jed命</strong> 是由Slang所开发，其主要用用途是编辑程序的源代码。它支持彩色语法加亮显示，可以模拟emacs，EDT，wordstar和Brief编辑器。</p>
-<h3 id="语法">语法</h3><pre><code><span class="hljs-function"><span class="hljs-title">jed</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span>
-</code></pre><h3 id="选项">选项</h3><pre><code>-<span class="ruby"><span class="hljs-number">2</span>：显示上下两个编辑区；
-</span>-<span class="ruby">batch：以批处理模式来执行；
-</span>-<span class="ruby">f&lt;函数&gt;：执行Slang函数；
-</span>-<span class="ruby">g&lt;行数&gt;：移到缓冲区中指定的行数；
-</span>-<span class="ruby">i&lt;文件&gt;：将指定的文件载入缓冲区；
-</span>-<span class="ruby">n：不要载入jed.rc配置文件；
-</span>-<span class="ruby">s&lt;字符串&gt;：查找并移到指定的字符串。</span>
+<h2 id="补充说明">补充说明</h2><p><strong>jed命令</strong> 是由Slang所开发，其主要用用途是编辑程序的源代码。它支持彩色语法加亮显示，可以模拟emacs，EDT，wordstar和Brief编辑器。</p>
+<h3 id="语法">语法</h3><pre><code>jed(选项)(参数)
+</code></pre><h3 id="选项">选项</h3><pre><code>-2：显示上下两个编辑区；
+-batch：以批处理模式来执行；
+-f&lt;函数&gt;：执行Slang函数；
+-g&lt;行数&gt;：移到缓冲区中指定的行数；
+-i&lt;文件&gt;：将指定的文件载入缓冲区；
+-n：不要载入jed.rc配置文件；
+-s&lt;字符串&gt;：查找并移到指定的字符串。
 </code></pre><h3 id="参数">参数</h3><p>文件：指定待编辑的文件列表。</p>
 <h3 id="实例">实例</h3><p>以上下两个编辑区的方式，开启 mysource.c 原始代码文件。若要切换编辑区，可利用稍后介绍的命令，开启操作命令，开启功能表后，按 3 ，再按 2 ，即可切换编辑区：</p>
-<pre><code><span class="hljs-selector-tag">jed</span> <span class="hljs-selector-tag">-2</span> <span class="hljs-selector-tag">mysource</span><span class="hljs-selector-class">.c</span>
-</code></pre><p><strong>操作</strong></p>
+<pre><code>jed -2 mysource.c
+</code></pre><p> <strong>操作</strong> </p>
 <p>有些Emacs的组合键和jed菜单组合键冲突例如Alt+f在Emacs中应该是“前进一个单词”，而在jed中则是“文件菜单” 想使用Emacs风格的组合键的话，编辑<code>/usr/share/jed/lib/menus.slc</code>找到如下段落：</p>
-<pre><code><span class="hljs-selector-tag">unsetsetkey</span> (<span class="hljs-string">"selectmenubar"</span>, <span class="hljs-string">"\em"</span>);
-<span class="hljs-selector-tag">unsetsetkey</span> (<span class="hljs-string">"@\emF"</span>, <span class="hljs-string">"\ef"</span>);
-<span class="hljs-selector-tag">unsetsetkey</span> (<span class="hljs-string">"@\emE"</span>, <span class="hljs-string">"\ee"</span>);
-<span class="hljs-selector-tag">unsetsetkey</span> (<span class="hljs-string">"@\emo"</span>, <span class="hljs-string">"\eo"</span>);
-% <span class="hljs-selector-tag">Mode</span> <span class="hljs-selector-tag">menu</span> <span class="hljs-selector-tag">unsetsetkey</span> (<span class="hljs-string">"@\emS"</span>, <span class="hljs-string">"\es"</span>);
-<span class="hljs-selector-tag">unsetsetkey</span> (<span class="hljs-string">"@\emB"</span>, <span class="hljs-string">"\eb"</span>);
-<span class="hljs-selector-tag">unsetsetkey</span> (<span class="hljs-string">"@\emi"</span>, <span class="hljs-string">"\ei"</span>);
-<span class="hljs-selector-tag">unsetsetkey</span> (<span class="hljs-string">"@\emH"</span>, <span class="hljs-string">"\eh"</span>);
-<span class="hljs-selector-tag">unset_setkey</span> (<span class="hljs-string">"@\emy"</span>, <span class="hljs-string">"\ey"</span>);
+<pre><code>unsetsetkey (&quot;selectmenubar&quot;, &quot;\em&quot;);
+unsetsetkey (&quot;@\emF&quot;, &quot;\ef&quot;);
+unsetsetkey (&quot;@\emE&quot;, &quot;\ee&quot;);
+unsetsetkey (&quot;@\emo&quot;, &quot;\eo&quot;);
+% Mode menu unsetsetkey (&quot;@\emS&quot;, &quot;\es&quot;);
+unsetsetkey (&quot;@\emB&quot;, &quot;\eb&quot;);
+unsetsetkey (&quot;@\emi&quot;, &quot;\ei&quot;);
+unsetsetkey (&quot;@\emH&quot;, &quot;\eh&quot;);
+unset_setkey (&quot;@\emy&quot;, &quot;\ey&quot;);
 </code></pre><p>可以根据自己的需要修改，也可以简单的注释掉；使用菜单可以用F10键。</p>
 <p>由于Jed可模拟多种编辑器，其各自按键指令也有所不同。这里以模拟 Emacs 为例，说明在编辑器中的操作方法。</p>
-<p><strong>文件</strong></p>
-<pre><code>/usr/share/jed/<span class="hljs-class"><span class="hljs-keyword">lib</span>/*.<span class="hljs-title">sl</span> 这是默认的运行<span class="hljs-title">jed</span> <span class="hljs-title">slang</span>的文件。</span>
-/usr/share/jed/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">site</span>.<span class="hljs-title">sl</span> 这是默认的启动文件。</span>
+<p> <strong>文件</strong> </p>
+<pre><code>/usr/share/jed/lib/*.sl 这是默认的运行jed slang的文件。
+/usr/share/jed/lib/site.sl 这是默认的启动文件。
 /etc/jed.rc 这是全局系统配置文件。
-~<span class="hljs-regexp">/.jedrc 这是用户配置文件。</span>
-</code></pre>
+~/.jedrc 这是用户配置文件。
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>

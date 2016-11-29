@@ -38,13 +38,13 @@
 <a class="edit_btn" href="https://github.com/jaywcjlove/linux-command/edit/master//command/mailq.md">编辑</a>
 
 <h1 id="mailq">mailq</h1><p>显示待发送的邮件队列</p>
-<h2 id="补充说明">补充说明</h2><p><strong>mailq命</strong> 用户显示待发送的邮件队列，显示的每一个条目包括邮件队列id、邮件大小、加入队列时间、邮件发送者和接受者。如果邮件最后一次尝试后还没有将邮件投递出去，则显示发送失败的原因。</p>
-<h3 id="语法">语法</h3><pre><code>mail<span class="hljs-string">q(选项)</span>
-</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-deletion">-v：显示详细的信息。</span>
-</code></pre><h3 id="实例">实例</h3><pre><code>[root@localhost ~]<span class="hljs-comment"># mailq -v</span>
-/<span class="hljs-keyword">var</span>/spool/mqueue <span class="hljs-keyword">is</span> empty
-                Total requests: <span class="hljs-number">0</span>
-</code></pre>
+<h2 id="补充说明">补充说明</h2><p><strong>mailq命令</strong> 用户显示待发送的邮件队列，显示的每一个条目包括邮件队列id、邮件大小、加入队列时间、邮件发送者和接受者。如果邮件最后一次尝试后还没有将邮件投递出去，则显示发送失败的原因。</p>
+<h3 id="语法">语法</h3><pre><code>mailq(选项)
+</code></pre><h3 id="选项">选项</h3><pre><code>-v：显示详细的信息。
+</code></pre><h3 id="实例">实例</h3><pre><code>[root@localhost ~]# mailq -v
+/var/spool/mqueue is empty
+                Total requests: 0
+</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <script type="text/javascript" src="../js/dt.js"></script>
