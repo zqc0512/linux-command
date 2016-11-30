@@ -39,7 +39,7 @@
 
 <h1 id="losetup">losetup</h1><p>设定与控制循环（loop）设备</p>
 <h2 id="补充说明">补充说明</h2><p><strong>losetup命令</strong> 用来设置循环设备。循环设备可把文件虚拟成块设备，籍此来模拟整个文件系统，让用户得以将其视为硬盘驱动器，光驱或软驱等设备，并挂入当作目录来使用。</p>
-<h3 id="语法">语法</h3><pre><code>losetup  <span class="hljs-_">-e</span> encryption 
+<h3 id="语法">语法</h3><pre><code>losetup [ <span class="hljs-_">-e</span> encryption ] [ -o offset ] loop_device file
 losetup [ <span class="hljs-_">-d</span> ] loop_device
 </code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-a</span> 显示所有循环设备的状态。
 <span class="hljs-_">-d</span> 卸除设备。

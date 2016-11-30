@@ -49,10 +49,10 @@
 -V：显示指令版本及程序预设值。
 </code></pre><h3 id="参数">参数</h3><p>文件：指定要压缩的文件列表。</p>
 <h3 id="实例">实例</h3><p>将<code>/etc/man.config</code>复到<code>/tmp</code> ，并加以压缩</p>
-<pre><code>root@localhost ~ /tmp
-root@localhost tmp /etc/man.config .
+<pre><code>[root@localhost ~]<span class="hljs-comment"># cd /tmp</span>
+[root@localhost tmp]<span class="hljs-comment"># cp /etc/man.config .</span>
 [root@localhost tmp]<span class="hljs-comment"># compress man.config</span>
-root@localhost tmp <span class="hljs-_">-l</span>
+[root@localhost tmp]<span class="hljs-comment"># ls -l</span>
 </code></pre><pre><code>-rw-r--r-- 1 root root 2605 Jul 27 11:43 man.config.Z
 </code></pre><p>将刚刚的压缩档解开</p>
 <pre><code>[root@localhost tmp]<span class="hljs-comment"># compress -d man.config.Z</span>

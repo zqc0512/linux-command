@@ -53,14 +53,14 @@
 /sbin/nologin
 /bin/zsh
 </code></pre><p>第二种：</p>
-<pre><code>rocrocket@localhost ~ /etc/shells
+<pre><code>[rocrocket@localhost ~]$ cat /etc/shells
 /bin/sh
 /bin/bash
 /sbin/nologin
 /bin/zsh
 </code></pre><p>其实<code>chsh -l</code>也是来查看这个文件。</p>
 <p> <strong>查看当前正在使用的shell：</strong> </p>
-<pre><code>rocrocket@localhost ~ <span class="hljs-variable">$SHELL</span>
+<pre><code>[rocrocket@localhost ~]$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$SHELL</span>
 /bin/bash
 </code></pre><p>注意SHELL一定要是大写。可以看到，目前使用的shell是<code>/bin/bash</code></p>
 <p> <strong>把我的shell改成zsh：</strong> </p>
@@ -70,7 +70,7 @@ Password:
 Shell changed.
 [rocrocket@localhost ~]$
 </code></pre><p>使用chsh加选项<code>-s</code>就可以修改登录的shell了！你会发现你现在执行<code>echo $SHELL</code>后仍然输出为<code>/bin/bash</code>，这是因为你需要重启你的shell才完全投入到zsh怀抱中去。<code>chsh -s</code>其实修改的就是<code>/etc/passwd</code>文件里和你的用户名相对应的那一行。现在来查看下：</p>
-<pre><code>rocrocket@localhost ~ ^rocrocket
+<pre><code>[rocrocket@localhost ~]$ cat /etc/passwd|grep ^rocrocket
 rocrocket:x:500:500:rocrocket,China:/rocrocket/PSB/home:/bin/zsh
 </code></pre><p>你可以发现输出内容的最后部分已经变成了<code>/bin/zsh</code>了，下次重启的时候，linux就会读取这一命令来启动shell了！</p>
 <p> <strong>把shell修改回/bin/bash：</strong> </p>

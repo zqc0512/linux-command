@@ -54,7 +54,7 @@
 <pre><code>[root@localhost boot]<span class="hljs-comment"># insmod /lib/modules/2.6.</span>
 18-8.el5/kernel/drivers/md/raid1.ko  
 
-root@localhost boot | grep raid1
+[root@localhost boot]<span class="hljs-comment"># lsmod | grep raid1</span>
 raid1                  25153  0
 </code></pre><p>从以上显示结果可知，RAID1模块已加载成功。只是在使用insmod命令加载模块时，需要使用绝对路径方能加载，且加载时无法自动解决依赖关系。</p>
 <!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

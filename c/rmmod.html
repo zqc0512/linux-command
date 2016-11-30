@@ -46,7 +46,7 @@
 <span class="hljs-_">-s</span>：向系统日志（syslog）发送错误信息。
 </code></pre><h3 id="参数">参数</h3><p>模块名：要移除的模块名称。</p>
 <h3 id="实例">实例</h3><p>用rmmod命令主要用于卸载正在使用的Linux内核模块，与<code>modprobe -r</code>命令相似，如下所示：</p>
-<pre><code>root@localhost boot | grep raid1
+<pre><code>[root@localhost boot]<span class="hljs-comment"># lsmod | grep raid1</span>
 raid1                  25153  0
 
 [root@localhost boot]<span class="hljs-comment"># rmmod raid1</span>

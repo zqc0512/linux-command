@@ -90,8 +90,8 @@ C<span class="hljs-_">-a</span>  -&gt; 进入 copy mode，在 copy mode 下可�
 C<span class="hljs-_">-a</span> ] -&gt; paste，把刚刚在 copy mode 选定的内容贴上
 </code></pre><h3 id="使用 screen">使用 screen</h3><p> <strong>安装screen</strong> </p>
 <p>流行的Linux发行版（例如Red Hat Enterprise Linux）通常会自带screen实用程序，如果没有的话，可以从GNU screen的官方网站下载。</p>
-<pre><code>root@TS-DEV ~ install screen
-root@TS-DEV ~ -qa|grep screen
+<pre><code>[root@TS-DEV ~]<span class="hljs-comment"># yum install screen</span>
+[root@TS-DEV ~]<span class="hljs-comment"># rpm -qa|grep screen</span>
 screen-4.0.3-4.el5
 [root@TS-DEV ~]<span class="hljs-comment">#</span>
 </code></pre><p> <strong>创建一个新的窗口</strong> </p>
@@ -135,7 +135,7 @@ screen-4.0.3-4.el5
 <p>也可以使用C-a x锁定会话，不同的是这样锁定之后，会话会被Screen所属用户的密码保护，需要输入密码才能继续访问这个会话。</p>
 <p> <strong>发送命令到screen会话</strong> </p>
 <p>在Screen会话之外，可以通过screen命令操作一个Screen会话，这也为使用Screen作为脚本程序增加了便利。关于Screen在脚本中的应用超出了入门的范围，这里只看一个例子，体会一下在会话之外对Screen的操作：</p>
-<pre><code>root@TS-DEV ~ www.baidu.com
+<pre><code>[root@TS-DEV ~]<span class="hljs-comment"># screen -S sandy -X screen ping www.baidu.com</span>
 </code></pre><p>这个命令在一个叫做sandy的screen会话中创建一个新窗口，并在其中运行ping命令。</p>
 <p> <strong>屏幕分割</strong> </p>
 <p>现在显示器那么大，将一个屏幕分割成不同区域显示不同的Screen窗口显然是个很酷的事情。可以使用快捷键C-a S将显示器水平分割，Screen 4.00.03版本以后，也支持垂直分屏，快捷键是C-a |。分屏以后，可以使用C-a <tab>在各个区块间切换，每一区块上都可以创建窗口并在其中运行进程。</p>

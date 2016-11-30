@@ -51,7 +51,7 @@
 <li>映像文件：指定要创建的映像文件；</li>
 <li>内核版本：指定内核版本。</li>
 </ul>
-<h3 id="实例">实例</h3><pre><code>root@localhost tmp -r)
+<h3 id="实例">实例</h3><pre><code>[root@localhost tmp]<span class="hljs-comment"># mkinitrd -v -f myinitrd.img $(uname -r)</span>
 Creating initramfs
 WARNING: using /tmp <span class="hljs-keyword">for</span> temporary files
 Looking <span class="hljs-keyword">for</span> deps of module ide-disk
@@ -67,10 +67,10 @@ copy from /lib/modules/2.6.9-5.EL/./kernel/fs/ext3/ext3.ko(elf32-i386) to /tmp/i
 Loading module jbd
 Loading module ext3
 
-root@localhost tmp myinitrd.img
+[root@localhost tmp]<span class="hljs-comment"># file myinitrd.img</span>
 myinitrd.img: gzip compressed data, from Unix, max compression
 
-root@localhost tmp myinitrd.img  myinitrd.img.gz
+[root@localhost tmp]<span class="hljs-comment"># mv myinitrd.img  myinitrd.img.gz</span>
 [root@localhost tmp]<span class="hljs-comment"># gzip -d myinitrd.img.gz</span>
 [root@localhost tmp]<span class="hljs-comment"># file myinitrd.img</span>
 myinitrd.img: ASCII cpio archive (SVR4 with no CRC)

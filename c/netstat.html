@@ -109,9 +109,9 @@ netstat: no support for `AF NETROM'</span> on this system.
 </code></pre><p>显示详细信息，像是ifconfig使用<code>netstat -ie</code>。</p>
 <p> <strong>IP和TCP分析</strong> </p>
 <p>查看连接某服务端口最多的的IP地址：</p>
-<pre><code>netstat -ntu | grep :80 | awk <span class="hljs-string">'{print $5}'</span> | cut <span class="hljs-_">-d</span>: <span class="hljs-_">-f</span>1 | awk <span class="hljs-string">'{++ip$1 print ipi -nr</span>
+<pre><code>netstat -ntu | grep :80 | awk <span class="hljs-string">'{print $5}'</span> | cut <span class="hljs-_">-d</span>: <span class="hljs-_">-f</span>1 | awk <span class="hljs-string">'{++ip[$1]} END {for(i in ip) print ip[i],"\t",i}'</span> | sort -nr
 </code></pre><p>TCP各种状态列表：</p>
-<pre><code>netstat -nt | grep <span class="hljs-_">-e</span> 127.0.0.1 <span class="hljs-_">-e</span> 0.0.0.0 <span class="hljs-_">-e</span> ::: -v | awk <span class="hljs-string">'/^tcp/ {++state$NF print i,"\t",state[i]}'</span>
+<pre><code>netstat -nt | grep <span class="hljs-_">-e</span> 127.0.0.1 <span class="hljs-_">-e</span> 0.0.0.0 <span class="hljs-_">-e</span> ::: -v | awk <span class="hljs-string">'/^tcp/ {++state[$NF]} END {for(i in state) print i,"\t",state[i]}'</span>
 </code></pre><p>查看phpcgi进程数，如果接近预设值，说明不够用，需要增加：</p>
 <pre><code>netstat -anpo | grep <span class="hljs-string">"php-cgi"</span> | wc <span class="hljs-_">-l</span>
 </code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

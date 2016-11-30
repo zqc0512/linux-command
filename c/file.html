@@ -49,7 +49,7 @@
 -z：尝试去解读压缩文件的内容。
 </code></pre><h3 id="参数">参数</h3><p>文件：要确定类型的文件列表，多个文件之间使用空格分开，可以使用shell通配符匹配多个文件。</p>
 <h3 id="实例">实例</h3><p>显示文件类型</p>
-<pre><code>root@localhost ~.log
+<pre><code>[root@localhost ~]<span class="hljs-comment"># file install.log</span>
 install.log: UTF-8 Unicode text
 
 [root@localhost ~]<span class="hljs-comment"># file -b install.log      &lt;== 不显示文件名称</span>
@@ -61,7 +61,7 @@ install.log: text/plain; charset=utf-8
 [root@localhost ~]<span class="hljs-comment"># file -b -i install.log</span>
 text/plain; charset=utf-8
 </code></pre><p>显示符号链接的文件类型</p>
-<pre><code>root@localhost ~ <span class="hljs-_">-l</span> /var/mail
+<pre><code>[root@localhost ~]<span class="hljs-comment"># ls -l /var/mail</span>
 lrwxrwxrwx 1 root root 10 08-13 00:11 /var/mail -&gt; spool/mail
 
 [root@localhost ~]<span class="hljs-comment"># file /var/mail</span>

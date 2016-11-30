@@ -55,24 +55,24 @@
 <li>查询类：指定查询DNS的class；</li>
 <li>查询选项：指定查询选项。</li>
 </ul>
-<h3 id="实例">实例</h3><pre><code>[root@localhost ~]<span class="hljs-comment"># dig www.linuxde.net</span>
+<h3 id="实例">实例</h3><pre><code>[root@localhost ~]<span class="hljs-comment"># dig www.jsdig.com</span>
 
-; &lt;&lt;&gt;&gt; DiG 9.3.6-P1-RedHat-9.3.6-20.P1.el5_8.1 &lt;&lt;&gt;&gt; www.linuxde.net
+; &lt;&lt;&gt;&gt; DiG 9.3.6-P1-RedHat-9.3.6-20.P1.el5_8.1 &lt;&lt;&gt;&gt; www.jsdig.com
 ;; global options:  printcmd
 ;; Got answer:
 ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 2115
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 2, ADDITIONAL: 0
 
 ;; QUESTION SECTION:
-;www.linuxde.net.               IN      A
+;www.jsdig.com.               IN      A
 
 ;; ANSWER SECTION:
-www.linuxde.net.        0       IN      CNAME   host.1.linuxde.net.
-host.1.linuxde.net.     0       IN      A       100.42.212.8
+www.jsdig.com.        0       IN      CNAME   host.1.jsdig.com.
+host.1.jsdig.com.     0       IN      A       100.42.212.8
 
 ;; AUTHORITY SECTION:
-linuxde.net.            8       IN      NS      f1g1ns2.dnspod.net.
-linuxde.net.            8       IN      NS      f1g1ns1.dnspod.net.
+jsdig.com.            8       IN      NS      f1g1ns2.dnspod.net.
+jsdig.com.            8       IN      NS      f1g1ns1.dnspod.net.
 
 ;; Query time: 0 msec
 ;; SERVER: 202.96.104.15<span class="hljs-comment">#53(202.96.104.15)</span>

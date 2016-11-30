@@ -113,7 +113,7 @@ tftp&gt;q
 <p>修改<code>/etc/sysconfig/selinux</code>,将SELINUX设定为disable，使用命令<code>setenforce 0</code>让selinux配置文件生效。</p>
 <p> <strong>8、Busybox中tftp命令的用法</strong> </p>
 <p>命令格式为：</p>
-<pre><code>tftp option [port]
+<pre><code>tftp [option] ... host [port]
 </code></pre><p>如果要下载或上传文件的话是一定要用这些option的。</p>
 <pre><code>-g 表示下载文件 (get)
 -p 表示上传文件 (put)

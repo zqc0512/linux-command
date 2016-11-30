@@ -44,13 +44,13 @@
 <span class="hljs-_">-d</span>：使用数字作为后缀。
 <span class="hljs-_">-l</span>：值为每一输出档的列数大小。
 </code></pre><h3 id="实例">实例</h3><p>生成一个大小为100KB的测试文件：</p>
-<pre><code>root@localhost split <span class="hljs-keyword">if</span>=/dev/zero bs=100k count=1 of=date.file
+<pre><code>[root@localhost split]<span class="hljs-comment"># dd if=/dev/zero bs=100k count=1 of=date.file</span>
 1+0 records <span class="hljs-keyword">in</span>
 1+0 records out
 102400 bytes (102 kB) copied, 0.00043 seconds, 238 MB/s
 </code></pre><p>使用split命令将上面创建的date.file文件分割成大小为10KB的小文件：</p>
 <pre><code>[root@localhost split]<span class="hljs-comment"># split -b 10k date.file </span>
-root@localhost split
+[root@localhost split]<span class="hljs-comment"># ls</span>
 date.file  xaa  xab  xac  xad  xae  xaf  xag  xah  xai  xaj
 </code></pre><p>文件被分割成多个带有字母的后缀文件，如果想用数字后缀可使用-d参数，同时可以使用-a length来指定后缀的长度：</p>
 <pre><code>[root@localhost split]<span class="hljs-comment"># split -b 10k date.file -d -a 3</span>

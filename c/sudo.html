@@ -61,7 +61,7 @@
 </code></pre><p>我们一看就明白个差不多了，root有所有权限，只要仿照现有root的例子就行，我们在下面加一行（最好用tab作为空白）：</p>
 <pre><code>foobar ALL=(ALL)    ALL
 </code></pre><p>保存退出后，切换到foobar用户，我们用它的身份执行命令：</p>
-<pre><code>foobar@localhost ~ /root
+<pre><code>[foobar@localhost ~]$ ls /root
 ls: /root: 权限不够
 
 [foobar@localhost ~]$ sudo ls /root
@@ -70,7 +70,7 @@ anaconda-ks.cfg Desktop install.log install.log.syslog
 </code></pre><p>好了，我们限制一下foobar的权利，不让他为所欲为。比如我们只想让他像root那样使用ls和ifconfig，把那一行改为：</p>
 <pre><code>foobar localhost=    /sbin/ifconfig,   /bin/ls
 </code></pre><p>再来执行命令：</p>
-<pre><code>foobar@localhost ~ -5 /etc/shadow
+<pre><code>[foobar@localhost ~]$ sudo head -5 /etc/shadow
 Password:
 Sorry, user foobar is not allowed to execute <span class="hljs-string">'/usr/bin/head -5 /etc/shadow'</span> as root on localhost.localdomain.
 

@@ -189,7 +189,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 </code></pre><p>建立好分区之后我们还需要对分区进行格式化才能在系统中使用磁盘。</p>
 <p>在sdb1上建立ext2分区：</p>
-<pre><code>root@localhost ~.ext2 /dev/sdb1
+<pre><code>[root@localhost ~]<span class="hljs-comment"># mkfs.ext2 /dev/sdb1</span>
 mke2fs 1.39 (29-May-2006)
 Filesystem label=
 OS <span class="hljs-built_in">type</span>: Linux
@@ -235,12 +235,12 @@ This filesystem will be automatically checked every 32 mounts or
 180 days, whichever comes first.  Use tune2fs -c or -i to override.
 [root@localhost ~]<span class="hljs-comment">#</span>
 </code></pre><p>建立两个目录<code>/oracle</code>和<code>/web</code>，将新建好的两个分区挂载到系统：</p>
-<pre><code>root@localhost ~ /oracle
+<pre><code>[root@localhost ~]<span class="hljs-comment"># mkdir /oracle</span>
 [root@localhost ~]<span class="hljs-comment"># mkdir /web</span>
-root@localhost ~ /dev/sdb1 /oracle
+[root@localhost ~]<span class="hljs-comment"># mount /dev/sdb1 /oracle</span>
 [root@localhost ~]<span class="hljs-comment"># mount /dev/sdb6 /web</span>
 </code></pre><p>查看分区挂载情况：</p>
-<pre><code>root@localhost ~ -h
+<pre><code>[root@localhost ~]<span class="hljs-comment"># df -h</span>
 文件系统              容量  已用 可用 已用% 挂载点
 /dev/mapper/VolGroup00-LogVol00
                       6.7G  2.8G  3.6G  44% /

@@ -68,8 +68,8 @@ SERVER-3
 [dis] 10.10.10.11 pen
 [con] 10.10.10.12 suc
 </code></pre><p>需要将server.log分割成server1.log、server2.log、server3.log，这些文件的内容分别取自原文件中不同的SERVER部分：</p>
-<pre><code>root@localhost split server00.log
-root@localhost split
+<pre><code>[root@localhost split]<span class="hljs-comment"># csplit server.log /SERVER/ -n2 -s {*} -f server -b "%02d.log"; rm server00.log</span>
+[root@localhost split]<span class="hljs-comment"># ls</span>
 server01.log  server02.log  server03.log  server.log
 </code></pre><p> <strong>命令详细说明：</strong> </p>
 <pre><code>/[正则表达式]/   <span class="hljs-comment">#匹配文本样式，比如/SERVER/，从第一行到包含SERVER的匹配行。</span>

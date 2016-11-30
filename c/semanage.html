@@ -60,9 +60,9 @@ drwxr-xr-x  root root root:object_r:var_t    /srv/samba
 </code></pre><p>如上所示，默认的情况应该是<code>var_t</code>这个咚咚的！</p>
 <pre><code>semanage fcontext <span class="hljs-_">-l</span> | grep <span class="hljs-string">'/srv'</span>
 /srv/.*                     all files   system_u:object_r:var_t:s0
-/srv/(^/?ftp(/.*)?     all files   system_u:object_r:public_content_t:s0
-/srv/(^/?www(/.*)?     all files   system_u:object_r:httpd_sys_content_t:s0
-/srv/(^/?rsync(/.*)?   all files   system_u:object_r:public_content_t:s0
+/srv/([^/]*/)?ftp(/.*)?     all files   system_u:object_r:public_content_t:s0
+/srv/([^/]*/)?www(/.*)?     all files   system_u:object_r:httpd_sys_content_t:s0
+/srv/([^/]*/)?rsync(/.*)?   all files   system_u:object_r:public_content_t:s0
 /srv/gallery2(/.*)?         all files   system_u:object_r:httpd_sys_content_t:s0
 /srv                        directory   system_u:object_r:var_t:s0   //看这里！
 </code></pre><p>上面则是默认的<code>/srv</code>底下的安全性本文资料，不过，并没有指定到<code>/srv/samba</code>。</p>
