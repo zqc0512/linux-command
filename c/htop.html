@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="description" content="halt:关闭正在运行的Linux操作系统 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,halt">
-    <title>halt - Linux Command</title>
+    <meta name="description" content="htop:[非内部命令]一个互动的进程查看器，可以动态观察系统进程状况。 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,htop">
+    <title>htop - Linux Command</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1481085965206">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1481085965216">
 </head>
 <body>
 <a href="https://github.com/jaywcjlove/linux-command" target="_blank" class="github-corner"> <svg viewBox="0 0 250 250"><!-- kenny wang <wowohoo@qq.com> https://github.com/jaywcjlove --> <title>logo</title> <desc>Linux Command Logo. https://github.com/jaywcjlove</desc><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg> </a>
@@ -24,7 +24,7 @@
         </ul>
         <input type="text" class="query" id="query" autocomplete="off" placeholder="Linux 命令搜索"/>
         <div class="enter-input">
-            <input type="hidden" id="current_path" value="/c/halt.html">
+            <input type="hidden" id="current_path" value="/c/htop.html">
             <button id="search_btn">搜索</button>
         </div>
     </div>
@@ -37,26 +37,79 @@
 <div class="markdown-body">
 
 <span class="edit_btn">
-<a target="_blank" href="https://github.com/jaywcjlove/linux-command/edit/master/command/halt.md">纠正错误</a> 
+<a target="_blank" href="https://github.com/jaywcjlove/linux-command/edit/master/command/htop.md">纠正错误</a> 
 <span class="split"></span>
-<a target="_blank" href="https://github.com/jaywcjlove/linux-command/edit/master/command/halt.md">添加实例</a>
+<a target="_blank" href="https://github.com/jaywcjlove/linux-command/edit/master/command/htop.md">添加实例</a>
 </span>
 
-<h1 id="halt">halt</h1><p>关闭正在运行的Linux操作系统</p>
-<h2 id="补充说明">补充说明</h2><p><strong>halt命令</strong> 用来关闭正在运行的Linux操作系统。halt命令会先检测系统的runlevel，若runlevel为0或6，则关闭系统，否则即调用shutdown来关闭系统。</p>
-<h3 id="语法">语法</h3><pre><code>halt(选项)
-</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-d</span>：不要在wtmp中记录；
-<span class="hljs-_">-f</span>：不论目前的runlevel为何，不调用shutdown即强制关闭系统；
--i：在halt之前，关闭全部的网络界面；
--n：halt前，不用先执行sync；
--p：halt之后，执行poweroff；
--w：仅在wtmp中记录，而不实际结束系统。
-</code></pre><h3 id="实例">实例</h3><pre><code>halt -p     //关闭系统后关闭电源。
-halt <span class="hljs-_">-d</span>     //关闭系统，但不留下纪录。
-</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+<h1 id="htop">htop</h1><p>[非内部命令]一个互动的进程查看器，可以动态观察系统进程状况。</p>
+<h2 id="补充说明">补充说明</h2><p>htop命令 是Linux系统中的一个互动的进程查看器，一个文本模式的应用程序(在控制台或者X终端中)，需要ncurses。</p>
+<p>与Linux传统的top相比，htop更加人性化。它可让用户交互式操作，支持颜色主题，可横向或纵向滚动浏览进程列表，并支持鼠标操作。</p>
+<p>与top相比，htop有以下优点：</p>
+<ul>
+<li>可以横向或纵向滚动浏览进程列表，以便看到所有的进程和完整的命令行。</li>
+<li>在启动上，比top 更快。</li>
+<li>杀进程时不需要输入进程号。</li>
+<li>htop 支持鼠标操作。</li>
+<li>两者相比起来，top比较繁琐。</li>
+</ul>
+<p>top缺点：</p>
+<ul>
+<li>只支持键盘操作。</li>
+<li>显示也单调。</li>
+</ul>
+<p>htop 官网：<a href="http://htop.sourceforge.net/">http://htop.sourceforge.net/</a></p>
+<h3 id="语法">语法</h3><pre><code>htop
+</code></pre><h3 id="选项">选项</h3><pre><code>h， ?    F1 : 查看htop使用说明
+S       F2 : 设置
+/       F3 : 搜索进程
+\       F4 : 过滤器，按关键字搜索
+t       F5 : 显示树形结构
+&lt;,&gt;     F6 : 选择排序方式
+[       F7 : 减少nice值，这样就可以提高对应进程的优先级
+]       F8 : 增加nice值，这样可以降低对应进程的优先级
+k       F9 : 杀掉选中的进程
+q       F10 : 退出htop
+
+/ : 搜索字符
+h : 显示帮助
+l : 显示进程打开的文件: 如果安装了lsof，按此键可以显示进程所打开的文件
+u : 显示所有用户，并可以选择某一特定用户的进程
+U : 取消标记所有的进程
+s : 将调用strace追踪进程的系统调用
+t : 显示树形结构
+
+H : 显示/隐藏用户线程
+I : 倒转排序顺序
+K : 显示/隐藏内核线程    
+M : 按内存占用排序
+P : 按CPU排序    
+T : 按运行时间排序
+
+上下键或PgUP， PgDn : 移动选中进程
+左右键或Home， End : 移动列表    
+Space(空格) : 标记/取消标记一个进程。命令可以作用于多个进程，例如 <span class="hljs-string">"kill"</span>，将应用于所有已标记的进程
+</code></pre><h3 id="htop设定">Htop设定</h3><p>鼠标点击Setup或者按下F2 之后进入htop 设定的页面</p>
+<h4 id="1-meters">1. Meters</h4><p>设定顶端的 显示信息，分为左右两侧，Left column 表示左侧的显示的信息，Right column表示右侧显示的信息，如果要新加选项，可以选择Available meters添加，F5新增到上方左侧，F6新增到上方右侧。Left column和Right column下面的选项，可以选定信息的显示方式，有LED、Bar(进度条)、Text(文本模式)，可以根据个人喜好进行设置</p>
+<h4 id="2-display-options">2. Display options</h4><p>选择要显示的内容，按空格 x表示显示，选择完后，按F10保存</p>
+<h4 id="3-colors">3. Colors</h4><p>设定界面以什么颜色来显示，个人认为用处不大，各人喜好不同</p>
+<h4 id="4-colums">4. Colums</h4><p>作用是增加或取消要显示的各项内容，选择后F7(向上移动)、F8(向下移动)、F9(取消显示、F10(保存更改))此处增加了PPID、PGRP，根据各人需求，显示那些信息。</p>
+<p><strong>F3 搜索进程</strong></p>
+<p>在界面下按F3或直接输入”/”就可以直接进入搜索模式，是按照进程名进行搜索的，搜索到的进程会用设定的颜色标记出来，方便查看。</p>
+<p><strong>F4：过滤器</strong></p>
+<p>相当于模糊查找，不区分大小写，下方输入要搜索的内容后，则界面只显示搜索到的内容，更加方便查看</p>
+<p><strong>F5:以树形方式显示</strong></p>
+<p><strong>F6：排序方式</strong></p>
+<p>按下F6后会跳转至以树形方式显示界面，让您选择以什么方式进行排序，在Sort by下选择您要以什么来排序</p>
+<p><strong>F7，F8：调整进程nice值</strong></p>
+<p>F7表示减小nice值(增大优先级)，F8增大nice值(减小优先级)，选择某一进程，按F7或F8来增大或减小nice值，nice值范围为-20-19</p>
+<p><strong>F9：杀死进程</strong></p>
+<p>选择某一进程按F9即可杀死此进程，很方便</p>
+<p><strong>F10:退出htop</strong></p>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
-<script type="text/javascript" src="../js/dt.js?v=1481085965207"></script>
-<script type="text/javascript" src="../js/index.js?v=1481085965207"></script>
+<script type="text/javascript" src="../js/dt.js?v=1481085965217"></script>
+<script type="text/javascript" src="../js/index.js?v=1481085965217"></script>
 </body>
 </html>
