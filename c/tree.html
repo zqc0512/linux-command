@@ -6,11 +6,11 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <meta name="description" content="tree:树状图列出目录的内容 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
-    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,tree">
-    <title>tree - Linux Command</title>
+    <meta name="description" content="tree:树状图列出目录的内容 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,tree">
+    <title>tree - Linux Command</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1484350765123">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1485014718480">
 </head>
 <body>
 <a href="https://github.com/jaywcjlove/linux-command" target="_blank" class="github-corner"> <svg viewBox="0 0 250 250"><!-- kenny wang <wowohoo@qq.com> https://github.com/jaywcjlove --> <title>logo</title> <desc>Linux Command Logo. https://github.com/jaywcjlove</desc><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg> </a>
@@ -47,31 +47,76 @@
 <h1 id="tree">tree</h1><p>树状图列出目录的内容</p>
 <h2 id="补充说明">补充说明</h2><p><strong>tree命令</strong> 以树状图列出目录的内容。</p>
 <h3 id="语法">语法</h3><pre><code>tree(选项)(参数)
-</code></pre><h3 id="选项">选项</h3><pre><code><span class="hljs-_">-a</span>：显示所有文件和目录；
--A：使用ASNI绘图字符显示树状图而非以ASCII字符组合；
--C：在文件和目录清单加上色彩，便于区分各种类型；
-<span class="hljs-_">-d</span>：先是目录名称而非内容；
--D：列出文件或目录的更改时间；
-<span class="hljs-_">-f</span>：在每个文件或目录之前，显示完整的相对路径名称；
--F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上<span class="hljs-string">"*"</span>，<span class="hljs-string">"/"</span>，<span class="hljs-string">"@"</span>，<span class="hljs-string">"|"</span>号；
--g：列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码；
--i：不以阶梯状列出文件和目录名称；
-<span class="hljs-_">-l</span>：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称；
-<span class="hljs-_">-l</span>：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录；
--n：不在文件和目录清单加上色彩；
--N：直接列出文件和目录名称，包括控制字符；
--p：列出权限标示；
--P：&lt;范本样式&gt; 只显示符合范本样式的文件和目录名称；
--q：用“？”号取代控制字符，列出文件和目录名称；
-<span class="hljs-_">-s</span>：列出文件和目录大小；
--t：用文件和目录的更改时间排序；
--u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码；
--x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。
-</code></pre><h3 id="参数">参数</h3><p>目录：执行tree指令，它会列出指定目录下的所有文件，包括子目录里的文件。</p>
+</code></pre><h3 id="选项">选项</h3><pre><code class="lang-bash">------- 列表选项 -------
+<span class="hljs-_">-a</span>            <span class="hljs-comment"># 显示所有文件和目录。</span>
+<span class="hljs-_">-d</span>            <span class="hljs-comment"># 先是目录名称而非文件。</span>
+<span class="hljs-_">-l</span>            <span class="hljs-comment"># 如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录。</span>
+<span class="hljs-_">-f</span>            <span class="hljs-comment"># 在每个文件或目录之前，显示完整的相对路径名称。</span>
+-x            <span class="hljs-comment"># 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。</span>
+-L level      <span class="hljs-comment"># 限制目录显示层级。</span>
+-R            <span class="hljs-comment"># Rerun tree when max dir level reached.</span>
+-P pattern    <span class="hljs-comment"># &lt;范本样式&gt; 只显示符合范本样式的文件和目录名称。</span>
+-I pattern    <span class="hljs-comment"># Do not list files that match the given pattern.</span>
+--ignore-case <span class="hljs-comment"># Ignore case when pattern matching.</span>
+--matchdirs   <span class="hljs-comment"># Include directory names in -P pattern matching.</span>
+--noreport    <span class="hljs-comment"># Turn off file/directory count at end of tree listing.</span>
+--charset X   <span class="hljs-comment"># Use charset X for terminal/HTML and indentation line output.</span>
+--filelimit <span class="hljs-comment"># # Do not descend dirs with more than # files in them.</span>
+--timefmt &lt;f&gt; <span class="hljs-comment"># Print and format time according to the format &lt;f&gt;.</span>
+-o filename   <span class="hljs-comment"># Output to file instead of stdout.</span>
+-------- 文件选项 ---------
+-q            <span class="hljs-comment"># 用“？”号取代控制字符，列出文件和目录名称。</span>
+-N            <span class="hljs-comment"># 直接列出文件和目录名称，包括控制字符。</span>
+-Q            <span class="hljs-comment"># Quote filenames with double quotes.</span>
+-p            <span class="hljs-comment"># 列出权限标示。</span>
+-u            <span class="hljs-comment"># 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。</span>
+-g            <span class="hljs-comment"># 列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码。</span>
+<span class="hljs-_">-s</span>            <span class="hljs-comment"># 列出文件和目录大小。</span>
+-h            <span class="hljs-comment"># Print the size in a more human readable way.</span>
+--si          <span class="hljs-comment"># Like -h, but use in SI units (powers of 1000).</span>
+-D            <span class="hljs-comment"># 列出文件或目录的更改时间。</span>
+-F            <span class="hljs-comment"># 在执行文件，目录，Socket，符号连接，管道名称名称，各自加上"*"，"/"，"@"，"|"号。</span>
+--inodes      <span class="hljs-comment"># Print inode number of each file.</span>
+--device      <span class="hljs-comment"># Print device ID number to which each file belongs.</span>
+------- 排序选项 -------
+-v            <span class="hljs-comment"># Sort files alphanumerically by version.</span>
+-t            <span class="hljs-comment"># 用文件和目录的更改时间排序。</span>
+-c            <span class="hljs-comment"># Sort files by last status change time.</span>
+-U            <span class="hljs-comment"># Leave files unsorted.</span>
+-r            <span class="hljs-comment"># Reverse the order of the sort.</span>
+--dirsfirst   <span class="hljs-comment"># List directories before files (-U disables).</span>
+--sort X      <span class="hljs-comment"># Select sort: name,version,size,mtime,ctime.</span>
+------- 图形选项 ------
+-i            <span class="hljs-comment"># 不以阶梯状列出文件和目录名称。</span>
+-A            <span class="hljs-comment"># 使用ASNI绘图字符显示树状图而非以ASCII字符组合。</span>
+-S            <span class="hljs-comment"># Print with CP437 (console) graphics indentation lines.</span>
+-n            <span class="hljs-comment"># Turn colorization off always (-C overrides).</span>
+-C            <span class="hljs-comment"># 在文件和目录清单加上色彩，便于区分各种类型。</span>
+------- XML / HTML / JSON选项 -------
+-X            <span class="hljs-comment"># Prints out an XML representation of the tree.</span>
+-J            <span class="hljs-comment"># Prints out an JSON representation of the tree.</span>
+-H baseHREF   <span class="hljs-comment"># Prints out HTML format with baseHREF as top directory.</span>
+-T string     <span class="hljs-comment"># Replace the default HTML title and H1 header with string.</span>
+--nolinks     <span class="hljs-comment"># Turn off hyperlinks in HTML output.</span>
+---- 杂项选项 ----
+--version     <span class="hljs-comment"># 输入版本信息。</span>
+--help        <span class="hljs-comment"># 打印使用帮助信息。</span>
+--            <span class="hljs-comment"># Options processing terminator.</span>
+</code></pre>
+<h3 id="参数">参数</h3><p>目录：执行tree指令，它会列出指定目录下的所有文件，包括子目录里的文件。</p>
+<h3 id="实例">实例</h3><p>列出目录<code>/private/</code> 第一级文件名</p>
+<pre><code class="lang-bash">tree  /private/ -L 1
+/private/
+├── etc
+├── tftpboot
+├── tmp
+└── var
+</code></pre>
 <!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+
 </div>
 
-<script type="text/javascript" src="../js/dt.js?v=1484350765123"></script>
-<script type="text/javascript" src="../js/index.js?v=1484350765123"></script>
+<script type="text/javascript" src="../js/dt.js?v=1485014718481"></script>
+<script type="text/javascript" src="../js/index.js?v=1485014718481"></script>
 </body>
 </html>
