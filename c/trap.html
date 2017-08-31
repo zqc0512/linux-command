@@ -10,7 +10,7 @@
     <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,trap,指定在接收到信号后将要采取的动作">
     <title>trap 命令，Linux trap 命令详解：指定在接收到信号后将要采取的动作 -  Linux 命令搜索引擎</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1503719227201">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1504162986483">
 </head>
 <body>
 <a href="https://github.com/jaywcjlove/linux-command" target="_blank" class="github-corner"> <svg viewBox="0 0 250 250"><!-- kenny wang <wowohoo@qq.com> https://github.com/jaywcjlove --> <title>logo</title> <desc>Linux Command Logo. https://github.com/jaywcjlove</desc><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg> </a>
@@ -168,14 +168,14 @@
 </ol>
 <p>trap命令作为一个例子，下面展示了如何可以删除一些文件，然后退出，如果有人试图从终端中止程序：</p>
 <pre><code><span class="hljs-built_in">trap</span> <span class="hljs-string">"rm -f <span class="hljs-variable">$WORKDIR</span>/work1$ <span class="hljs-variable">$WORKDIR</span>/dataout$; exit"</span> 2
-</code></pre><p>执行shell程序，这个陷阱的角度，这两个文件work1$ 和 dataout$将被自动删除，如果程序接收信号数为2。</p>
+</code></pre><p>执行shell程序，这个陷阱的角度，这两个文件work1$$ 和 dataout$$将被自动删除，如果程序接收信号数为2。</p>
 <p>因此，用户中断执行，如果执行的程序后，这个陷阱你可以放心，这两个文件将被清理。 exit 命令如下 rm 是必要的，因为没有它的执行将继续在节目中的一点，它离开时收到信号。</p>
 <p>1号信号产生挂断：要么有人故意挂断线路或线路被意外断开。</p>
 <p>您可以修改前面的陷阱也删除指定的文件，在这种情况下，两个信号信号1号添加到列表：</p>
 <pre><code>$ <span class="hljs-built_in">trap</span> <span class="hljs-string">"rm <span class="hljs-variable">$WORKDIR</span>/work1$ <span class="hljs-variable">$WORKDIR</span>/dataout$; exit"</span> 1 2
 </code></pre><p>现在，这些文件将被删除，如果该行被挂了，或者按Ctrl c键被按下。</p>
 <p>来捕获指定的命令必须用引号括起来，如果它们包含一个以上的命令。另外请注意，在 shell 命令行扫描 trap 命令得到执行，并再次当一个所列出的的信号被接收的时间。</p>
-<p>WORKDIR 值 $ 所以在前面的例子中，将被取代 trap 命令执行的时间。如果你想这种替代发生在收到信号1或2的时间你可以把单引号内的命令：</p>
+<p>WORKDIR 值 $$ 所以在前面的例子中，将被取代 trap 命令执行的时间。如果你想这种替代发生在收到信号1或2的时间你可以把单引号内的命令：</p>
 <pre><code>$ <span class="hljs-built_in">trap</span> <span class="hljs-string">'rm $WORKDIR/work1$ $WORKDIR/dataout$; exit'</span> 1 2
 </code></pre><p> <strong>2、忽略信号：</strong> </p>
 <p>如果陷阱列出的命令是空的，指定的信号接收时，将被忽略。例如，下面的命令：</p>
@@ -194,7 +194,7 @@
 
 <script>
 var _hmt = _hmt || []; (function() {var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?a542c0213a9aa8ae29fccdc8a18b91ef"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })(); </script>
-<script type="text/javascript" src="../js/dt.js?v=1503719227202"></script>
-<script type="text/javascript" src="../js/index.js?v=1503719227202"></script>
+<script type="text/javascript" src="../js/dt.js?v=1504162986484"></script>
+<script type="text/javascript" src="../js/index.js?v=1504162986484"></script>
 </body>
 </html>
