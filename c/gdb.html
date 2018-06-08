@@ -10,7 +10,7 @@
     <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,gdb,功能强大的程序调试器">
     <title>gdb 命令，Linux gdb 命令详解：功能强大的程序调试器 -  Linux 命令搜索引擎</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1527059240744">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1528447847788">
 </head>
 <body>
 <a href="https://github.com/jaywcjlove/linux-command" target="_blank" class="github-corner"> <svg viewBox="0 0 250 250"><!-- kenny wang <wowohoo@qq.com> https://github.com/jaywcjlove --> <title>logo</title> <desc>Linux Command Logo. https://github.com/jaywcjlove</desc><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg> </a>
@@ -60,7 +60,8 @@
 
 <td>file &lt;文件名&gt;</td>
 
-<td>加载被调试的可执行程序文件。<br>因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径。</td>
+<td>加载被调试的可执行程序文件。
+因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径。</td>
 
 <td>(gdb) file gdb-sample</td>
 
@@ -70,7 +71,8 @@
 
 <td>r</td>
 
-<td>Run的简写，运行被调试的程序。<br>如果此前没有下过断点，则执行完整个程序；如果有断点，则程序暂停在第一个可用断点处。</td>
+<td>Run的简写，运行被调试的程序。
+如果此前没有下过断点，则执行完整个程序；如果有断点，则程序暂停在第一个可用断点处。</td>
 
 <td>(gdb) r</td>
 
@@ -88,11 +90,18 @@
 
 <tr>
 
-<td>b &lt;行号&gt;<br>b &lt;函数名称&gt;<br>b <em>&lt;函数名称&gt;<br>b </em>&lt;代码地址&gt; d [编号]</td>
+<td>b &lt;行号&gt;
+b &lt;函数名称&gt;
+b <em>&lt;函数名称&gt;
+b </em>&lt;代码地址&gt; d [编号]</td>
 
-<td>b: Breakpoint的简写，设置断点。两可以使用“行号”“函数名称”“执行地址”等方式指定断点位置。<br>其中在函数名称前面加“<em>”符号表示将断点设置在“由编译器生成的prolog代码处”。如果不了解汇编，可以不予理会此用法。 d: Delete breakpoint的简写，删除指定编号的某个断点，或删除所有断点。断点编号从1开始递增。</td>
+<td>b: Breakpoint的简写，设置断点。两可以使用“行号”“函数名称”“执行地址”等方式指定断点位置。
+其中在函数名称前面加“<em>”符号表示将断点设置在“由编译器生成的prolog代码处”。如果不了解汇编，可以不予理会此用法。 d: Delete breakpoint的简写，删除指定编号的某个断点，或删除所有断点。断点编号从1开始递增。</td>
 
-<td>(gdb) b 8<br>(gdb) b main<br>(gdb) b </em>main<br>(gdb) b *0x804835c (gdb) d</td>
+<td>(gdb) b 8
+(gdb) b main
+(gdb) b </em>main
+(gdb) b *0x804835c (gdb) d</td>
 
 </tr>
 
@@ -100,9 +109,12 @@
 
 <td>s, n</td>
 
-<td>s: 执行一行源程序代码，如果此行代码中有函数调用，则进入该函数；<br>n: 执行一行源程序代码，此行代码中的函数调用也一并执行。 s 相当于其它调试器中的“Step Into (单步跟踪进入)”；<br>n 相当于其它调试器中的“Step Over (单步跟踪)”。 这两个命令必须在有源代码调试信息的情况下才可以使用（GCC编译时使用“-g”参数）。</td>
+<td>s: 执行一行源程序代码，如果此行代码中有函数调用，则进入该函数；
+n: 执行一行源程序代码，此行代码中的函数调用也一并执行。 s 相当于其它调试器中的“Step Into (单步跟踪进入)”；
+n 相当于其它调试器中的“Step Over (单步跟踪)”。 这两个命令必须在有源代码调试信息的情况下才可以使用（GCC编译时使用“-g”参数）。</td>
 
-<td>(gdb) s<br>(gdb) n</td>
+<td>(gdb) s
+(gdb) n</td>
 
 </tr>
 
@@ -112,7 +124,8 @@
 
 <td>si命令类似于s命令，ni命令类似于n命令。所不同的是，这两个命令（si/ni）所针对的是汇编指令，而s/n针对的是源代码。</td>
 
-<td>(gdb) si<br>(gdb) ni</td>
+<td>(gdb) si
+(gdb) ni</td>
 
 </tr>
 
@@ -122,7 +135,8 @@
 
 <td>Print的简写，显示指定变量（临时变量或全局变量）的值。</td>
 
-<td>(gdb) p i<br>(gdb) p nGlobalVar</td>
+<td>(gdb) p i
+(gdb) p nGlobalVar</td>
 
 </tr>
 
@@ -130,7 +144,10 @@
 
 <td>display ... undisplay &lt;编号&gt;</td>
 
-<td>display，设置程序中断后欲显示的数据及其格式。<br>例如，如果希望每次程序中断后可以看到即将被执行的下一条汇编指令，可以使用命令<br>“display /i $pc”<br>其中 $pc 代表当前汇编指令，/i 表示以十六进行显示。当需要关心汇编代码时，此命令相当有用。 undispaly，取消先前的display设置，编号从1开始递增。</td>
+<td>display，设置程序中断后欲显示的数据及其格式。
+例如，如果希望每次程序中断后可以看到即将被执行的下一条汇编指令，可以使用命令
+“display /i $pc”
+其中 $pc 代表当前汇编指令，/i 表示以十六进行显示。当需要关心汇编代码时，此命令相当有用。 undispaly，取消先前的display设置，编号从1开始递增。</td>
 
 <td>(gdb) display /i $pc (gdb) undisplay 1</td>
 
@@ -160,7 +177,8 @@
 
 <td>help [命令名称]</td>
 
-<td>GDB帮助命令，提供对GDB名种命令的解释说明。<br>如果指定了“命令名称”参数，则显示该命令的详细说明；如果没有指定参数，则分类显示所有GDB命令，供用户进一步浏览和查询。</td>
+<td>GDB帮助命令，提供对GDB名种命令的解释说明。
+如果指定了“命令名称”参数，则显示该命令的详细说明；如果没有指定参数，则分类显示所有GDB命令，供用户进一步浏览和查询。</td>
 
 <td>(gdb) help</td>
 
@@ -366,7 +384,46 @@ eax 0xbffff6a4 -1073744220
 </code></pre><p>最后一个要介绍的命令是“q”，退出（Quit）GDB调试环境：</p>
 <pre><code>(gdb) q
 The program is running. <span class="hljs-built_in">exit</span> anyway? (y or n)
-</code></pre><!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</code></pre><h2 id="补充内容">补充内容</h2><blockquote>
+<p>gdb 教程：<a href="http://www.imooc.com/learn/394">慕课网-Linux C语言指针与内存-第三章</a></p>
+</blockquote>
+<p>如果删除源代码, 就无法显示行号等辅助信息了</p>
+<pre><code>gcc -g gdb.c -o gdb.out <span class="hljs-comment"># -g 支持gdb调试; -o 输出, 默认为 a.out</span>
+
+gdb gdb.out <span class="hljs-comment"># 进入 gdb 调试环境</span>
+enter <span class="hljs-comment"># 继续执行上条命令</span>
+l <span class="hljs-comment"># 列出源代码, 默认 10 行, 按 l 继续</span>
+
+start <span class="hljs-comment"># 开始单步调试, 默认 main() 第一行</span>
+p a <span class="hljs-comment"># 查看 a 变量的值</span>
+n <span class="hljs-comment"># 继续到下一行</span>
+s <span class="hljs-comment"># 进入子函数</span>
+bt <span class="hljs-comment"># 查看函数栈</span>
+f 1 <span class="hljs-comment"># 切换函数栈</span>
+
+q 退出调试
+</code></pre><pre><code class="lang-c"># 测试用代码
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>{
+    <span class="hljs-keyword">int</span> tmp=a;
+    a=b; b=tmp;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">change2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *a, <span class="hljs-keyword">int</span> *b)</span></span>{
+    <span class="hljs-keyword">int</span> tmp=*a;
+    *a=*b; *b=tmp;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">int</span> a=<span class="hljs-number">5</span>,b=<span class="hljs-number">3</span>;
+    change(a,b);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"change:\na=%d\nb=%d\n"</span>, a,b);
+    change2(&amp;a,&amp;b);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"change2:\na=%d\nb=%d\n"</span>, a,b);
+}
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
 </div>
 
 <div class="footer ">
@@ -377,12 +434,12 @@ The program is running. <span class="hljs-built_in">exit</span> anyway? (y or n)
   <a href="https://github.com/jaywcjlove/oscnews">Chrome 插件</a>
   <br> 共搜集到
   <span id="commands_info">
-    548
+    553
   </span> 个Linux命令
 </div>
 <script>
 var _hmt = _hmt || []; (function() {var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?a542c0213a9aa8ae29fccdc8a18b91ef"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })(); </script>
-<script type="text/javascript" src="../js/dt.js?v=1527059240745"></script>
-<script type="text/javascript" src="../js/index.js?v=1527059240745"></script>
+<script type="text/javascript" src="../js/dt.js?v=1528447847788"></script>
+<script type="text/javascript" src="../js/index.js?v=1528447847788"></script>
 </body>
 </html>
